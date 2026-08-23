@@ -1,0 +1,30 @@
+# ⚠ Material interno — este repositorio es PÚBLICO
+# El manual de marca está marcado "Uso interno v2.0": contiene
+# posicionamiento competitivo, estructura de precios con márgenes
+# y messaging por audiencia. No entra al repo, nunca.
+*.pdf
+/docs/internal/
+
+# Salida de build/inline.mjs · se regenera, no se versiona
+/build/inline/
+
+# Fuente original de un solo archivo, ya refactorizada a
+# index.html + assets/. Se conserva local como respaldo.
+isaa-home.html
+
+# Sistema operativo / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Por si acaso
+node_modules/
+.env
+.env.*
+*.key
+*.pem
+
+# Documento de trabajo interno — no es contenido del sitio
+handoff-claude-code.md

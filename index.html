@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ISAA · Todo el seguimiento de tu salud, a la mano</title>
+<meta name="description" content="ISAA reúne el seguimiento de salud de tu familia en un solo lugar: expediente por persona, Tarjeta Médica con QR y documentos clasificados solos. Empieza gratis, sin tarjeta.">
+<meta name="theme-color" content="#EEEEF4">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="ISAA">
+<meta property="og:title" content="ISAA · Todo el seguimiento de tu salud, a la mano">
+<meta property="og:description" content="Para quien la vive, la cuida o la acompaña. ISAA reúne todo el seguimiento de salud en un solo lugar: ordenado, seguro y siempre a la mano.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%232563EB' stroke-width='7' stroke-linecap='round'%3E%3Ccircle cx='50' cy='50' r='38'/%3E%3Cpath d='M33 51 Q50 71 67 51'/%3E%3C/g%3E%3Cg fill='%232563EB'%3E%3Ccircle cx='36' cy='40' r='6'/%3E%3Ccircle cx='64' cy='40' r='6'/%3E%3C/g%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+
+<link rel="stylesheet" href="assets/isaa.css">
+</head>
+<body>
+<!-- ══════════════════════════════════════════════════════════
+     SPLASH · el latido del ISAA smiley [BB]
+     ══════════════════════════════════════════════════════════ -->
+<div class="splash" id="splash">
+  <svg class="splash__mark" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="40"/>
+    <circle class="eye" cx="36" cy="40" r="4.5"/>
+    <circle class="eye" cx="64" cy="40" r="4.5"/>
+    <path d="M33 51 Q50 71 67 51"/>
+    <path d="M34 52 C29 60 29 63 31 65"/>
+    <circle cx="30" cy="70" r="5"/>
+  </svg>
+  <p class="splash__txt">Cargando tu información…</p>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ NAV ── -->
+<header class="nav" id="nav" data-solid="false">
+  <div class="wrap nav__in">
+    <a class="brand" href="#top" aria-label="ISAA · inicio">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="40"/>
+        <circle class="eye" cx="36" cy="40" r="4.5"/>
+        <circle class="eye" cx="64" cy="40" r="4.5"/>
+        <path d="M33 51 Q50 71 67 51"/>
+        <path d="M34 52 C29 60 29 63 31 65"/>
+        <circle cx="30" cy="70" r="5"/>
+      </svg>
+      <span class="wordmark" data-ph="Wordmark en Nulshock · pendiente SVG">ISAA</span>
+    </a>
+    <nav class="nav__links">
+      <a href="#top">Inicio</a>
+      <a href="#circulo">Nosotros</a>
+      <a href="#pilares">Cómo funciona</a>
+      <a href="#planes">Planes</a>
+    </nav>
+    <a class="btn btn--primary" href="#planes">Empieza gratis</a>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════ HERO ── -->
+<section class="hero" id="top">
+  <div class="hero__bg photo photo--warm photo--dark" data-ph="Foto · manos de tres generaciones sobre mesa de madera">
+    <span class="photo__note">Registro emocional · manos de tres generaciones, mesa de madera, luz de ventana</span>
+  </div>
+  <div class="wrap">
+    <div class="hero__copy">
+      <span class="chip chip--glass rv">Pacientes · Cuidadores · Brokers</span>
+      <h1 class="h1 rv">Todo el seguimiento de tu salud, a la mano.<br><span class="hl">La de los que más te importan, también.</span></h1>
+      <p class="lead rv">Para quien la vive, la cuida o la acompaña — ISAA reúne todo el seguimiento de salud en un solo lugar: ordenado, seguro y siempre a la mano.</p>
+      <div class="hero__btns rv">
+        <a class="btn btn--primary" href="#planes">Empieza gratis</a>
+        <a class="btn btn--light" href="#pilares">Ver cómo funciona</a>
+      </div>
+    </div>
+    <div class="hero__stats rv" data-ph="Métricas por definir">
+      <div class="stat"><span class="stat__n tnum">100%</span><span class="stat__l">Tu información, solo tuya</span></div>
+      <div class="stat"><span class="stat__n tnum">24/7</span><span class="stat__l">Disponible en cualquier urgencia</span></div>
+      <div class="stat"><span class="stat__n tnum">0</span><span class="stat__l">Papeles que volver a perseguir</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ DOLORES ── -->
+<section class="pains">
+  <div class="pains__title">
+    <h2 class="h2 rv">No es que no te importe tu salud.<br><span class="hl">Es que la información nunca está donde la necesitas.</span></h2>
+  </div>
+
+  <div class="marquee marquee--a" aria-hidden="true">
+    <div class="mq__track" id="mqA"></div>
+  </div>
+  <div class="marquee marquee--b" aria-hidden="true">
+    <div class="mq__track" id="mqB"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ CÍRCULO ── -->
+<section class="split" id="circulo">
+  <div class="split__media photo photo--sofa photo--dark" data-ph="Foto · dos generaciones en un sofá, álbum de fotos">
+    <span class="photo__note">Registro emocional · dos generaciones en un sofá, álbum de fotos, luz de tarde</span>
+  </div>
+  <div class="split__body">
+    <span class="chip chip--solid rv" style="background:var(--g-teal)">El motor de la marca</span>
+    <h2 class="h2 rv">Todo empieza por el Círculo.<br><span class="hl">Tu familia médica, unida.</span></h2>
+    <p class="lead rv">Reúne bajo un mismo techo a quienes más te importan, te preocupan y te ocupan. No es una lista de contactos — es pertenencia.</p>
+    <p class="lead rv">Brokers, pacientes y cuidadores. El Círculo los conecta: las personas que más te importan, te preocupan y te ocupan, bajo un mismo techo.</p>
+    <div class="split__chips rv">
+      <span class="chip">Titular + miembros</span>
+      <span class="chip">Expediente por persona</span>
+      <span class="chip">Permisos por persona</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ PILARES ── -->
+<section class="sec" id="pilares">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="chip">Pilares de valor</span>
+      <h2 class="h2">Cuatro cosas que dejas de cargar.<br><span class="hl">Y una app que se encarga de las cuatro.</span></h2>
+      <p class="lead">Cuatro pilares derivados de las funcionalidades reales — su beneficio emocional, su beneficio funcional y lo que los hace posibles.</p>
+    </div>
+    <div class="grid2" id="pilares-grid"></div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════ TESTIMONIOS ── -->
+<section class="sec sec--navy">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="chip chip--glass">Historias reales</span>
+      <h2 class="h2">Nadie extraña el desorden.<br><span class="hl">Extrañan el tiempo que les quitaba.</span></h2>
+      <p class="lead" style="color:rgba(255,255,255,.8)">Pacientes, cuidadores y brokers que dejaron de perseguir papeles.</p>
+      <a class="btn btn--primary" href="#planes">Empieza gratis</a>
+    </div>
+    <div class="masonry" id="quotes"></div>
+  </div>
+
+  <!-- Compatibilidad -->
+  <div class="logos">
+    <div class="wrap" style="text-align:center">
+      <span class="chip chip--glass rv">Funciona con lo que ya usas</span>
+    </div>
+    <div class="marquee" data-ph="Categorías genéricas · sustituir por convenios reales" aria-hidden="true">
+      <div class="mq__track" id="mqL"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ PLANES ── -->
+<section class="sec" id="planes">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="chip">Planes</span>
+      <h2 class="h2">Mismo precio para todos.<br><span class="hl">Lo que cambia es cómo se comunica el valor.</span></h2>
+      <p class="lead">Empieza sin tarjeta. Sube de plan cuando el expediente crezca.</p>
+    </div>
+
+    <div class="grid3">
+      <article class="card plan rv">
+        <span class="overline" style="color:var(--mfg)">Gratis</span>
+        <div class="plan__price"><b class="tnum">$0</b></div>
+        <p class="body">Para empezar</p>
+        <hr>
+        <ul class="list">
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>2 eventos médicos</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>5 documentos</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>1 PDF de expediente</li>
+        </ul>
+        <div class="plan__foot"><a class="btn btn--secondary btn--full" href="#">Prueba gratis · sin tarjeta</a></div>
+      </article>
+
+      <article class="card plan rv">
+        <span class="overline" style="color:var(--mfg)">Mensual</span>
+        <div class="plan__price"><b class="tnum">$149</b><i>MXN /mes</i></div>
+        <p class="body">Titular, sin límites</p>
+        <hr>
+        <ul class="list">
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Eventos y documentos ilimitados</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Expediente completo en PDF</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span><b style="font-weight:600">Miembro adicional · +$99/mes</b></li>
+        </ul>
+        <div class="plan__foot"><a class="btn btn--primary btn--full" href="#">Suscribirse</a></div>
+      </article>
+
+      <article class="card plan plan--best rv">
+        <span class="plan__tag tnum">−35%</span>
+        <span class="overline" style="color:var(--primary)">Anual · Mejor valor</span>
+        <div class="plan__price"><b class="tnum">$1,149</b><i>MXN /año</i></div>
+        <p class="body" style="color:var(--primary);font-weight:600">= $96/mes</p>
+        <hr>
+        <ul class="list">
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Todo lo del plan Mensual</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Equivale a dos meses de regalo</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span><b style="font-weight:600">Miembro adicional · +$749/año (=$62/mes)</b></li>
+        </ul>
+        <div class="plan__foot"><a class="btn btn--primary btn--full" href="#">Suscribirse</a></div>
+      </article>
+    </div>
+
+    <div class="value rv">
+      <h4>Mismo precio.<br>Máximo valor.</h4>
+      <div><span class="overline" style="color:var(--c-verde)">Brokers</span><p>Mismo precio. Tú lo regalas como valor agregado.</p></div>
+      <div><span class="overline" style="color:var(--c-azul)">Pacientes</span><p>$149/mes = paz mental. O $96/mes en anual.</p></div>
+      <div><span class="overline" style="color:var(--c-verde)">Cuidadores</span><p>Se agrega a +$99/mes. Acceso selectivo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ PASOS ── -->
+<section class="sec" style="padding-block:16px 96px">
+  <div class="wrap">
+    <div class="steps" id="steps"></div>
+    <p class="steps__note rv">Todo vive en el Centro de Control · cada persona es el centro, y su Tarjeta Médica el corazón.</p>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════ FAQ ── -->
+<section class="sec sec--muted">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="chip chip--flat">Preguntas</span>
+      <h2 class="h2">Lo que todos preguntan.<br><span class="hl">Respondido sin letra chiquita.</span></h2>
+    </div>
+    <div class="faq" id="faq"></div>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════════════════ CTA ── -->
+<section class="sec--navy cta">
+  <div class="wrap cta__in">
+    <svg class="cta__mark rv" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="40"/>
+      <circle class="eye" cx="36" cy="40" r="4.5"/>
+      <circle class="eye" cx="64" cy="40" r="4.5"/>
+      <path d="M33 51 Q50 71 67 51"/>
+      <path d="M34 52 C29 60 29 63 31 65"/>
+      <circle cx="30" cy="70" r="5"/>
+    </svg>
+    <h2 class="h2 rv">Tu agente inteligente que organiza y acompaña<br><span class="hl">lo más importante: tu salud.</span></h2>
+    <p class="lead rv" style="color:rgba(255,255,255,.8)">Empieza gratis, sin tarjeta. En cinco minutos tienes tu Tarjeta Médica lista.</p>
+    <a class="btn btn--primary rv" href="#">Empieza gratis</a>
+    <div class="stores rv" data-ph="Badges oficiales pendientes">
+      <span class="store">App Store</span>
+      <span class="store">Google Play</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ FOOTER ── -->
+<footer class="sec--navy foot">
+  <div class="wrap">
+    <div class="foot__cols">
+      <div>
+        <h4>Navegar</h4>
+        <ul><li><a href="#top">Inicio</a></li><li><a href="#circulo">Nosotros</a></li><li><a href="#pilares">Cómo funciona</a></li><li><a href="#planes">Planes</a></li></ul>
+      </div>
+      <div>
+        <h4>Producto</h4>
+        <ul><li><a href="#">Tarjeta Médica</a></li><li><a href="#">Mi Círculo</a></li><li><a href="#">Ojo Clínico</a></li><li><a href="#">Eventos Médicos</a></li></ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul><li><a href="#">Aviso de privacidad</a></li><li><a href="#">Términos y condiciones</a></li><li><a href="#">Manejo de datos de salud</a></li></ul>
+      </div>
+    </div>
+    <hr class="foot__rule">
+    <div class="foot__base">
+      <span>© 2026 ISAA. Todos los derechos reservados.</span>
+      <span>Tu salud, siempre en orden.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════ NOTAS DE ENTREGA ── -->
+<section class="devnotes">
+  <div class="wrap">
+    <h4>Notas de implementación — borrar este bloque antes de publicar en isaa.app</h4>
+    <ul>
+      <li><b>Fotografía.</b> Los seis slots <code>.photo</code> son marcadores: el visor de Artifacts bloquea imágenes externas. En tu dominio sustituye cada uno por <code>&lt;img&gt;</code> o <code>background-image</code>. La dirección de arte de cada toma está escrita dentro del propio slot.</li>
+      <li><b>Wordmark.</b> Nulshock no está disponible como fuente web. El logotipo va provisionalmente en Inter 800 con tracking abierto — sustitúyelo por el SVG oficial.</li>
+      <li><b>Placeholders.</b> Testimonios, métricas del hero, logos de compatibilidad y badges de tienda son contenido inventado. Usa el botón <b>Modo revisión</b> para verlos señalados.</li>
+      <li><b>Sin dependencias.</b> Un solo archivo, CSS y JS en línea. La única petición externa es Google Fonts (Inter). Se monta subiéndolo tal cual.</li>
+      <li><b>Accesibilidad.</b> Marquees y reveals se desactivan con <code>prefers-reduced-motion</code>; el foco de teclado es visible en todos los controles.</li>
+    </ul>
+    <p>Tema único deliberado: el neumorfismo de ISAA depende del fondo claro <code>#EEEEF4</code>. No se implementó modo oscuro porque invertiría el sistema de elevación de la marca.</p>
+  </div>
+</section>
+
+<!-- Tarjeta flotante -->
+<aside class="float" id="float">
+  <button class="float__x" id="floatX" aria-label="Cerrar">×</button>
+  <span class="chip chip--solid" style="background:var(--g-azul);align-self:flex-start">Gratis</span>
+  <b>Arma tu Tarjeta Médica hoy.</b>
+  <p class="body">Sangre, alergias, medicinas y contactos de emergencia. Listos en un QR, sin costo y sin tarjeta.</p>
+  <a class="btn btn--primary btn--full" href="#planes">Crear mi Tarjeta Médica</a>
+</aside>
+
+<button class="rev" id="rev">Modo revisión</button>
+
+<script src="assets/isaa.js"></script>
+</body>
+</html>
