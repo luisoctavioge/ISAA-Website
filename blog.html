@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog · ISAA</title>
+<meta name="description" content="Trámites, reembolsos, cuidados y papeles. Lo que aprendemos organizando el seguimiento de salud, escrito claro y sin letra chiquita.">
+<meta name="theme-color" content="#EEEEF4">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="ISAA">
+<meta property="og:title" content="Blog · ISAA">
+<meta property="og:description" content="Trámites, reembolsos, cuidados y papeles. Lo que aprendemos organizando el seguimiento de salud, escrito claro y sin letra chiquita.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%232563EB' stroke-width='7' stroke-linecap='round'%3E%3Ccircle cx='50' cy='50' r='38'/%3E%3Cpath d='M33 51 Q50 71 67 51'/%3E%3C/g%3E%3Cg fill='%232563EB'%3E%3Ccircle cx='36' cy='40' r='6'/%3E%3Ccircle cx='64' cy='40' r='6'/%3E%3C/g%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+
+<link rel="stylesheet" href="assets/isaa.css">
+</head>
+<body>
+
+<div class="splash" id="splash">
+  <svg class="splash__mark" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="40"/>
+    <circle class="eye" cx="36" cy="40" r="4.5"/>
+    <circle class="eye" cx="64" cy="40" r="4.5"/>
+    <path d="M33 51 Q50 71 67 51"/>
+    <path d="M34 52 C29 60 29 63 31 65"/>
+    <circle cx="30" cy="70" r="5"/>
+  </svg>
+  <p class="splash__txt">Cargando tu información…</p>
+</div>
+
+<!-- 
+
+<!-- ══════════════════════════════════════════════════════════ NAV ── -->
+<header class="nav" id="nav" data-solid="true">
+  <div class="wrap nav__in">
+    <a class="brand" href="index.html" aria-label="ISAA · inicio">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="40"/>
+        <circle class="eye" cx="36" cy="40" r="4.5"/>
+        <circle class="eye" cx="64" cy="40" r="4.5"/>
+        <path d="M33 51 Q50 71 67 51"/>
+        <path d="M34 52 C29 60 29 63 31 65"/>
+        <circle cx="30" cy="70" r="5"/>
+      </svg>
+      <span class="wordmark" data-ph="Wordmark en Nulshock · pendiente SVG">ISAA</span>
+    </a>
+    <nav class="nav__links">
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="como-funciona.html">Cómo funciona</a>
+      <a href="blog.html" aria-current="page">Blog</a>
+    </nav>
+    <a class="btn btn--primary" href="index.html#planes">Empieza gratis</a>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════ HERO ── §9.1 -->
+<section class="hero-c">
+  <div class="wrap hero-c__in">
+    <span class="chip rv">Blog</span>
+    <h1 class="h1 rv" data-ph="«miles de familias» · claim por confirmar">Lo que aprendemos organizando<br><span class="hl">el seguimiento de salud de miles de familias.</span></h1>
+    <p class="lead rv">Trámites, reembolsos, cuidados y papeles. Escrito claro, sin letra chiquita.</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════ FILTROS ── §9.2 -->
+<section class="sec" style="padding-block:0 0">
+  <div class="wrap">
+    <div class="filters rv" id="filters" role="group" aria-label="Filtrar artículos por categoría">
+      <button class="chip" type="button" data-filter="Todos" data-on="true" aria-pressed="true">Todos</button>
+      <button class="chip" type="button" data-filter="Reembolsos" aria-pressed="false">Reembolsos</button>
+      <button class="chip" type="button" data-filter="Cuidadores" aria-pressed="false">Cuidadores</button>
+      <button class="chip" type="button" data-filter="Expediente" aria-pressed="false">Expediente</button>
+      <button class="chip" type="button" data-filter="Brokers" aria-pressed="false">Brokers</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ ARTÍCULOS ── §9.3 -->
+<section class="sec" style="padding-block:0 clamp(64px,7vw,96px)">
+  <div class="wrap">
+    <div class="posts" id="posts">
+      <article class="post rv" data-cat="Reembolsos" data-ph="Artículo placeholder · sin publicar">
+        <div class="post__ph photo photo--desk"></div>
+        <div class="post__body">
+          <span class="chip" style="background:rgba(22,163,74,.15);color:var(--c-verde);box-shadow:none">Reembolsos</span>
+          <h3 class="post__t">Los seis papeles que atoran el 80% de los reembolsos</h3>
+          <p class="body">Casi nunca falta el diagnóstico. Falta la factura con el desglose correcto, y nadie te lo dice hasta que rechazan el trámite.</p>
+          <p class="post__meta tnum">12 mar 2026 · 6 min</p>
+        </div>
+      </article>
+      <article class="post rv" data-cat="Cuidadores" data-ph="Artículo placeholder · sin publicar">
+        <div class="post__ph photo photo--sofa"></div>
+        <div class="post__body">
+          <span class="chip" style="background:rgba(22,163,74,.15);color:var(--c-verde);box-shadow:none">Cuidadores</span>
+          <h3 class="post__t">Cuidar a un papá que vive solo, desde otra ciudad</h3>
+          <p class="body">No puedes estar ahí todos los días. Sí puedes saber qué medicamento toma, qué le recetaron la semana pasada y a quién llamar.</p>
+          <p class="post__meta tnum">5 mar 2026 · 5 min</p>
+        </div>
+      </article>
+      <article class="post rv" data-cat="Expediente" data-ph="Artículo placeholder · sin publicar">
+        <div class="post__ph photo photo--warm"></div>
+        <div class="post__body">
+          <span class="chip" style="background:rgba(37,99,235,.15);color:var(--c-azul);box-shadow:none">Expediente</span>
+          <h3 class="post__t">Tu historial no vive en el hospital</h3>
+          <p class="body">Cada institución guarda su pedazo. Nadie guarda el completo — salvo tú, si te organizas una vez.</p>
+          <p class="post__meta tnum">26 feb 2026 · 4 min</p>
+        </div>
+      </article>
+      <article class="post rv" data-cat="Brokers" data-ph="Artículo placeholder · sin publicar">
+        <div class="post__ph photo photo--desk"></div>
+        <div class="post__body">
+          <span class="chip" style="background:rgba(13,148,136,.15);color:var(--c-teal);box-shadow:none">Brokers</span>
+          <h3 class="post__t">La póliza la vende cualquiera. La lealtad, solo tú</h3>
+          <p class="body">Qué pasa con la relación con tu cliente en los once meses del año en que no hay renovación ni siniestro.</p>
+          <p class="post__meta tnum">19 feb 2026 · 7 min</p>
+        </div>
+      </article>
+    </div>
+    <p class="feat__note rv" id="posts-empty" hidden>Todavía no hay artículos en esta categoría.</p>
+  </div>
+</section>
+
+<!-- ═════════════════════════════════════════════ NEWSLETTER ── §9.4 -->
+<section class="sec sec--muted">
+  <div class="wrap">
+    <div class="news">
+      <h2 class="h2 rv">Un correo al mes.<br><span class="hl">Solo cuando tenemos algo útil que decir.</span></h2>
+      <p class="lead rv">Sin spam y sin promociones. Trámites, cambios en la regulación y cosas que aprendimos ayudando a organizar expedientes.</p>
+      <div class="news__form rv" data-ph="Alta a newsletter · backend pendiente">
+        <input class="news__in" id="news-mail" type="email" aria-label="Tu correo" inputmode="email" autocomplete="email" placeholder="Tu correo">
+        <button class="btn btn--primary" type="button">Suscribirme</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ CTA ── §9.5 -->
+<section class="sec--navy cta">
+  <div class="wrap cta__in">
+    <svg class="cta__mark rv" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="40"/>
+      <circle class="eye" cx="36" cy="40" r="4.5"/>
+      <circle class="eye" cx="64" cy="40" r="4.5"/>
+      <path d="M33 51 Q50 71 67 51"/>
+      <path d="M34 52 C29 60 29 63 31 65"/>
+      <circle cx="30" cy="70" r="5"/>
+    </svg>
+    <h2 class="h2 rv">Tu agente inteligente que organiza y acompaña<br><span class="hl">lo más importante: tu salud.</span></h2>
+    <p class="lead rv" style="color:rgba(255,255,255,.8)">Empieza gratis, sin tarjeta. En cinco minutos tienes tu Tarjeta Médica lista.</p>
+    <a class="btn btn--primary rv" href="#">Empieza gratis</a>
+    <div class="stores rv" data-ph="Badges oficiales pendientes">
+      <span class="store">App Store</span>
+      <span class="store">Google Play</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ FOOTER ── §9.5 -->
+<footer class="sec--navy foot">
+  <div class="wrap">
+    <div class="foot__cols">
+      <div>
+        <h4>Navegar</h4>
+        <ul><li><a href="index.html">Inicio</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="como-funciona.html">Cómo funciona</a></li><li><a href="blog.html">Blog</a></li></ul>
+      </div>
+      <div>
+        <h4>Producto</h4>
+        <ul><li><a href="como-funciona.html">Tarjeta Médica</a></li><li><a href="como-funciona.html">Mi Círculo</a></li><li><a href="como-funciona.html">Ojo Clínico</a></li><li><a href="como-funciona.html">Eventos Médicos</a></li><li><a href="index.html#planes">Planes</a></li></ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul><li><a href="#">Aviso de privacidad</a></li><li><a href="#">Términos y condiciones</a></li><li><a href="#">Manejo de datos de salud</a></li></ul>
+      </div>
+    </div>
+    <hr class="foot__rule">
+    <div class="foot__base">
+      <span>© 2026 ISAA. Todos los derechos reservados.</span>
+      <span>Tu salud, siempre en orden.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="rev" id="rev">Modo revisión</button>
+
+<script src="assets/isaa.js"></script>
+</body>
+</html>

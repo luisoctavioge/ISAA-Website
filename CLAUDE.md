@@ -111,9 +111,11 @@ Con el sitio en una URL pública, que se vea que son placeholders importa más, 
 
 ## Pendientes
 
-- [ ] `docs/brief.md` — falta el archivo de especificación
-- [ ] `nosotros.html`, `como-funciona.html`, `blog.html` (§7, §8 y §9 del brief)
-- [ ] Nav y footer cruzados entre las cuatro páginas — hoy la home usa anclas internas
+Las cuatro páginas están construidas y el QA de §10 corrido: 17 puntos pasan, 2 a criterio, 0 fallan.
+
+- [ ] Contraste de `--primary` en fondo claro: 2.73:1, por debajo del mínimo AA
+- [ ] Alta de newsletter (§9.4) — sin backend, el botón no envía nada
+- [ ] Sombras de un solo lado en `.btn--light` y `.nav[data-solid="true"]`
 - [ ] Fotografía real — hoy son slots `.photo` con la dirección de arte escrita encima
 - [ ] SVG oficial del wordmark en Nulshock
 - [ ] Testimonios reales (los actuales son placeholder marcado)

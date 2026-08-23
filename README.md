@@ -25,9 +25,9 @@ bajo subruta y en la raíz de `isaa.app`.
 
 ```
 index.html          Home
-nosotros.html       (pendiente)
-como-funciona.html  (pendiente)
-blog.html           (pendiente)
+nosotros.html       §7 · Nosotros
+como-funciona.html  §8 · Cómo funciona
+blog.html           §9 · Blog
 assets/
   isaa.css          Sistema de diseño completo
   isaa.js           Comportamiento compartido por las cuatro páginas

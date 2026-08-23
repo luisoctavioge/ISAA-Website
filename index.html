@@ -41,7 +41,7 @@
 <!-- ══════════════════════════════════════════════════════════ NAV ── -->
 <header class="nav" id="nav" data-solid="false">
   <div class="wrap nav__in">
-    <a class="brand" href="#top" aria-label="ISAA · inicio">
+    <a class="brand" href="index.html" aria-label="ISAA · inicio">
       <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
         <circle cx="50" cy="50" r="40"/>
         <circle class="eye" cx="36" cy="40" r="4.5"/>
@@ -53,12 +53,12 @@
       <span class="wordmark" data-ph="Wordmark en Nulshock · pendiente SVG">ISAA</span>
     </a>
     <nav class="nav__links">
-      <a href="#top">Inicio</a>
-      <a href="#circulo">Nosotros</a>
-      <a href="#pilares">Cómo funciona</a>
-      <a href="#planes">Planes</a>
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="como-funciona.html">Cómo funciona</a>
+      <a href="blog.html">Blog</a>
     </nav>
-    <a class="btn btn--primary" href="#planes">Empieza gratis</a>
+    <a class="btn btn--primary" href="index.html#planes">Empieza gratis</a>
   </div>
 </header>
 
@@ -258,11 +258,11 @@
     <div class="foot__cols">
       <div>
         <h4>Navegar</h4>
-        <ul><li><a href="#top">Inicio</a></li><li><a href="#circulo">Nosotros</a></li><li><a href="#pilares">Cómo funciona</a></li><li><a href="#planes">Planes</a></li></ul>
+        <ul><li><a href="index.html">Inicio</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="como-funciona.html">Cómo funciona</a></li><li><a href="blog.html">Blog</a></li></ul>
       </div>
       <div>
         <h4>Producto</h4>
-        <ul><li><a href="#">Tarjeta Médica</a></li><li><a href="#">Mi Círculo</a></li><li><a href="#">Ojo Clínico</a></li><li><a href="#">Eventos Médicos</a></li></ul>
+        <ul><li><a href="como-funciona.html">Tarjeta Médica</a></li><li><a href="como-funciona.html">Mi Círculo</a></li><li><a href="como-funciona.html">Ojo Clínico</a></li><li><a href="como-funciona.html">Eventos Médicos</a></li><li><a href="index.html#planes">Planes</a></li></ul>
       </div>
       <div>
         <h4>Legal</h4>
@@ -282,10 +282,11 @@
   <div class="wrap">
     <h4>Notas de implementación — borrar este bloque antes de publicar en isaa.app</h4>
     <ul>
-      <li><b>Fotografía.</b> Los seis slots <code>.photo</code> son marcadores: el visor de Artifacts bloquea imágenes externas. En tu dominio sustituye cada uno por <code>&lt;img&gt;</code> o <code>background-image</code>. La dirección de arte de cada toma está escrita dentro del propio slot.</li>
+      <li><b>Fotografía.</b> Los slots <code>.photo</code> son marcadores. Sustituye cada uno por <code>&lt;img&gt;</code> o <code>background-image</code> apuntando a <code>assets/img/</code>. La dirección de arte de cada toma está escrita dentro del propio slot.</li>
       <li><b>Wordmark.</b> Nulshock no está disponible como fuente web. El logotipo va provisionalmente en Inter 800 con tracking abierto — sustitúyelo por el SVG oficial.</li>
       <li><b>Placeholders.</b> Testimonios, métricas del hero, logos de compatibilidad y badges de tienda son contenido inventado. Usa el botón <b>Modo revisión</b> para verlos señalados.</li>
-      <li><b>Sin dependencias.</b> Un solo archivo, CSS y JS en línea. La única petición externa es Google Fonts (Inter). Se monta subiéndolo tal cual.</li>
+      <li><b>Sin dependencias.</b> Cuatro páginas HTML sobre un <code>assets/isaa.css</code> y un <code>assets/isaa.js</code> compartidos. Sin build. La única petición externa es Google Fonts (Inter). Se monta subiendo la carpeta tal cual.</li>
+      <li><b>Sombras de un solo lado.</b> Quedan dos, heredadas de la home: el botón claro del hero y la nav sólida. Ninguna se apoya en el fondo neumórfico <code>#EEEEF4</code> —una va sobre foto, la otra flota sobre contenido arbitrario— pero la regla 1 no hace esa excepción. Pendiente de decisión.</li>
       <li><b>Accesibilidad.</b> Marquees y reveals se desactivan con <code>prefers-reduced-motion</code>; el foco de teclado es visible en todos los controles.</li>
     </ul>
     <p>Tema único deliberado: el neumorfismo de ISAA depende del fondo claro <code>#EEEEF4</code>. No se implementó modo oscuro porque invertiría el sistema de elevación de la marca.</p>

@@ -192,6 +192,33 @@
     rev.textContent = on ? "Modo revisión" : "Ocultar placeholders";
   });
 
+  /* ── Filtros del blog [§9.2] ───────────────────────────── */
+  /* El brief los especifica como fila de chips con "Todos" activo.
+     En un artboard eso es estático; en el sitio un control que no
+     hace nada es peor que no tenerlo, así que filtran de verdad. */
+  var filters = $("filters");
+  if (filters) {
+    var posts = Array.prototype.slice.call(document.querySelectorAll("#posts .post"));
+    var empty = $("posts-empty");
+    filters.addEventListener("click", function(ev){
+      var btn = ev.target.closest ? ev.target.closest("[data-filter]") : null;
+      if (!btn) return;
+      var cat = btn.getAttribute("data-filter");
+      Array.prototype.forEach.call(filters.querySelectorAll("[data-filter]"), function(b){
+        var on = b === btn;
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+        if (on) { b.setAttribute("data-on","true"); } else { b.removeAttribute("data-on"); }
+      });
+      var visibles = 0;
+      posts.forEach(function(p){
+        var show = cat === "Todos" || p.getAttribute("data-cat") === cat;
+        p.hidden = !show;
+        if (show) visibles++;
+      });
+      if (empty) empty.hidden = visibles > 0;
+    });
+  }
+
   /* ── Splash ────────────────────────────────────────────── */
   var splash = el("splash");
   function hideSplash(){ splash.hidden = true; }
