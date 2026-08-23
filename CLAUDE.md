@@ -111,10 +111,13 @@ Con el sitio en una URL pública, que se vea que son placeholders importa más, 
 
 ## Pendientes
 
-Las cuatro páginas están construidas y el QA de §10 corrido: 17 puntos pasan, 2 a criterio, 0 fallan.
+Siete páginas construidas. QA de §10: 17 pasan, 3 a criterio, 0 fallan.
 
 - [ ] Contraste de `--primary` en fondo claro: 2.73:1, por debajo del mínimo AA
 - [ ] Alta de newsletter (§9.4) — sin backend, el botón no envía nada
+- [ ] Redacción legal de `aviso-privacidad.html`, `terminos.html` y `datos-salud.html` — hoy son andamios
+- [ ] 10 enlaces `href="#"` — CTAs de alta, pendientes de la URL real de producto
+- [ ] Quitar el `<meta name="robots" content="noindex">` de las 7 páginas antes de isaa.app
 - [ ] Sombras de un solo lado en `.btn--light` y `.nav[data-solid="true"]`
 - [ ] Fotografía real — hoy son slots `.photo` con la dirección de arte escrita encima
 - [ ] SVG oficial del wordmark en Nulshock

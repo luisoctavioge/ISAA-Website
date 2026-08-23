@@ -28,12 +28,17 @@ index.html          Home
 nosotros.html       §7 · Nosotros
 como-funciona.html  §8 · Cómo funciona
 blog.html           §9 · Blog
+aviso-privacidad.html
+terminos.html       Andamios legales, pendientes de redacción
+datos-salud.html
 assets/
   isaa.css          Sistema de diseño completo
   isaa.js           Comportamiento compartido por las cuatro páginas
   img/              Fotografía
 build/
   inline.mjs        Versiones de un solo archivo para previsualizar
+  sync-shell.mjs    Propaga nav y footer desde index.html
+  qa.mjs            Checklist de §10 del brief
 docs/
   brief.md          Especificación
 CLAUDE.md           Reglas del sistema, stack y voz
@@ -48,6 +53,11 @@ node build/inline.mjs --all
 ```
 
 Escribe en `build/inline/` (ignorado por git). No es parte del deploy.
+
+## Antes de publicar en isaa.app
+
+Las siete páginas llevan `<meta name="robots" content="noindex, nofollow">` porque el
+staging es público. Hay que quitarlo, y borrar el bloque `.devnotes` de `index.html`.
 
 ## ⚠ Este repositorio es público
 

@@ -219,9 +219,38 @@
     });
   }
 
+  /* ── Menú móvil ────────────────────────────────────────── */
+  var burger = $("burger"), menu = $("menu");
+  if (burger && menu) {
+    var setMenu = function(open){
+      menu.hidden = !open;
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+      burger.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+    };
+    burger.addEventListener("click", function(){ setMenu(menu.hidden); });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape" && !menu.hidden) { setMenu(false); burger.focus(); }
+    });
+    document.addEventListener("click", function(e){
+      if (menu.hidden) return;
+      if (!menu.contains(e.target) && !burger.contains(e.target)) setMenu(false);
+    });
+    window.addEventListener("resize", function(){
+      if (window.innerWidth > 980 && !menu.hidden) setMenu(false);
+    });
+  }
+
   /* ── Splash ────────────────────────────────────────────── */
   var splash = el("splash");
   function hideSplash(){ splash.hidden = true; }
-  if (reduce) { hideSplash(); }
-  else { setTimeout(hideSplash, 1150); }
+
+  var seen = false;
+  try { seen = sessionStorage.getItem("isaa:splash") === "1"; } catch (e) {}
+
+  if (reduce || seen) {
+    hideSplash();
+  } else {
+    try { sessionStorage.setItem("isaa:splash", "1"); } catch (e) {}
+    setTimeout(hideSplash, 1150);
+  }
 })();

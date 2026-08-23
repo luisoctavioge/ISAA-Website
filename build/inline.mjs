@@ -24,7 +24,8 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_DIR = join(ROOT, 'build', 'inline');
 
-const PAGES = ['index.html', 'nosotros.html', 'como-funciona.html', 'blog.html'];
+const PAGES = ['index.html', 'nosotros.html', 'como-funciona.html', 'blog.html',
+               'aviso-privacidad.html', 'terminos.html', 'datos-salud.html'];
 
 /* Solo se embeben rutas locales. Google Fonts se queda como <link>. */
 const isLocal = (href) => href && !/^(https?:)?\/\//i.test(href) && !href.startsWith('data:');

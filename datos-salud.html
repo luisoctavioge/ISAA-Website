@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manejo de datos de salud · ISAA</title>
+<meta name="description" content="Cómo ISAA guarda, cifra y comparte la documentación médica. Documento en preparación, pendiente de revisión legal.">
+<meta name="theme-color" content="#EEEEF4">
+
+<!-- STAGING · quitar estas dos líneas antes de publicar en isaa.app -->
+<meta name="robots" content="noindex, nofollow">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="ISAA">
+<meta property="og:title" content="Manejo de datos de salud · ISAA">
+<meta property="og:description" content="Cómo ISAA guarda, cifra y comparte la documentación médica. Documento en preparación, pendiente de revisión legal.">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%232563EB' stroke-width='7' stroke-linecap='round'%3E%3Ccircle cx='50' cy='50' r='38'/%3E%3Cpath d='M33 51 Q50 71 67 51'/%3E%3C/g%3E%3Cg fill='%232563EB'%3E%3Ccircle cx='36' cy='40' r='6'/%3E%3Ccircle cx='64' cy='40' r='6'/%3E%3C/g%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+
+<link rel="stylesheet" href="assets/isaa.css">
+</head>
+<body>
+
+<div class="splash" id="splash">
+  <svg class="splash__mark" viewBox="0 0 100 100" aria-hidden="true">
+    <circle cx="50" cy="50" r="40"/>
+    <circle class="eye" cx="36" cy="40" r="4.5"/>
+    <circle class="eye" cx="64" cy="40" r="4.5"/>
+    <path d="M33 51 Q50 71 67 51"/>
+    <path d="M34 52 C29 60 29 63 31 65"/>
+    <circle cx="30" cy="70" r="5"/>
+  </svg>
+  <p class="splash__txt">Cargando tu información…</p>
+</div>
+
+<!-- 
+
+<!-- ══════════════════════════════════════════════════════════ NAV ── -->
+<header class="nav" id="nav" data-solid="true">
+  <div class="wrap nav__in">
+    <a class="brand" href="index.html" aria-label="ISAA · inicio">
+      <svg class="mark" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="40"/>
+        <circle class="eye" cx="36" cy="40" r="4.5"/>
+        <circle class="eye" cx="64" cy="40" r="4.5"/>
+        <path d="M33 51 Q50 71 67 51"/>
+        <path d="M34 52 C29 60 29 63 31 65"/>
+        <circle cx="30" cy="70" r="5"/>
+      </svg>
+      <span class="wordmark" data-ph="Wordmark en Nulshock · pendiente SVG">ISAA</span>
+    </a>
+    <nav class="nav__links">
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="como-funciona.html">Cómo funciona</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+    <a class="btn btn--primary" href="index.html#planes">Empieza gratis</a>
+    <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <g class="burger__b"><path d="M4 7h16M4 12h16M4 17h16"/></g>
+        <g class="burger__x"><path d="M6 6l12 12M18 6L6 18"/></g>
+      </svg>
+    </button>
+  </div>
+  <div class="wrap">
+    <nav class="menu" id="menu" hidden aria-label="Menú principal">
+      <a href="index.html">Inicio</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="como-funciona.html">Cómo funciona</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ═════════════════════════════════════════════════════════ DOC ── -->
+<section class="hero-c" style="padding-bottom:0">
+  <div class="wrap hero-c__in">
+    <span class="chip rv">Legal</span>
+    <h1 class="h1 rv">Manejo de datos de salud</h1>
+    <p class="lead rv">El detalle de cómo se guarda, se cifra y se comparte la documentación médica.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="legal">
+
+      <div class="legal__note rv" data-ph="Documento pendiente de redacción legal">
+        <span class="ico" style="background:rgba(255,149,0,.15);color:#FF9500;stroke:#FF9500">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
+        </span>
+        <p><b>Borrador · sin valor legal todavía</b>
+        Esta página existe para que los enlaces del pie dejen de ir a ninguna parte, y para que
+        un abogado sepa exactamente qué tiene que llenar. Este documento no lo exige la ley por separado, pero es el que sostiene la promesa central del producto. Debe poder leerse sin ser abogado y sin ser ingeniero.</p>
+      </div>
+
+      <h2>Qué guardamos</h2>
+      <span class="legal__pend" data-ph="Pendiente">Tipos de documento y datos clínicos que la app almacena, y cuáles no.</span>
+
+      <h2>Consentimiento expreso</h2>
+      <span class="legal__pend" data-ph="Pendiente">Cómo se obtiene y se registra, tanto del titular como de cada miembro del Círculo.</span>
+
+      <h2>Cifrado y resguardo</h2>
+      <span class="legal__pend" data-ph="Pendiente">Cifrado en tránsito y en reposo, ubicación de los servidores y controles de acceso interno.</span>
+
+      <h2>Permisos por persona</h2>
+      <span class="legal__pend" data-ph="Pendiente">Cómo funciona el control granular y quién puede ver qué dentro de un Círculo.</span>
+
+      <h2>Ojo Clínico y tratamiento automatizado</h2>
+      <span class="legal__pend" data-ph="Pendiente">Qué procesa el modelo, dónde se procesa, y si los documentos se usan o no para entrenar sistemas.</span>
+
+      <h2>Acceso sin sesión de la Tarjeta Médica</h2>
+      <span class="legal__pend" data-ph="Pendiente">Qué expone el QR, qué no expone y cómo se revoca.</span>
+
+      <h2>Terceros y subencargados</h2>
+      <span class="legal__pend" data-ph="Pendiente">Proveedores con acceso técnico a la información y bajo qué obligaciones.</span>
+
+      <h2>Conservación y borrado</h2>
+      <span class="legal__pend" data-ph="Pendiente">Cuánto se conserva, cómo se solicita el borrado y qué se elimina de verdad.</span>
+
+      <h2>Portabilidad</h2>
+      <span class="legal__pend" data-ph="Pendiente">Cómo exportar el expediente completo y en qué formato.</span>
+
+      <h2>Incidentes de seguridad</h2>
+      <span class="legal__pend" data-ph="Pendiente">Cómo y en cuánto tiempo se notifica una vulneración.</span>
+
+      <p class="legal__meta">Última actualización: pendiente · Versión: borrador</p>
+    </div>
+  </div>
+</section>
+
+<footer class="sec--navy foot">
+  <div class="wrap">
+    <div class="foot__cols">
+      <div>
+        <h4>Navegar</h4>
+        <ul><li><a href="index.html">Inicio</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="como-funciona.html">Cómo funciona</a></li><li><a href="blog.html">Blog</a></li></ul>
+      </div>
+      <div>
+        <h4>Producto</h4>
+        <ul><li><a href="como-funciona.html">Tarjeta Médica</a></li><li><a href="como-funciona.html">Mi Círculo</a></li><li><a href="como-funciona.html">Ojo Clínico</a></li><li><a href="como-funciona.html">Eventos Médicos</a></li><li><a href="index.html#planes">Planes</a></li></ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul><li><a href="aviso-privacidad.html">Aviso de privacidad</a></li><li><a href="terminos.html">Términos y condiciones</a></li><li><a href="datos-salud.html">Manejo de datos de salud</a></li></ul>
+      </div>
+    </div>
+    <hr class="foot__rule">
+    <div class="foot__base">
+      <span>© 2026 ISAA. Todos los derechos reservados.</span>
+      <span>Tu salud, siempre en orden.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="rev" id="rev">Modo revisión</button>
+
+<script src="assets/isaa.js"></script>
+</body>
+</html>
