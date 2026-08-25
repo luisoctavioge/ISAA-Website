@@ -36,6 +36,10 @@ const between = (s, a, b) => {
   return j < 0 ? null : s.slice(i, j + b.length);
 };
 
+/* En Windows el working tree puede traer CRLF aunque el repo guarde
+   LF (.gitattributes text=auto). Se compara contenido, no bytes. */
+const lf = (s) => s.split(String.fromCharCode(13)).join('');
+
 const src = await readFile(SRC, 'utf8');
 const NAV = between(src, '<header class="nav"', '</header>');
 const FOOT = between(src, '<footer class="sec--navy foot">', '</footer>');
@@ -59,7 +63,7 @@ for (const [page, solid] of PAGES) {
   if (!nav || !foot) { console.error(`  ✗ ${page} — sin nav o sin footer`); process.exit(1); }
 
   const wantNav = shellFor(page, solid);
-  const same = nav === wantNav && foot === FOOT;
+  const same = lf(nav) === lf(wantNav) && lf(foot) === lf(FOOT);
 
   if (same) { console.log(`  = ${page}`); continue; }
   if (check) { console.error(`  ✗ ${page} — la nav o el footer se separaron de ${SRC}`); drift++; continue; }
