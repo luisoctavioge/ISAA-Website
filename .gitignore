@@ -3,6 +3,7 @@
 # posicionamiento competitivo, estructura de precios con márgenes
 # y messaging por audiencia. No entra al repo, nunca.
 *.pdf
+*.zip
 /docs/internal/
 
 # Salida de build/inline.mjs · se regenera, no se versiona

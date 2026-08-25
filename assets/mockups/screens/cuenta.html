@@ -1,0 +1,336 @@
+<!-- @dsCard group="Screens" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
+    background: #e8eaf0;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: 24px; min-height: 100vh;
+  }
+  .phone {
+    width: 390px; background: hsl(225,15%,95%);
+    border-radius: 44px;
+    box-shadow: 0 0 0 10px #1a1a1a, 0 0 0 11px #3a3a3a,
+      0 32px 64px rgba(0,0,0,0.45), 0 8px 16px rgba(0,0,0,0.2);
+    overflow: hidden; position: relative;
+  }
+  .dynamic-island {
+    position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+    width: 120px; height: 34px; background: #1a1a1a; border-radius: 20px; z-index: 10;
+  }
+  .screen { height: 844px; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; }
+  .screen::-webkit-scrollbar { display: none; }
+  .status-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 60px 24px 0; font-size: 15px; font-weight: 600; color: #111;
+  }
+  .status-right { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+  .signal-dots { display: flex; gap: 3px; align-items: flex-end; }
+  .signal-dot { width: 3px; background: #111; border-radius: 1px; }
+  .battery {
+    width: 25px; height: 12px; border: 1.5px solid #111;
+    border-radius: 3px; position: relative; display: flex; align-items: center; padding: 1px;
+  }
+  .battery::after {
+    content: ''; position: absolute; right: -4px; top: 50%; transform: translateY(-50%);
+    width: 2px; height: 6px; background: #111; border-radius: 0 1px 1px 0;
+  }
+  .battery-fill { width: 75%; height: 100%; background: #111; border-radius: 1px; }
+
+  /* Content */
+  .content { padding: 12px 16px 80px; }
+
+  /* Profile header */
+  .profile-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 16px; margin-top: 4px;
+  }
+  .profile-name { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; color: #111827; }
+  .profile-email { font-size: 11px; color: #9CA3AF; margin-top: 2px; }
+  .avatar-box {
+    width: 64px; height: 64px; border-radius: 18px;
+    overflow: hidden; flex-shrink: 0;
+    box-shadow: 0 2px 12px rgba(37,99,235,0.2);
+    border: 2px solid #BFDBFE;
+  }
+  .avatar-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Section header */
+  .section-hd {
+    display: flex; align-items: center; gap: 8px;
+    margin: 0 4px 8px;
+  }
+  .section-stripe { width: 4px; height: 16px; border-radius: 2px; }
+  .section-label { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #6B7280; }
+
+  /* White card group */
+  .white-group {
+    background: white;
+    border-radius: 20px;
+    border: 1px solid rgba(163,177,198,0.15);
+    box-shadow: 4px 4px 12px rgba(163,177,198,0.15), -4px -4px 12px rgba(255,255,255,0.9);
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  /* Plan hero */
+  .plan-hero { padding: 16px; border-bottom: 1px solid #F3F4F6; }
+  .plan-label { font-size: 10px; font-weight: 800; color: #2563eb; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+  .plan-price { font-size: 30px; font-weight: 800; color: #111827; letter-spacing: -1px; line-height: 1; }
+  .plan-price-unit { font-size: 13px; font-weight: 500; color: #9CA3AF; margin-left: 4px; }
+  .plan-covers { font-size: 12px; color: #6B7280; margin-top: 4px; }
+  .plan-covers strong { color: #111827; font-weight: 600; }
+  .plan-footer-row {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 10px;
+  }
+  .plan-next { font-size: 10px; color: #9CA3AF; }
+  .plan-active {
+    display: flex; align-items: center; gap: 5px;
+    background: #F0FDF4; padding: 4px 10px; border-radius: 20px;
+  }
+  .active-dot { width: 6px; height: 6px; border-radius: 50%; background: #22C55E; }
+  .active-label { font-size: 10px; font-weight: 700; color: #16A34A; }
+
+  /* Circle label */
+  .circle-label {
+    padding: 8px 16px 2px;
+    font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #9CA3AF;
+  }
+
+  /* Member row */
+  .member-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 16px;
+    border-bottom: 1px solid #F9FAFB;
+  }
+  .member-row:last-of-type { border-bottom: none; }
+  .member-avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    overflow: hidden; flex-shrink: 0;
+    border: 1.5px solid #BFDBFE;
+  }
+  .member-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
+  .member-avatar.teal { border-color: #5EEAD4; }
+  .member-name { font-size: 13px; font-weight: 500; color: #111827; flex: 1; }
+  .member-badge {
+    font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 20px;
+  }
+  .badge-titular { background: #EFF6FF; color: #1D4ED8; }
+  .badge-active { background: #F0FDF4; color: #16A34A; }
+  .member-price { width: 40px; text-align: right; flex-shrink: 0; }
+  .member-price-val { font-size: 12px; font-weight: 700; color: #111827; }
+  .member-price-unit { font-size: 9px; color: #9CA3AF; }
+
+  /* Gestionar plan button */
+  .gestionar-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px;
+    border-top: 1px solid #F3F4F6;
+    background: #FAFAFA;
+  }
+  .gestionar-label { font-size: 13px; font-weight: 600; color: #2563eb; }
+
+  /* Settings row */
+  .settings-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 16px;
+  }
+  .settings-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #EFF6FF; display: flex; align-items: center; justify-content: center;
+  }
+  .settings-body { flex: 1; }
+  .settings-title { font-size: 14px; font-weight: 600; color: #111827; }
+  .settings-sub { font-size: 11px; color: #9CA3AF; margin-top: 1px; }
+
+  /* Logout */
+  .logout-btn {
+    background: white; border-radius: 18px;
+    border: 1px solid #E5E7EB;
+    box-shadow: 3px 3px 8px rgba(163,177,198,0.12), -3px -3px 8px rgba(255,255,255,0.8);
+    padding: 14px 16px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; font-size: 14px; font-weight: 500; color: #EF4444;
+    margin-bottom: 16px;
+  }
+
+  /* Bottom nav */
+  .bottom-nav {
+    position: sticky; bottom: 0;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(163,177,198,0.2);
+    display: flex; align-items: center;
+    padding: 8px 0 18px;
+  }
+  .nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 4px 0; }
+  .nav-label { font-size: 9px; font-weight: 600; }
+  .nav-active { color: #2563eb; }
+  .nav-inactive { color: #9CA3AF; }
+  .nav-dot { width: 4px; height: 4px; border-radius: 50%; background: #2563eb; margin-top: 1px; }
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="dynamic-island"></div>
+  <div class="screen">
+
+    <!-- Status bar -->
+    <div class="status-bar">
+      <span>9:41</span>
+      <div class="status-right">
+        <div class="signal-dots">
+          <div class="signal-dot" style="height:5px"></div>
+          <div class="signal-dot" style="height:8px"></div>
+          <div class="signal-dot" style="height:11px"></div>
+          <div class="signal-dot" style="height:14px"></div>
+        </div>
+        <span style="font-size:11px">5G</span>
+        <div class="battery"><div class="battery-fill"></div></div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+      <!-- Profile header -->
+      <div class="profile-header">
+        <div>
+          <div class="profile-name">Isabella Martínez</div>
+          <div class="profile-email">isabella@correo.mx</div>
+        </div>
+        <div class="avatar-box">
+          <img src="../brand/avatars/isabella.png" alt="Isabella">
+        </div>
+      </div>
+
+      <!-- Suscripción section -->
+      <div class="section-hd" style="margin-top:0">
+        <div class="section-stripe" style="background:#2563eb"></div>
+        <span class="section-label">Suscripción</span>
+      </div>
+
+      <div class="white-group">
+
+        <!-- Plan hero -->
+        <div class="plan-hero">
+          <div class="plan-label">Plan Mensual</div>
+          <div style="display:flex;align-items:baseline;gap:0">
+            <span class="plan-price">$347</span>
+            <span class="plan-price-unit">MXN/mes</span>
+          </div>
+          <div class="plan-covers">
+            Cubre a <strong>Isabella</strong> y a <strong>2 personas más</strong>
+          </div>
+          <div class="plan-footer-row">
+            <div class="plan-next">Próximo cobro: 22 de julio</div>
+            <div class="plan-active">
+              <div class="active-dot"></div>
+              <span class="active-label">Activo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Circle: Familia Martínez -->
+        <div class="circle-label">Familia Martínez</div>
+
+        <div class="member-row">
+          <div class="member-avatar">
+            <img src="../brand/avatars/isabella.png" alt="Isabella">
+          </div>
+          <div class="member-name">Isabella Martínez</div>
+          <div class="member-badge badge-titular">Titular</div>
+          <div class="member-price">
+            <div class="member-price-val">$149</div>
+            <div class="member-price-unit">/mes</div>
+          </div>
+        </div>
+
+        <div class="member-row">
+          <div class="member-avatar">
+            <img src="../brand/avatars/mateo.png" alt="Mateo">
+          </div>
+          <div class="member-name">Mateo Martínez</div>
+          <div class="member-badge badge-active">Activo</div>
+          <div class="member-price">
+            <div class="member-price-val">$99</div>
+            <div class="member-price-unit">/mes</div>
+          </div>
+        </div>
+
+        <div class="member-row" style="border-bottom:1px solid #F9FAFB">
+          <div class="member-avatar">
+            <img src="../brand/avatars/renata.png" alt="Renata">
+          </div>
+          <div class="member-name">Renata Martínez</div>
+          <div class="member-badge badge-active">Activo</div>
+          <div class="member-price">
+            <div class="member-price-val">$99</div>
+            <div class="member-price-unit">/mes</div>
+          </div>
+        </div>
+
+        <!-- Gestionar plan footer -->
+        <div class="gestionar-row">
+          <span class="gestionar-label">Gestionar plan</span>
+          <svg style="width:16px;height:16px;color:#D1D5DB" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+
+      <!-- Configuración section -->
+      <div class="section-hd">
+        <div class="section-stripe" style="background:#9CA3AF"></div>
+        <span class="section-label">Configuración</span>
+      </div>
+
+      <div class="white-group">
+        <div class="settings-row">
+          <div class="settings-icon">
+            <svg style="width:20px;height:20px;color:#2563eb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="settings-body">
+            <div class="settings-title">Mi perfil y ajustes</div>
+            <div class="settings-sub">Datos, privacidad, notificaciones</div>
+          </div>
+          <svg style="width:16px;height:16px;color:#D1D5DB" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+      </div>
+
+      <!-- Logout -->
+      <div class="logout-btn">
+        <svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        Cerrar sesión
+      </div>
+
+    </div><!-- /content -->
+
+    <!-- Bottom nav -->
+    <div class="bottom-nav">
+      <div class="nav-item nav-inactive">
+        <span style="font-size:20px">🏠</span>
+        <span class="nav-label">Inicio</span>
+      </div>
+      <div class="nav-item nav-inactive">
+        <span style="font-size:20px">👥</span>
+        <span class="nav-label">Mi Círculo</span>
+      </div>
+      <div class="nav-item nav-inactive">
+        <span style="font-size:20px">📋</span>
+        <span class="nav-label">Eventos</span>
+      </div>
+      <div class="nav-item nav-active">
+        <span style="font-size:20px">👤</span>
+        <span class="nav-label">Cuenta</span>
+        <div class="nav-dot"></div>
+      </div>
+    </div>
+
+  </div><!-- /screen -->
+</div><!-- /phone -->
+</body>
+</html>

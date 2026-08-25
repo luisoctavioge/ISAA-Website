@@ -219,6 +219,27 @@
     });
   }
 
+  /* ── Mockups de producto [§8.2] ────────────────────────── */
+  /* Cada plancha lleva una pantalla real del design system a 390×844.
+     El factor de escala depende del alto disponible, que es responsive,
+     así que se calcula aquí en vez de fijarlo por breakpoint. */
+  var mocks = Array.prototype.slice.call(document.querySelectorAll(".mock"));
+  if (mocks.length) {
+    var fitMocks = function(){
+      mocks.forEach(function(m){
+        var f = m.querySelector(".mock__f");
+        if (!f) return;
+        var s = m.clientHeight / 844;
+        if (!s) return;
+        f.style.transform = "scale(" + s + ")";
+        m.style.width = Math.round(390 * s) + "px";
+      });
+    };
+    fitMocks();
+    window.addEventListener("resize", fitMocks);
+    window.addEventListener("load", fitMocks);
+  }
+
   /* ── Video del hero ────────────────────────────────────── */
   /* Dos motivos para no reproducirlo: la regla 10 del manual
      (prefers-reduced-motion) y los datos móviles — son 4.4 MB, y

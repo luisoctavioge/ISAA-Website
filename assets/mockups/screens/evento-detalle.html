@@ -1,0 +1,302 @@
+<!-- @dsCard group="Screens" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
+    background: #e8eaf0;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: 24px; min-height: 100vh;
+  }
+  .phone {
+    width: 390px; background: hsl(225,15%,95%);
+    border-radius: 44px;
+    box-shadow: 0 0 0 10px #1a1a1a, 0 0 0 11px #3a3a3a,
+      0 32px 64px rgba(0,0,0,0.45), 0 8px 16px rgba(0,0,0,0.2);
+    overflow: hidden; position: relative;
+  }
+  .dynamic-island {
+    position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+    width: 120px; height: 34px; background: #1a1a1a; border-radius: 20px; z-index: 10;
+  }
+  .screen { height: 844px; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; }
+  .screen::-webkit-scrollbar { display: none; }
+  .status-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 60px 24px 8px; font-size: 15px; font-weight: 600; color: #111;
+  }
+  .status-right { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+  .signal-dots { display: flex; gap: 3px; align-items: flex-end; }
+  .signal-dot { width: 3px; background: #111; border-radius: 1px; }
+  .battery {
+    width: 25px; height: 12px; border: 1.5px solid #111;
+    border-radius: 3px; position: relative; display: flex; align-items: center; padding: 1px;
+  }
+  .battery::after {
+    content: ''; position: absolute; right: -4px; top: 50%; transform: translateY(-50%);
+    width: 2px; height: 6px; background: #111; border-radius: 0 1px 1px 0;
+  }
+  .battery-fill { width: 75%; height: 100%; background: #111; border-radius: 1px; }
+
+  /* Nav header */
+  .nav-header {
+    background: white;
+    border-bottom: 1px solid rgba(163,177,198,0.2);
+    padding: 10px 16px 0;
+  }
+  .nav-top {
+    display: flex; align-items: center; gap: 10px;
+    padding-bottom: 10px;
+  }
+  .back-btn {
+    width: 34px; height: 34px; border-radius: 10px;
+    background: hsl(225,15%,95%);
+    box-shadow: 3px 3px 7px rgba(163,177,198,0.3), -3px -3px 7px rgba(255,255,255,0.7);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .evt-meta { font-size: 9px; font-weight: 700; color: #9CA3AF; letter-spacing: 0.1em; text-transform: uppercase; }
+  .evt-title { font-size: 15px; font-weight: 700; color: #111827; line-height: 1.2; }
+  .status-chip {
+    display: flex; align-items: center; gap: 4px;
+    padding: 3px 8px; border-radius: 20px; flex-shrink: 0;
+    background: #FEF3C7;
+  }
+  .status-label { font-size: 9px; font-weight: 700; color: #D97706; }
+
+  /* Tabs */
+  .tabs {
+    display: flex; gap: 0;
+    border-bottom: 1px solid rgba(163,177,198,0.15);
+    margin: 0 -16px; padding: 0 16px;
+  }
+  .tab {
+    display: flex; align-items: center; gap: 6px;
+    padding: 10px 16px;
+    font-size: 13px; font-weight: 600;
+    border-bottom: 2px solid transparent;
+  }
+  .tab-active { border-bottom-color: #2563eb; color: #2563eb; }
+  .tab-inactive { color: #9CA3AF; border-bottom-color: transparent; }
+  .tab-badge {
+    font-size: 9px; font-weight: 700; padding: 2px 6px;
+    border-radius: 20px;
+  }
+  .badge-active { background: #DBEAFE; color: #1D4ED8; }
+  .badge-inactive { background: #F3F4F6; color: #6B7280; }
+
+  /* Content */
+  .content { padding: 12px 16px 100px; background: hsl(225,15%,95%); }
+
+  /* Thread card */
+  .thread-card {
+    background: white;
+    border-radius: 18px;
+    box-shadow: 4px 4px 12px rgba(163,177,198,0.2), -4px -4px 12px rgba(255,255,255,0.8);
+    padding: 12px 14px;
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-bottom: 8px;
+    cursor: pointer;
+  }
+  .thread-icon-wrap {
+    width: 40px; height: 40px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; position: relative;
+  }
+  .unread-dot {
+    position: absolute; top: -3px; right: -3px;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: #EF4444; color: white;
+    font-size: 9px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .thread-body { flex: 1; min-width: 0; }
+  .thread-top {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 3px;
+  }
+  .thread-name { font-size: 13px; font-weight: 700; color: #111827; }
+  .thread-time { font-size: 10px; color: #9CA3AF; flex-shrink: 0; }
+  .thread-chips { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+  .type-chip { font-size: 9px; font-weight: 700; padding: 2px 7px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .status-pill { font-size: 11px; }
+  .thread-preview { font-size: 11px; color: #6B7280; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 240px; }
+
+  /* Activity log */
+  .activity-item {
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    border-radius: 16px;
+    padding: 10px 12px;
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-bottom: 8px;
+  }
+  .activity-icon {
+    width: 30px; height: 30px; border-radius: 10px;
+    background: #DBEAFE; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .activity-title { font-size: 11px; font-weight: 700; color: #1E40AF; }
+  .activity-body { font-size: 10px; color: #3B82F6; margin-top: 2px; line-height: 1.4; }
+  .activity-time { font-size: 9px; color: #93C5FD; margin-top: 3px; }
+
+  /* FAB */
+  .fab-area { padding: 0 16px; }
+  .fab {
+    width: 100%; height: 48px;
+    background: #3b82f6; border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; font-size: 14px; font-weight: 700; color: white;
+  }
+
+  /* Divider with label */
+  .divider-label {
+    display: flex; align-items: center; gap: 8px; margin: 10px 0 8px;
+  }
+  .divider-line { flex: 1; height: 1px; background: #E5E7EB; }
+  .divider-text { font-size: 9px; font-weight: 700; color: #9CA3AF; text-transform: uppercase; letter-spacing: 0.1em; padding: 0 4px; }
+
+  svg.icon { width: 18px; height: 18px; }
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="dynamic-island"></div>
+  <div class="screen">
+
+    <!-- Status bar -->
+    <div class="status-bar">
+      <span>9:41</span>
+      <div class="status-right">
+        <div class="signal-dots">
+          <div class="signal-dot" style="height:5px"></div>
+          <div class="signal-dot" style="height:8px"></div>
+          <div class="signal-dot" style="height:11px"></div>
+          <div class="signal-dot" style="height:14px"></div>
+        </div>
+        <span style="font-size:11px">5G</span>
+        <div class="battery"><div class="battery-fill"></div></div>
+      </div>
+    </div>
+
+    <!-- Nav header -->
+    <div class="nav-header">
+      <div class="nav-top">
+        <div class="back-btn">
+          <svg style="width:18px;height:18px;color:#2563eb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </div>
+        <div style="flex:1;min-width:0">
+          <div class="evt-meta">EVT-001</div>
+          <div class="evt-title">Neumonía adquirida en comunidad</div>
+        </div>
+        <div class="status-chip">
+          <svg style="width:10px;height:10px;color:#D97706" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v7l4 2"/><circle cx="12" cy="12" r="10"/></svg>
+          <span class="status-label">En Seguimiento</span>
+          <svg style="width:10px;height:10px;color:#D97706" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <div class="tab tab-inactive">
+          Documentos
+          <span class="tab-badge badge-inactive">3</span>
+        </div>
+        <div class="tab tab-active">
+          Comunicaciones
+          <span class="tab-badge badge-active">1</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content: Comunicaciones tab -->
+    <div class="content">
+
+      <!-- Thread 1: Médico — unread -->
+      <div class="thread-card">
+        <div class="thread-icon-wrap" style="background:#DBEAFE">
+          <svg style="width:18px;height:18px;color:#2563eb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V6m0 0l-3 3m3-3l3 3"/><circle cx="12" cy="3" r="1"/><path d="M5 19h14"/></svg>
+          <div class="unread-dot">1</div>
+        </div>
+        <div class="thread-body">
+          <div class="thread-top">
+            <span class="thread-name">Dr. John Doe</span>
+            <span class="thread-time">Ayer</span>
+          </div>
+          <div class="thread-chips">
+            <span class="type-chip" style="background:#DBEAFE;color:#1D4ED8">Médico</span>
+            <span class="status-pill" style="color:#2563eb;font-size:11px">Respondido</span>
+          </div>
+          <div class="thread-preview">El cansancio residual es completamente normal en neumonía — puede durar hasta 3-4 semanas…</div>
+        </div>
+      </div>
+
+      <!-- Thread 2: Aseguradora — pending -->
+      <div class="thread-card">
+        <div class="thread-icon-wrap" style="background:#D1FAE5">
+          <svg style="width:18px;height:18px;color:#16A34A" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="thread-body">
+          <div class="thread-top">
+            <span class="thread-name">Seguros Vitalia</span>
+            <span class="thread-time">Lun</span>
+          </div>
+          <div class="thread-chips">
+            <span class="type-chip" style="background:#D1FAE5;color:#065F46">Aseguradora</span>
+            <span class="status-pill" style="color:#D97706;font-size:11px">Esperando</span>
+          </div>
+          <div class="thread-preview">¿Podrían confirmarme si ya tienen todo lo que necesitan? Han pasado 5 días…</div>
+        </div>
+      </div>
+
+      <!-- Thread 3: Laboratorio -->
+      <div class="thread-card">
+        <div class="thread-icon-wrap" style="background:#EDE9FE">
+          <svg style="width:18px;height:18px;color:#7C3AED" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v11l-4 7h14l-4-7V3M14 3H9"/></svg>
+        </div>
+        <div class="thread-body">
+          <div class="thread-top">
+            <span class="thread-name">Lab. Clínico Nexo</span>
+            <span class="thread-time">14 ene</span>
+          </div>
+          <div class="thread-chips">
+            <span class="type-chip" style="background:#EDE9FE;color:#6D28D9">Laboratorio</span>
+            <span class="status-pill" style="color:#2563eb;font-size:11px">Respondido</span>
+          </div>
+          <div class="thread-preview">Sus resultados ya están listos y fueron enviados a su correo registrado.</div>
+        </div>
+      </div>
+
+      <!-- Activity log section -->
+      <div class="divider-label">
+        <div class="divider-line"></div>
+        <span class="divider-text">Actividad del sistema</span>
+        <div class="divider-line"></div>
+      </div>
+
+      <div class="activity-item">
+        <div class="activity-icon">
+          <svg style="width:14px;height:14px;color:#2563eb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div>
+          <div class="activity-title">Expediente enviado a Seguros Vitalia</div>
+          <div class="activity-body">Se envió el expediente (3 documentos) a reembolsos@seguros-vitalia.com.mx para reclamación EVT-001.</div>
+          <div class="activity-time">hace 5 días</div>
+        </div>
+      </div>
+
+      <!-- FAB -->
+      <div style="padding-top:4px">
+        <div class="fab">
+          <svg style="width:18px;height:18px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          Nuevo mensaje
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /screen -->
+</div><!-- /phone -->
+</body>
+</html>

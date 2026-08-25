@@ -1,0 +1,304 @@
+<!-- @dsCard group="Screens" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', sans-serif;
+    background: #e8eaf0;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding: 24px; min-height: 100vh;
+  }
+  .phone {
+    width: 390px; background: hsl(225,15%,95%);
+    border-radius: 44px;
+    box-shadow: 0 0 0 10px #1a1a1a, 0 0 0 11px #3a3a3a,
+      0 32px 64px rgba(0,0,0,0.45), 0 8px 16px rgba(0,0,0,0.2);
+    overflow: hidden; position: relative;
+  }
+  .dynamic-island {
+    position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+    width: 120px; height: 34px; background: #1a1a1a; border-radius: 20px; z-index: 10;
+  }
+  .screen { height: 844px; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; }
+  .screen::-webkit-scrollbar { display: none; }
+  .status-bar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 60px 24px 8px; font-size: 15px; font-weight: 600; color: #111;
+  }
+  .status-right { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+  .signal-dots { display: flex; gap: 3px; align-items: flex-end; }
+  .signal-dot { width: 3px; background: #111; border-radius: 1px; }
+  .battery {
+    width: 25px; height: 12px; border: 1.5px solid #111;
+    border-radius: 3px; position: relative; display: flex; align-items: center; padding: 1px;
+  }
+  .battery::after {
+    content: ''; position: absolute; right: -4px; top: 50%; transform: translateY(-50%);
+    width: 2px; height: 6px; background: #111; border-radius: 0 1px 1px 0;
+  }
+  .battery-fill { width: 75%; height: 100%; background: #111; border-radius: 1px; }
+
+  /* Nav */
+  .nav-bar {
+    background: white; border-bottom: 1px solid rgba(163,177,198,0.2);
+    padding: 12px 16px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .back-btn {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: hsl(225,15%,95%);
+    box-shadow: 3px 3px 7px rgba(163,177,198,0.3), -3px -3px 7px rgba(255,255,255,0.7);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .nav-title { font-size: 17px; font-weight: 700; color: #111827; flex: 1; text-align: center; }
+  .nav-spacer { width: 36px; }
+
+  /* Content */
+  .content { padding: 12px 16px 80px; }
+
+  /* Neuro card */
+  .neuro-card {
+    background: hsl(225,15%,95%);
+    box-shadow: 6px 6px 14px rgba(163,177,198,0.3), -6px -6px 14px rgba(255,255,255,0.7);
+    border-radius: 20px; padding: 16px; margin-bottom: 12px;
+  }
+  .white-card {
+    background: white; border-radius: 18px;
+    border: 1px solid rgba(163,177,198,0.15);
+    box-shadow: 3px 3px 8px rgba(163,177,198,0.15), -3px -3px 8px rgba(255,255,255,0.8);
+    margin-bottom: 12px; overflow: hidden;
+  }
+
+  /* Package header card */
+  .pkg-title { font-size: 15px; font-weight: 700; color: #111827; margin-bottom: 2px; }
+  .pkg-sub { font-size: 11px; color: #6B7280; }
+  .progress-bar-wrap { margin-top: 10px; }
+  .progress-label {
+    display: flex; justify-content: space-between;
+    font-size: 12px; color: #374151; font-weight: 500; margin-bottom: 5px;
+  }
+  .progress-pill {
+    font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 20px;
+    background: #DBEAFE; color: #1D4ED8;
+  }
+  .progress-track {
+    width: 100%; height: 8px; background: #E5E7EB; border-radius: 4px; overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%; background: #2563eb; border-radius: 4px;
+    transition: width 0.3s;
+  }
+
+  /* Title bar */
+  .checklist-title {
+    text-align: center; padding: 12px 0 4px;
+    font-size: 12px; font-weight: 800; color: #111827; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .title-bar { width: 60px; height: 2px; background: #2563eb; border-radius: 1px; margin: 4px auto 12px; }
+
+  /* Category card */
+  .cat-card { background: white; border-radius: 16px; margin-bottom: 10px; overflow: hidden; }
+  .cat-header {
+    padding: 10px 14px 8px;
+    font-size: 13px; font-weight: 700; color: #111827;
+    border-bottom: 1px solid #F3F4F6;
+    background: #FAFAFA;
+  }
+  .doc-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
+    border-bottom: 1px solid #F9FAFB;
+  }
+  .doc-item:last-child { border-bottom: none; }
+  .checkbox {
+    width: 20px; height: 20px; border-radius: 6px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .checked { background: #2563eb; }
+  .unchecked { background: white; border: 2px solid #D1D5DB; }
+  .optional-unchecked { background: white; border: 2px dashed #D1D5DB; }
+  .doc-name { font-size: 12px; color: #374151; flex: 1; line-height: 1.3; }
+  .doc-name.checked-text { color: #9CA3AF; text-decoration: line-through; }
+  .req-dot { width: 5px; height: 5px; border-radius: 50%; background: #EF4444; flex-shrink: 0; }
+  .opt-dot { width: 5px; height: 5px; border-radius: 50%; background: #E5E7EB; flex-shrink: 0; }
+  .doc-tag { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 20px; flex-shrink: 0; }
+
+  /* Bottom actions */
+  .action-row { display: flex; gap: 8px; margin-top: 4px; }
+  .btn-send {
+    flex: 1; height: 46px; background: #2563eb; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 6px; font-size: 13px; font-weight: 700; color: white;
+  }
+  .btn-download {
+    flex: 1; height: 46px;
+    background: hsl(225,15%,95%);
+    box-shadow: 4px 4px 8px rgba(163,177,198,0.3), -4px -4px 8px rgba(255,255,255,0.7);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 6px; font-size: 13px; font-weight: 700; color: #374151;
+  }
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="dynamic-island"></div>
+  <div class="screen">
+
+    <!-- Status bar -->
+    <div class="status-bar">
+      <span>9:41</span>
+      <div class="status-right">
+        <div class="signal-dots">
+          <div class="signal-dot" style="height:5px"></div>
+          <div class="signal-dot" style="height:8px"></div>
+          <div class="signal-dot" style="height:11px"></div>
+          <div class="signal-dot" style="height:14px"></div>
+        </div>
+        <span style="font-size:11px">5G</span>
+        <div class="battery"><div class="battery-fill"></div></div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <div class="nav-bar">
+      <div class="back-btn">
+        <svg style="width:18px;height:18px;color:#2563eb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </div>
+      <div class="nav-title">Arma tu Expediente</div>
+      <div class="nav-spacer"></div>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+      <!-- Package header -->
+      <div class="neuro-card">
+        <div class="pkg-title">Neumonía adquirida en comunidad</div>
+        <div class="pkg-sub">Código: EVT-001 · Primera Reclamación · Siniestro SIN-2025-48821</div>
+        <div class="progress-bar-wrap">
+          <div class="progress-label">
+            <span>8 de 12 documentos listos</span>
+            <span class="progress-pill">4 pendientes</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" style="width:67%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checklist title -->
+      <div class="checklist-title">Lista de Control de Documentos</div>
+      <div class="title-bar"></div>
+
+      <!-- Category: Identificación y Póliza -->
+      <div class="cat-card">
+        <div class="cat-header">Identificación y Póliza</div>
+        <div class="doc-item">
+          <div class="checkbox checked">
+            <svg style="width:11px;height:11px;color:white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="doc-name checked-text">Solicitud de reembolso</div>
+          <div class="doc-tag" style="background:#D1FAE5;color:#065F46">PDF</div>
+        </div>
+        <div class="doc-item">
+          <div class="checkbox checked">
+            <svg style="width:11px;height:11px;color:white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="doc-name checked-text">Identificación oficial (INE/Pasaporte)</div>
+          <div class="doc-tag" style="background:#D1FAE5;color:#065F46">JPG</div>
+        </div>
+        <div class="doc-item">
+          <div class="checkbox checked">
+            <svg style="width:11px;height:11px;color:white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="doc-name checked-text">Carátula de póliza</div>
+          <div class="doc-tag" style="background:#D1FAE5;color:#065F46">PDF</div>
+        </div>
+        <div class="doc-item">
+          <div class="checkbox unchecked"></div>
+          <div class="doc-name">Estado de cuenta con CLABE interbancaria</div>
+          <div class="req-dot"></div>
+        </div>
+      </div>
+
+      <!-- Category: Documentación Médica -->
+      <div class="cat-card">
+        <div class="cat-header">Documentación Médica</div>
+        <div class="doc-item">
+          <div class="checkbox checked">
+            <svg style="width:11px;height:11px;color:white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="doc-name checked-text">Recetas médicas originales</div>
+          <div class="doc-tag" style="background:#D1FAE5;color:#065F46">PDF</div>
+        </div>
+        <div class="doc-item">
+          <div class="checkbox checked">
+            <svg style="width:11px;height:11px;color:white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="doc-name checked-text">Informe médico del doctor</div>
+          <div class="doc-tag" style="background:#D1FAE5;color:#065F46">PDF</div>
+        </div>
+        <div class="doc-item">
+          <div class="checkbox checked">
+            <svg style="width:11px;height:11px;color:white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="doc-name checked-text">Notas médicas / Historia clínica</div>
+          <div class="doc-tag" style="background:#D1FAE5;color:#065F46">PDF</div>
+        </div>
+        <div class="doc-item">
+          <div class="checkbox checked">
+            <svg style="width:11px;height:11px;color:white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="doc-name checked-text">Resultados de estudios (lab/imagen)</div>
+          <div class="doc-tag" style="background:#D1FAE5;color:#065F46">PDF</div>
+        </div>
+        <div class="doc-item">
+          <div class="checkbox unchecked"></div>
+          <div class="doc-name">Nota de alta / Hoja de egreso</div>
+          <div class="req-dot"></div>
+        </div>
+      </div>
+
+      <!-- Category: Facturación -->
+      <div class="cat-card">
+        <div class="cat-header">Facturación y Comprobantes</div>
+        <div class="doc-item">
+          <div class="checkbox checked">
+            <svg style="width:11px;height:11px;color:white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div class="doc-name checked-text">Facturas CFDI</div>
+          <div class="doc-tag" style="background:#D1FAE5;color:#065F46">XML+PDF</div>
+        </div>
+        <div class="doc-item">
+          <div class="checkbox unchecked"></div>
+          <div class="doc-name">Desglose de gastos hospitalarios</div>
+          <div class="opt-dot"></div>
+        </div>
+        <div class="doc-item">
+          <div class="checkbox unchecked"></div>
+          <div class="doc-name">Comprobantes de pago</div>
+          <div class="opt-dot"></div>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="action-row">
+        <div class="btn-send">
+          <svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          Enviar por correo
+        </div>
+        <div class="btn-download">
+          <svg style="width:16px;height:16px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Descargar
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </div><!-- /screen -->
+</div><!-- /phone -->
+</body>
+</html>

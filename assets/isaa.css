@@ -13,9 +13,10 @@
   --border:#DBDCE3;
   --fg:#1B1E2C;
   --mfg:#636680;
-  --primary:#3994EF;
-  --secondary:#3EC472;
-  --accent:#7059D4;
+  --primary:#3994EF;   /* idéntico en el design system */
+  --destructive:#EA3E3E; /* nuevo en el design system · error y alerta */
+  --secondary:#35D46F;
+  --accent:#624DCB;
 
   /* Código funcional fijo [BB] */
   --c-azul:#2563EB;
@@ -32,9 +33,9 @@
   --g-navy:linear-gradient(145deg,#1A1A2E 0%,#16213E 55%,#0F3460 100%);
 
   /* Elevación · neumorfismo [BB] sombra dual */
-  --e1:-6px -6px 16px rgba(255,255,255,.9), 6px 6px 16px rgba(27,30,44,.10);
-  --e2:-8px -8px 24px rgba(255,255,255,.95), 12px 12px 30px rgba(27,30,44,.15);
-  --inset:inset -4px -4px 10px rgba(255,255,255,.85), inset 4px 4px 10px rgba(27,30,44,.09);
+  --e1:-6px -6px 16px rgba(255,255,255,.7), 6px 6px 16px rgba(163,177,198,.30);
+  --e2:-8px -8px 24px rgba(255,255,255,.8), 12px 12px 30px rgba(163,177,198,.45);
+  --inset:inset -4px -4px 10px rgba(255,255,255,.8), inset 4px 4px 10px rgba(163,177,198,.40);
   /* Elevación sobre fondo oscuro, foto o video.
      El neumorfismo supone la plancha clara #EEEEF4: la luz viene de
      arriba-izquierda porque hay superficie que la refleje. Sobre
@@ -487,14 +488,17 @@ body[data-review="on"] [data-ph]::before{
   background:linear-gradient(100deg,#fff 0%,#fff 34%,var(--f-soft) 68%,var(--f-wash) 100%);
 }
 .mock{
-  height:78%;aspect-ratio:9/17;width:auto;border-radius:20px;background:var(--bg);
-  box-shadow:-8px -8px 20px rgba(255,255,255,.85), 14px 14px 34px rgba(27,30,44,.22);
-  display:flex;flex-direction:column;gap:9px;padding:18px 14px;
+  height:82%;aspect-ratio:390/844;width:auto;position:relative;overflow:hidden;
+  border-radius:24px;background:var(--bg);
+  box-shadow:-8px -8px 20px rgba(255,255,255,.7), 14px 14px 34px rgba(163,177,198,.5);
 }
-.mock__bar{height:8px;border-radius:999px;background:var(--muted);box-shadow:var(--inset)}
-.mock__bar--t{width:52%;height:11px;background:var(--f-color);box-shadow:none;opacity:.85}
-.mock__bar--w{width:78%}
-.mock__blk{flex:1;border-radius:12px;background:var(--muted);box-shadow:var(--inset)}
+/* La pantalla va a su tamaño real (390×844) y se escala; el factor lo
+   calcula isaa.js contra el alto disponible. Es decorativa: sin foco,
+   sin puntero, fuera del árbol de accesibilidad. */
+.mock__f{
+  position:absolute;top:0;left:0;width:390px;height:844px;border:0;
+  transform-origin:0 0;pointer-events:none;
+}
 .feat__note{text-align:center;margin-top:56px;font-size:16px;color:var(--mfg)}
 
 /* ── Blog · filtros [§9.2] ─────────────────────────────────── */
