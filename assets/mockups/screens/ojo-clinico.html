@@ -1,0 +1,195 @@
+<!-- @dsCard group="Screens" -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; background: #e8eaf0; display: flex; align-items: flex-start; justify-content: center; padding: 24px; min-height: 100vh; }
+  .phone { width: 390px; background: #f3f4f6; border-radius: 44px; box-shadow: 0 0 0 10px #1a1a1a, 0 0 0 11px #3a3a3a, 0 32px 64px rgba(0,0,0,0.45); overflow: hidden; position: relative; }
+  .dynamic-island { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); width: 120px; height: 34px; background: #1a1a1a; border-radius: 20px; z-index: 10; }
+  .screen { height: 844px; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; }
+  .screen::-webkit-scrollbar { display: none; }
+
+  /* Nav */
+  .nav { background: white; padding: 60px 16px 12px; border-bottom: 1px solid #f3f4f6; display: flex; align-items: center; gap: 10px; }
+  .back-btn { width: 36px; height: 36px; border-radius: 10px; background: #f9fafb; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .nav-icon { width: 32px; height: 32px; border-radius: 10px; background: linear-gradient(135deg, #7c3aed, #4f46e5); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .nav-title { font-size: 17px; font-weight: 700; color: #111827; flex: 1; }
+  .ia-badge { display: flex; align-items: center; gap: 4px; background: #f3e8ff; border-radius: 9999px; padding: 4px 10px; }
+  .ia-badge span { font-size: 11px; font-weight: 600; color: #7c3aed; }
+
+  .content { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+
+  /* Neuro card */
+  .card { background: white; border-radius: 18px; box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04); }
+
+  /* Document thumbnail row */
+  .doc-thumb { display: flex; align-items: center; gap: 12px; padding: 12px 14px; }
+  .thumb-img { width: 56px; height: 56px; border-radius: 12px; background: linear-gradient(160deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #bfdbfe; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .thumb-label { font-size: 10px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-bottom: 4px; }
+  .thumb-desc { font-size: 13px; color: #374151; font-weight: 500; }
+
+  /* AI result card */
+  .ai-card { padding: 14px; border: 1px solid #d1fae5; background: #f0fdf4; border-radius: 18px; display: flex; align-items: flex-start; gap: 12px; }
+  .ai-icon { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, #7c3aed, #4f46e5); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .ai-label { font-size: 10px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 3px; }
+  .ai-type { font-size: 16px; font-weight: 700; color: #111827; }
+  .ai-conf { font-size: 12px; color: #16a34a; font-weight: 500; margin-top: 2px; }
+
+  /* Step card */
+  .step-card { padding: 14px; border-radius: 18px; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+  .step-header { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+  .step-num { width: 20px; height: 20px; border-radius: 9999px; background: #7c3aed; color: white; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .step-title { font-size: 11px; font-weight: 700; color: #374151; text-transform: uppercase; letter-spacing: 0.06em; }
+  .step-req { color: #ef4444; font-weight: 700; }
+  .select-pill { background: #f9f5ff; border: 1.5px solid #c4b5fd; border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; }
+  .select-val { font-size: 14px; font-weight: 600; color: #6d28d9; }
+  .chip { display: inline-block; padding: 4px 10px; border-radius: 9999px; font-size: 11px; font-weight: 500; }
+
+  /* Data rows */
+  .data-row { display: flex; justify-content: space-between; align-items: flex-start; font-size: 13px; padding: 5px 0; border-bottom: 1px solid #f9fafb; }
+  .data-key { color: #6b7280; }
+  .data-val { color: #111827; font-weight: 500; text-align: right; max-width: 60%; }
+  .med-chip { background: #f0fdf4; border: 1px solid #bbf7d0; color: #15803d; font-size: 11px; padding: 3px 8px; border-radius: 9999px; display: inline-block; margin: 2px; }
+
+  /* Destination card */
+  .dest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 4px; }
+  .dest-opt { border-radius: 16px; padding: 14px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+  .dest-opt.selected { border: 2px solid #3b82f6; background: #eff6ff; }
+  .dest-opt.unsel { border: 2px solid #e5e7eb; background: white; }
+  .dest-icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+  .dest-label { font-size: 11px; font-weight: 700; }
+  .dest-sub { font-size: 10px; color: #9ca3af; margin-top: -4px; }
+
+  /* CTA button */
+  .btn-primary { width: 100%; background: linear-gradient(135deg, #7c3aed, #4f46e5); color: white; border-radius: 16px; padding: 15px; font-size: 15px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 12px rgba(124,58,237,0.35); }
+  .btn-secondary { width: 100%; background: white; border: 2px solid #e5e7eb; color: #6b7280; border-radius: 16px; padding: 13px; font-size: 14px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; }
+</style>
+</head>
+<body>
+<div class="phone">
+  <div class="dynamic-island"></div>
+  <div class="screen">
+
+    <!-- Nav -->
+    <div class="nav">
+      <div class="back-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"><path d="m15 18-6-6 6-6"/></svg>
+      </div>
+      <div class="nav-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </div>
+      <span class="nav-title">Ojo Clínico</span>
+      <div class="ia-badge">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-linecap="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        <span>IA</span>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- Document scanned -->
+      <div class="card">
+        <div class="doc-thumb">
+          <!-- mini recipe doc -->
+          <div class="thumb-img">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-linecap="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+          </div>
+          <div style="flex:1; min-width:0;">
+            <div class="thumb-label">Documento escaneado</div>
+            <div class="thumb-desc">Receta Dr. Ramírez Vega — infección respiratoria con antibióticos</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI detection -->
+      <div class="ai-card">
+        <div class="ai-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div class="ai-label">El Ojo Clínico detectó</div>
+          <div class="ai-type">Receta médica</div>
+          <div class="ai-conf">✓ Confianza alta</div>
+        </div>
+      </div>
+
+      <!-- Step 1: Categoría -->
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <span class="step-title">Categoría del documento <span class="step-req">*</span></span>
+        </div>
+        <div class="select-pill">
+          <span class="select-val">Receta médica</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+        <div style="margin-top:10px;">
+          <div style="font-size:11px; color:#9ca3af; margin-bottom:6px;">Otras posibilidades:</div>
+          <span class="chip" style="background:#f9fafb; border:1px solid #e5e7eb; color:#6b7280;">Nota / resumen médico</span>
+          <span class="chip" style="background:#f9fafb; border:1px solid #e5e7eb; color:#6b7280; margin-left:6px;">Carta de referencia</span>
+        </div>
+      </div>
+
+      <!-- Extracted data -->
+      <div class="step-card">
+        <div style="font-size:11px; font-weight:700; color:#6b7280; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:10px;">Información extraída</div>
+        <div class="data-row"><span class="data-key">Fecha</span><span class="data-val">7 de abril de 2026</span></div>
+        <div class="data-row"><span class="data-key">Médico</span><span class="data-val">Dr. Carlos Ramírez Vega — Medicina Interna</span></div>
+        <div class="data-row"><span class="data-key">Institución</span><span class="data-val">Hospital Ángeles Pedregal, CDMX</span></div>
+        <div class="data-row" style="border:none; flex-direction:column; gap:6px;">
+          <span class="data-key">Medicamentos</span>
+          <div>
+            <span class="med-chip">Amoxicilina 500mg c/8h × 7 días</span>
+            <span class="med-chip">Ibuprofeno 400mg c/6h</span>
+            <span class="med-chip">Loratadina 10mg c/24h</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: ¿A dónde va? -->
+      <div class="step-card">
+        <div class="step-header">
+          <div class="step-num">2</div>
+          <span class="step-title">¿A dónde va este documento? <span class="step-req">*</span></span>
+        </div>
+        <div style="font-size:13px; color:#6b7280; margin-bottom:12px;">¿Es parte de un evento médico que ya tienes, o necesitas crear uno nuevo?</div>
+        <div class="dest-grid">
+          <div class="dest-opt selected">
+            <div class="dest-icon" style="background:#dbeafe;">📂</div>
+            <div class="dest-label" style="color:#1d4ed8;">Evento existente</div>
+            <div class="dest-sub">Ya tengo uno creado</div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <div class="dest-opt unsel">
+            <div class="dest-icon" style="background:#f0fdf4;">✨</div>
+            <div class="dest-label" style="color:#374151;">Nuevo evento</div>
+            <div class="dest-sub">Crear uno ahora</div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+          </div>
+        </div>
+        <div style="margin-top:10px; padding:10px 14px; background:#f9f5ff; border-radius:12px;">
+          <div style="font-size:12px; color:#7c3aed; font-weight:600; margin-bottom:4px;">Evento seleccionado:</div>
+          <div style="font-size:13px; color:#111827; font-weight:500;">Consulta Dr. García Lozano — 12 may 2026</div>
+        </div>
+      </div>
+
+      <!-- Save button -->
+      <div class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+        Guardar en expediente
+      </div>
+      <div class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+        Escanear otro documento
+      </div>
+      <div style="height:20px;"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

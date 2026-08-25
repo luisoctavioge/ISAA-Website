@@ -59,7 +59,7 @@ sinHl.length ? bad(`${sinHl.length} H2 sin segunda cláusula en Primary`, sinHl.
 /* ── Superficie ────────────────────────────────────────────── */
 const sombras = [...css.matchAll(/box-shadow:\s*([^;}]+)/g)].map(m=>m[1].trim())
   .filter(s => !/^(none|var\(|inset|0 6px 22px|0 8px 24px)/.test(s));
-const unLado = sombras.filter(s => !/inset/.test(s) && !(/rgba\(255, ?255, ?255/.test(s) && /rgba\((27, ?30, ?44|0, ?0, ?0)/.test(s)));
+const unLado = sombras.filter(s => !/inset/.test(s) && !(/rgba\(255, ?255, ?255/.test(s) && /rgba\((27, ?30, ?44|0, ?0, ?0|163, ?177, ?198)/.test(s)));
 unLado.length ? warn(`${unLado.length} sombras a revisar`, unLado.join(' § ').slice(0,150))
               : ok('Toda sombra literal del CSS es dual');
 
