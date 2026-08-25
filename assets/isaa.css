@@ -136,23 +136,17 @@ section{position:relative}
 /* En isaa.app sustituye cada .photo por <img> o background-image.
    Aquí van como slots porque el visor de Artifacts bloquea
    imágenes externas. Los tonos son los del registro emocional [BB]. */
-.photo{position:relative;overflow:hidden;background:var(--muted)}
-.photo::after{content:"";position:absolute;inset:0;background-image:var(--noise);opacity:.16;mix-blend-mode:multiply;pointer-events:none}
+.photo{position:relative;overflow:hidden;background:var(--muted);background-size:cover;background-position:center}
+.photo__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .photo__note{
+  display:none;
   position:absolute;left:16px;bottom:16px;right:16px;
   font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
   color:rgba(27,30,44,.5);
 }
-.photo--warm{background:
-  radial-gradient(120% 90% at 18% 12%,#F2E8DA 0%,rgba(242,232,218,0) 62%),
-  radial-gradient(95% 80% at 88% 78%,#B99C7B 0%,rgba(185,156,123,0) 66%),
-  linear-gradient(152deg,#D9C6AC 0%,#C2A588 46%,#8E7458 100%)}
-.photo--sofa{background:
-  radial-gradient(110% 85% at 24% 18%,#F4EEE6 0%,rgba(244,238,230,0) 60%),
-  linear-gradient(160deg,#DFD5C7 0%,#BCAF9E 55%,#8A8175 100%)}
-.photo--desk{background:
-  radial-gradient(100% 80% at 78% 16%,#F5F1E8 0%,rgba(245,241,232,0) 58%),
-  linear-gradient(145deg,#D6CDBE 0%,#B3A491 60%,#7E7466 100%)}
+.photo--warm{background-image:url(img/tono-warm.jpg)}
+.photo--sofa{background-image:url(img/tono-sofa.jpg)}
+.photo--desk{background-image:url(img/tono-desk.jpg)}
 .photo--dark .photo__note{color:rgba(255,255,255,.62)}
 
 /* ── Nav ────────────────────────────────────────────────────── */
@@ -355,6 +349,7 @@ section{position:relative}
   font:600 13px/1 Inter,sans-serif;color:var(--mfg);
 }
 .rev:hover{box-shadow:var(--e2);color:var(--fg)}
+body[data-review="on"] .photo__note{display:block}
 body[data-review="on"] [data-ph]{outline:2px dashed var(--c-naranja);outline-offset:3px;position:relative}
 body[data-review="on"] [data-ph]::before{
   content:attr(data-ph);position:absolute;top:-9px;left:8px;z-index:20;
