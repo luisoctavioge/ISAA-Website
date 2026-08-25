@@ -116,7 +116,7 @@ Con el sitio en una URL pública, que se vea que son placeholders importa más, 
 
 ## Pendientes
 
-Siete páginas construidas; el Blog existe pero está oculto (sin enlaces en nav ni footer). QA de §10: 17 pasan, 3 a criterio, 0 fallan.
+Siete páginas construidas; el Blog existe pero está oculto (sin enlaces en nav ni footer). QA de §10: 18 pasan, 2 a criterio, 0 fallan.
 
 - [ ] Contraste de `--primary` en fondo claro: 2.73:1, por debajo del mínimo AA
 - [ ] Alta de newsletter (§9.4) — sin backend, el botón no envía nada
@@ -130,7 +130,8 @@ Siete páginas construidas; el Blog existe pero está oculto (sin enlaces en nav
 - [ ] Sombra de un solo lado en `.nav[data-solid="true"]` — barra fija de ancho completo,
       una sombra clara a la izquierda no tendría sentido ahí
 - [ ] Video final del hero — hoy es TEST-HERO comprimido
-- [ ] Fotografía real — hoy son slots `.photo` con la dirección de arte escrita encima
+- [ ] Fotografía propia — hoy son placeholders de Pexels. Origen y qué revisar al
+      sustituirlas, en `assets/img/FUENTES.md`
 - [ ] SVG oficial del wordmark en Nulshock
 - [ ] Testimonios reales (los actuales son placeholder marcado)
 - [ ] Métricas reales del hero
