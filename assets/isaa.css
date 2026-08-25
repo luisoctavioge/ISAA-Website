@@ -109,12 +109,6 @@ section{position:relative}
 .btn--primary:hover{box-shadow:var(--e2);filter:saturate(1.12)}
 .btn--secondary{background:var(--bg);color:var(--primary);box-shadow:var(--e1)}
 .btn--secondary:hover{box-shadow:var(--e2)}
-.btn--ghost{background:transparent;color:var(--primary);box-shadow:none;padding-inline:18px}
-.btn--ghost:hover{color:var(--c-azul)}
-/* En la nav hereda el estado: blanco sobre el hero, Foreground al
-   volverse sólida. Primary sobre fondo claro da 2.73:1 y no pasa AA. */
-.nav .btn--ghost{color:inherit;font-weight:500}
-.nav .btn--ghost:hover{opacity:.7}
 .btn--light{background:#fff;color:var(--fg);box-shadow:0 8px 24px rgba(0,0,0,.22)}
 .btn--light:hover{filter:brightness(.97)}
 .btn--full{width:100%}
@@ -560,8 +554,6 @@ body[data-review="on"] [data-ph]::before{
     padding:14px 18px;border-radius:var(--r);
     font-size:17px;font-weight:500;color:var(--fg);
   }
-  .menu__alt{margin-top:8px;padding-top:14px;border-top:1px solid var(--border);font-weight:600!important}
-  .nav__in .btn--ghost{display:none}
   .menu a[aria-current="page"]{
     font-weight:600;background:var(--muted);box-shadow:var(--inset);
   }
