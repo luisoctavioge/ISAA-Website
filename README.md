@@ -27,14 +27,15 @@ bajo subruta y en la raíz de `isaa.app`.
 index.html          Home
 nosotros.html       §7 · Nosotros
 como-funciona.html  §8 · Cómo funciona
-blog.html           §9 · Blog
+blog.html           §9 · Blog — OCULTA, sin enlaces en nav ni footer
 aviso-privacidad.html
 terminos.html       Andamios legales, pendientes de redacción
 datos-salud.html
 assets/
   isaa.css          Sistema de diseño completo
   isaa.js           Comportamiento compartido por las cuatro páginas
-  img/              Fotografía
+  img/              Fotografía y póster del hero
+  video/            Video del hero (solo el comprimido; los masters se ignoran)
 build/
   inline.mjs        Versiones de un solo archivo para previsualizar
   sync-shell.mjs    Propaga nav y footer desde index.html

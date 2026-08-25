@@ -33,7 +33,8 @@ El requisito real: el sitio se monta en isaa.app subiendo la carpeta, sin paso d
 index.html · nosotros.html · como-funciona.html · blog.html
 assets/isaa.css   todo el sistema de diseño
 assets/isaa.js    todo el comportamiento — compartido por las cuatro páginas
-assets/img/       fotografía
+assets/img/       fotografía y póster del hero
+assets/video/     video del hero — SOLO comprimido, los masters van gitignoreados
 build/inline.mjs  genera versiones de un solo archivo SOLO para previsualizar
 docs/brief.md     la especificación
 ```
@@ -111,7 +112,7 @@ Con el sitio en una URL pública, que se vea que son placeholders importa más, 
 
 ## Pendientes
 
-Siete páginas construidas. QA de §10: 17 pasan, 3 a criterio, 0 fallan.
+Siete páginas construidas; el Blog existe pero está oculto (sin enlaces en nav ni footer). QA de §10: 17 pasan, 3 a criterio, 0 fallan.
 
 - [ ] Contraste de `--primary` en fondo claro: 2.73:1, por debajo del mínimo AA
 - [ ] Alta de newsletter (§9.4) — sin backend, el botón no envía nada
@@ -123,6 +124,7 @@ Siete páginas construidas. QA de §10: 17 pasan, 3 a criterio, 0 fallan.
       formularios de login, contraseñas ni tokens en este repo.
 - [ ] Quitar el `<meta name="robots" content="noindex">` de las 7 páginas antes de isaa.app
 - [ ] Sombras de un solo lado en `.btn--light` y `.nav[data-solid="true"]`
+- [ ] Video final del hero — hoy es TEST-HERO comprimido
 - [ ] Fotografía real — hoy son slots `.photo` con la dirección de arte escrita encima
 - [ ] SVG oficial del wordmark en Nulshock
 - [ ] Testimonios reales (los actuales son placeholder marcado)

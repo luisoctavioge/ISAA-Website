@@ -83,7 +83,9 @@ async function run(page, outArg) {
     : join(OUT_DIR, basename(page).replace(/\.html$/, '.inline.html'));
   await mkdir(dirname(out), { recursive: true });
   await writeFile(out, html, 'utf8');
+  const media = [...html.matchAll(new RegExp(String.raw`(?:src|data-src|poster)=["'](assets[/](?:video|img)[/][^"']+)["']`, 'g'))].map(m => m[1]);
   const kb = (Buffer.byteLength(html, 'utf8') / 1024).toFixed(1);
+  if (media.length) console.log(`    ⚠ media NO embebida (${[...new Set(media)].join(', ')}) — en Artifacts se verá sin ella`);
   console.log(`  ✓ ${page} → ${relative(ROOT, out)}  (${kb} kB · ${embedded.join(', ') || 'nada que embeber'})`);
 }
 

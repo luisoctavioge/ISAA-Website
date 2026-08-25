@@ -28,3 +28,9 @@ node_modules/
 
 # Documento de trabajo interno — no es contenido del sitio
 handoff-claude-code.md
+
+# Masters de video sin comprimir — el repo es público y git guarda
+# cada versión de un binario para siempre. Solo entra el comprimido.
+assets/video/TEST-*
+assets/video/*-master.*
+assets/video/*.mov

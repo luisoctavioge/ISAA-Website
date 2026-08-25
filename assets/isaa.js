@@ -219,6 +219,24 @@
     });
   }
 
+  /* ── Video del hero ────────────────────────────────────── */
+  /* Dos motivos para no reproducirlo: la regla 10 del manual
+     (prefers-reduced-motion) y los datos móviles — son 4.4 MB, y
+     buena parte de la audiencia entra desde el teléfono. En ambos
+     casos se queda el póster, que es un frame del mismo video. */
+  var hv = $("heroVideo");
+  if (hv) {
+    /* El src vive en data-src, no en el HTML: con preload y autoplay
+       puestos en el marcado el navegador ya pidió bytes antes de que
+       este script corriera. Así, en móvil se descargan cero. */
+    var mueve = !reduce && window.innerWidth > 720;
+    if (mueve) {
+      hv.src = hv.getAttribute("data-src");
+      var p = hv.play();
+      if (p && p.catch) p.catch(function(){ /* el navegador lo bloqueó: queda el póster */ });
+    }
+  }
+
   /* ── Menú móvil ────────────────────────────────────────── */
   var burger = $("burger"), menu = $("menu");
   if (burger && menu) {

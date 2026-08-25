@@ -201,7 +201,11 @@ section{position:relative}
 
 /* ── Hero ───────────────────────────────────────────────────── */
 .hero{min-height:min(820px,100vh);display:flex;align-items:center;padding-block:168px 88px;color:#fff}
-.hero__bg{position:absolute;inset:0;z-index:0}
+.hero__bg{position:absolute;inset:0;z-index:0;background:var(--fg)}
+/* El video va detrás del velo (::before, z-index 1). El póster cubre
+   el hueco mientras carga y se queda fijo con prefers-reduced-motion
+   y en pantallas chicas, donde no se descarga el video. */
+.hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
 .hero__bg::before{
   content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(100deg,rgba(15,20,34,.86) 0%,rgba(20,26,42,.66) 46%,rgba(20,26,42,.34) 100%);

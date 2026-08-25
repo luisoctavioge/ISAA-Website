@@ -57,9 +57,8 @@
     </a>
     <nav class="nav__links">
       <a href="index.html" aria-current="page">Inicio</a>
-      <a href="nosotros.html">Nosotros</a>
       <a href="como-funciona.html">Cómo funciona</a>
-      <a href="blog.html">Blog</a>
+      <a href="nosotros.html">Nosotros</a>
     </nav>
     <button class="btn btn--primary" type="button" data-ph="Conectar con inicio de sesión / registro — misma pantalla">Empieza gratis</button>
     <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
@@ -72,17 +71,18 @@
   <div class="wrap">
     <nav class="menu" id="menu" hidden aria-label="Menú principal">
       <a href="index.html" aria-current="page">Inicio</a>
-      <a href="nosotros.html">Nosotros</a>
       <a href="como-funciona.html">Cómo funciona</a>
-      <a href="blog.html">Blog</a>
+      <a href="nosotros.html">Nosotros</a>
     </nav>
   </div>
 </header>
 
 <!-- ══════════════════════════════════════════════════════════ HERO ── -->
 <section class="hero" id="top">
-  <div class="hero__bg photo photo--warm photo--dark" data-ph="Foto · manos de tres generaciones sobre mesa de madera">
-    <span class="photo__note">Registro emocional · manos de tres generaciones, mesa de madera, luz de ventana</span>
+  <div class="hero__bg" data-ph="Video de prueba · TEST-HERO, pendiente de pieza final">
+    <video class="hero__video" id="heroVideo" muted loop playsinline preload="none"
+           poster="assets/img/hero-poster.jpg" aria-hidden="true" tabindex="-1"
+           data-src="assets/video/hero.mp4"></video>
   </div>
   <div class="wrap">
     <div class="hero__copy">
@@ -275,7 +275,7 @@
     <div class="foot__cols">
       <div>
         <h4>Navegar</h4>
-        <ul><li><a href="index.html">Inicio</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="como-funciona.html">Cómo funciona</a></li><li><a href="blog.html">Blog</a></li></ul>
+        <ul><li><a href="index.html">Inicio</a></li><li><a href="como-funciona.html">Cómo funciona</a></li><li><a href="nosotros.html">Nosotros</a></li></ul>
       </div>
       <div>
         <h4>Producto</h4>
@@ -300,6 +300,7 @@
     <h4>Notas de implementación — borrar este bloque antes de publicar en isaa.app</h4>
     <ul>
       <li><b>Fotografía.</b> Los slots <code>.photo</code> son marcadores. Sustituye cada uno por <code>&lt;img&gt;</code> o <code>background-image</code> apuntando a <code>assets/img/</code>. La dirección de arte de cada toma está escrita dentro del propio slot.</li>
+      <li><b>Video del hero.</b> <code>assets/video/hero.mp4</code> — 1920×1012, 24 s, 4.4 MB, sin audio. Es <b>material de prueba</b>. No se reproduce con <code>prefers-reduced-motion</code> ni en pantallas de 720px o menos: ahí queda el póster, que es un frame del propio video. En esos casos no se descarga un solo byte del video.</li>
       <li><b>Wordmark.</b> Nulshock no está disponible como fuente web. El logotipo va provisionalmente en Inter 800 con tracking abierto — sustitúyelo por el SVG oficial.</li>
       <li><b>Placeholders.</b> Testimonios, métricas del hero, logos de compatibilidad y badges de tienda son contenido inventado. Usa el botón <b>Modo revisión</b> para verlos señalados.</li>
       <li><b>Sin dependencias.</b> Cuatro páginas HTML sobre un <code>assets/isaa.css</code> y un <code>assets/isaa.js</code> compartidos. Sin build. La única petición externa es Google Fonts (Inter). Se monta subiendo la carpeta tal cual.</li>
