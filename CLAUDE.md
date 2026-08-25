@@ -116,7 +116,12 @@ Siete páginas construidas. QA de §10: 17 pasan, 3 a criterio, 0 fallan.
 - [ ] Contraste de `--primary` en fondo claro: 2.73:1, por debajo del mínimo AA
 - [ ] Alta de newsletter (§9.4) — sin backend, el botón no envía nada
 - [ ] Redacción legal de `aviso-privacidad.html`, `terminos.html` y `datos-salud.html` — hoy son andamios
-- [ ] 10 enlaces `href="#"` — CTAs de alta, pendientes de la URL real de producto
+- [ ] 24 enlaces `href="#"` — todos apuntan a la plataforma, que desarrolla otro equipo.
+      Son 4 destinos distintos: `Iniciar sesión` (×14, uno por nav y menú de cada página),
+      `Empieza gratis` (×4), `Suscribirse` (×4) y `Prueba gratis` (×2).
+      Con la URL base se cablean los cuatro de una sola pasada.
+- [ ] El sitio NUNCA maneja credenciales: solo enlaza a la plataforma. Nada de
+      formularios de login, contraseñas ni tokens en este repo.
 - [ ] Quitar el `<meta name="robots" content="noindex">` de las 7 páginas antes de isaa.app
 - [ ] Sombras de un solo lado en `.btn--light` y `.nav[data-solid="true"]`
 - [ ] Fotografía real — hoy son slots `.photo` con la dirección de arte escrita encima
