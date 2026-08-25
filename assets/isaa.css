@@ -35,7 +35,15 @@
   --e1:-6px -6px 16px rgba(255,255,255,.9), 6px 6px 16px rgba(27,30,44,.10);
   --e2:-8px -8px 24px rgba(255,255,255,.95), 12px 12px 30px rgba(27,30,44,.15);
   --inset:inset -4px -4px 10px rgba(255,255,255,.85), inset 4px 4px 10px rgba(27,30,44,.09);
-  --e1-dark:-6px -6px 18px rgba(255,255,255,.045), 8px 8px 22px rgba(0,0,0,.30);
+  /* Elevación sobre fondo oscuro, foto o video.
+     El neumorfismo supone la plancha clara #EEEEF4: la luz viene de
+     arriba-izquierda porque hay superficie que la refleje. Sobre
+     video o navy no la hay, y ese desplazamiento se lee como una
+     mancha blanca en la esquina. Aquí el halo va centrado —sigue
+     siendo dual, claro y oscuro— pero sin dirección. */
+  --e-over:0 0 22px rgba(255,255,255,.13), 0 8px 26px rgba(27,30,44,.45);
+  --e-over-2:0 0 30px rgba(255,255,255,.20), 0 14px 34px rgba(27,30,44,.55);
+  --e1-dark:0 0 20px rgba(255,255,255,.05), 0 10px 26px rgba(0,0,0,.32);
 
   /* Geometría */
   --container:1160px;
@@ -109,15 +117,25 @@ section{position:relative}
 .btn--primary:hover{box-shadow:var(--e2);filter:saturate(1.12)}
 .btn--secondary{background:var(--bg);color:var(--primary);box-shadow:var(--e1)}
 .btn--secondary:hover{box-shadow:var(--e2)}
-.btn--light{background:#fff;color:var(--fg);box-shadow:0 8px 24px rgba(0,0,0,.22)}
+.btn--light{background:#fff;color:var(--fg);box-shadow:var(--e-over)}
 .btn--light:hover{filter:brightness(.97)}
 .btn--full{width:100%}
+/* Donde no hay plancha clara debajo, la elevación se centra. */
+.hero .btn,
+.nav[data-solid="false"] .btn,
+.sec--navy .btn,
+.cta .btn{box-shadow:var(--e-over)}
+.hero .btn:hover,
+.nav[data-solid="false"] .btn:hover,
+.sec--navy .btn:hover,
+.cta .btn:hover{box-shadow:var(--e-over-2)}
+
 .btn:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
 
 .card{background:var(--bg);border-radius:var(--r);box-shadow:var(--e1);padding:32px;transition:box-shadow .3s ease}
 .card:hover{box-shadow:var(--e2)}
 .card--navy{background:rgba(255,255,255,.06);box-shadow:var(--e1-dark)}
-.card--navy:hover{box-shadow:-6px -6px 18px rgba(255,255,255,.07),10px 10px 26px rgba(0,0,0,.36)}
+.card--navy:hover{box-shadow:0 0 26px rgba(255,255,255,.08), 0 14px 32px rgba(0,0,0,.38)}
 
 .ico{
   width:48px;height:48px;border-radius:var(--r-sm);

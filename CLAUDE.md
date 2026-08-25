@@ -74,9 +74,13 @@ Nunca elijas un color por composición.
 
 ## Reglas innegociables
 
-1. **Neumorfismo.** Toda superficie elevada lleva sombra dual (clara arriba-izquierda,
-   oscura abajo-derecha) — tokens `--e1`, `--e2`, `--inset`. Nunca sombra de un solo
-   lado, nunca borde duro.
+1. **Neumorfismo.** Toda superficie elevada lleva sombra dual — tokens `--e1`, `--e2`,
+   `--inset`. Nunca sombra de un solo lado, nunca borde duro.
+   **Sobre la plancha clara `#EEEEF4`** va desplazada: clara arriba-izquierda, oscura
+   abajo-derecha. **Sobre fondo oscuro, foto o video no hay plancha que refleje la luz**,
+   y ese desplazamiento se lee como una mancha blanca en la esquina: ahí se usan
+   `--e-over` y `--e-over-2`, que siguen siendo duales pero con el halo centrado.
+   Aplica en `.hero`, `.sec--navy` y la nav mientras está sobre el hero.
 2. **Radio mínimo 16px** en superficies (`--r`). Nunca esquinas a 90°.
 3. **Inter en todo.** Titulares a `-0.02em`, ni más ni menos. Cero serif.
    Nulshock existe solo para el wordmark y no está disponible como fuente web.
@@ -123,7 +127,8 @@ Siete páginas construidas; el Blog existe pero está oculto (sin enlaces en nav
 - [ ] El sitio NUNCA maneja credenciales: solo enlaza a la plataforma. Nada de
       formularios de login, contraseñas ni tokens en este repo.
 - [ ] Quitar el `<meta name="robots" content="noindex">` de las 7 páginas antes de isaa.app
-- [ ] Sombras de un solo lado en `.btn--light` y `.nav[data-solid="true"]`
+- [ ] Sombra de un solo lado en `.nav[data-solid="true"]` — barra fija de ancho completo,
+      una sombra clara a la izquierda no tendría sentido ahí
 - [ ] Video final del hero — hoy es TEST-HERO comprimido
 - [ ] Fotografía real — hoy son slots `.photo` con la dirección de arte escrita encima
 - [ ] SVG oficial del wordmark en Nulshock
