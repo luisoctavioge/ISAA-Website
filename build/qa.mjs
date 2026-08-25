@@ -13,23 +13,26 @@ const out = [];
 const ok  = (t,d='') => out.push(['✓',t,d]);
 const bad = (t,d='') => out.push(['✗',t,d]);
 const warn= (t,d='') => out.push(['!',t,d]);
+/* Windows puede dejar CRLF en el working tree aunque el repo guarde LF.
+   Se compara contenido, no bytes. */
+const lf = (s) => s.split(String.fromCharCode(13)).join('');
 const block = (s,a,b) => { const i=s.indexOf(a), j=s.indexOf(b,i); return i<0?'':s.slice(i,j+b.length); };
 
 /* ── Contenido ─────────────────────────────────────────────── */
 const navs = PAGES.map(p => block(html[p],'<header class="nav"','</header>')
   .replace(/data-solid="(true|false)"/,'').replace(/ aria-current="page"/g,''));
-navs.every(n=>n===navs[0]) ? ok(`Nav idéntica en las ${PAGES.length} páginas`,'salvo data-solid y aria-current')
+navs.every(n=>lf(n)===lf(navs[0])) ? ok(`Nav idéntica en las ${PAGES.length} páginas`,'salvo data-solid y aria-current')
                            : bad('Nav difiere entre páginas');
 
 const foots = PAGES.map(p => block(html[p],'<footer class="sec--navy foot">','</footer>'));
-foots.every(f=>f===foots[0]) ? ok(`Footer idéntico en las ${PAGES.length} páginas`,'byte por byte')
+foots.every(f=>lf(f)===lf(foots[0])) ? ok(`Footer idéntico en las ${PAGES.length} páginas`,'byte por byte')
                              : bad('Footer difiere entre páginas');
 
 /* Las legales no llevan CTA a propósito: un documento legal no
    empuja conversión. Se comparan solo las que sí deben tenerlo. */
 const conCta = PAGES.filter(p => html[p].includes('<section class="sec--navy cta">'));
 const ctas = conCta.map(p => block(html[p],'<section class="sec--navy cta">','</section>'));
-ctas.every(c=>c===ctas[0]) ? ok(`CTA final idéntico en ${conCta.length} páginas`,'byte por byte · las 3 legales lo omiten a propósito') : bad('CTA difiere');
+ctas.every(c=>lf(c)===lf(ctas[0])) ? ok(`CTA final idéntico en ${conCta.length} páginas`,'byte por byte · las 3 legales lo omiten a propósito') : bad('CTA difiere');
 
 const PROH = ['repositorio centralizado','gestión integral del núcleo de beneficiarios','cloud AI interoperable'];
 for (const t of PROH) {
