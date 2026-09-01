@@ -5,6 +5,10 @@ necesito de ti**, y **qué encontramos en el camino**.
 
 Está escrito sin tecnicismos. Si algo no se entiende, es culpa del documento, no tuya.
 
+> **¿Poco tiempo?** Salta al final, a *"El camino corto"*. Son tres pasos para pasarle un
+> archivo al mismo Claude donde hiciste la auditoría y que él lo resuelva contigo,
+> preguntándote una cosa a la vez.
+
 ---
 
 ## Lo primero: quedó casi todo
@@ -179,6 +183,36 @@ desvío de la página web — viene del sistema, y afecta igual a la app.
 
 Contéstame las cinco cosas de arriba y cerramos. Lo demás son datos que van llegando.
 
-Si prefieres que tu propio Claude Code te ayude a resolver esto, en la carpeta hay otro
-archivo — `PARA-JESUS-CLAUDE.md` — que se lo puedes pasar directo. Está escrito para él,
-no para ti: te va a ir preguntando lo que falta y haciendo el trabajo.
+---
+
+## El camino corto: que lo haga tu Claude
+
+Si no quieres ir cosa por cosa conmigo, hay una forma más rápida.
+
+En esta misma carpeta hay otro archivo: **`PARA-JESUS-CLAUDE.md`**.
+
+**Ese no es para ti.** Está escrito para Claude, y por eso está lleno de cosas técnicas
+que no te van a decir nada. No lo abras esperando entenderlo.
+
+Haz esto:
+
+1. **Abre el mismo Claude donde hiciste la auditoría del sitio.** Ese ya conoce el
+   proyecto, así que arranca con ventaja.
+2. **Pásale el archivo `PARA-JESUS-CLAUDE.md`.** Arrástralo a la conversación.
+3. **Escríbele:**
+
+   > Lee `PARA-JESUS-CLAUDE.md` completo y dime qué necesitas de mí.
+
+Y ya. A partir de ahí Claude te va a ir preguntando **una cosa a la vez**, y va haciendo
+el trabajo conforme le respondas.
+
+Le dejé instrucciones explícitas de tres cosas:
+
+- **Que te pregunte en español llano**, explicándote cada decisión por lo que cambia en
+  pantalla, no por su valor técnico.
+- **Que no invente ningún dato** que falte. Ni una URL, ni un correo, ni una respuesta de
+  FAQ. Si falta, te lo pide o lo deja en blanco.
+- **Que no toque el "retiro de producción"** sin que tú se lo digas expresamente.
+
+Ahí también van anotadas las cuatro trampas del proyecto con las que ya tropezamos
+nosotros, para que tu Claude no pierda el tiempo en las mismas.
