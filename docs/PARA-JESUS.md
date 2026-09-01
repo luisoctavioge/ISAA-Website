@@ -193,3 +193,68 @@ Pides `fetchpriority="high"` "solo a la imagen del hero". En `index.html` el her
 video con póster, no una etiqueta `<img>`. El único hero con imagen es el de
 `nosotros.html`, y ahí se aplicó — junto con quitarle `loading="lazy"`, que se
 contradice con `fetchpriority`.
+
+---
+
+## 16 · T33 — hay un tercer fondo que ni tú ni yo habíamos cubierto: el tinte del chip
+
+Tu tabla resuelve el texto sobre `--bg`. Yo extendí a `--muted`. Pero los chips ponen el
+color al 14–15% **detrás de su propio label**, y ese fondo es más oscuro que los dos.
+Medido componiendo el alfa, no sobre el token plano:
+
+| chip | texto | fondo compuesto | ratio | alfa que sí pasa |
+|---|---|---|---|---|
+| teal | `#0B746C` | `#CCE0E4` | **4.12** | 7% |
+| verde | `#107837` | `#CEE3DB` | **4.15** | 7% |
+| azul | `#1C5CEA` | `#D0D9F3` | **3.95** | 5% |
+| morado | `#7C3AED` | `#DED5F3` | **4.05** | 6% |
+| navy | `#0F3460` | `#CFD4DF` | 8.41 | ya pasa |
+
+Dos formas de cerrarlo, y las dos son decisión tuya porque cambian cómo se ve:
+
+- **Bajar el tinte** de 14–15% a 6–7%. Los chips quedan más pálidos.
+- **Oscurecer más los `-txt`**, que ya se alejarían bastante del tono original.
+
+No hice ninguna: T33 dice explícitamente que los fondos no cambian.
+
+### Y falta un séptimo token
+
+`--c-morado` no está en tu lista de seis. Sobre `--bg` plano da **4.93** y pasa — por eso
+no salió en tu barrido. Pero sobre su propio tinte de chip da **4.05**. Si se toca el
+alfa de los chips se arregla solo; si no, necesita su `-txt`.
+
+---
+
+## 17 · T30 rompe la regla 7 del manual
+
+Quitarle la segunda cláusula a "Cuatro cosas no negociables" contradice *"en cada H2, la
+segunda cláusula en Primary"*. Se ejecutó porque es tu decisión, y se registró como
+excepción explícita en `build/qa.mjs` con su motivo — no se silenció el chequeo. Si
+mañana desaparece otro `.hl` por descuido, lo sigue atrapando.
+
+---
+
+## 18 · T28 apunta al archivo equivocado
+
+Dice "en `como-funciona.html`", pero los cuatro pasos viven en el arreglo `STEPS` de
+`assets/isaa.js` y se pintan en `index.html`. `como-funciona.html` tiene las siete
+funcionalidades, que son otra cosa. Se ejecutó donde está el contenido.
+
+---
+
+## 19 · T31 — el bloque nuevo convive con los testimonios
+
+Dices que ocupa "el espacio que dejan los testimonios cuando se retiren (T19)". Como T19
+no se ejecuta, por ahora el bloque de confianza queda justo debajo del bloque navy de
+testimonios. Se ve bien, pero son dos bloques de prueba social seguidos.
+
+Las reglas `.rows` y `.row` del CSS quedaron sin uso al borrar la sección de
+`nosotros.html`. No se eliminaron: T31 no lo pide y podrían servir si el bloque vuelve.
+
+---
+
+## 20 · T32 — queda repetido a dos párrafos de distancia
+
+La bajada del bloque dice *"Nuestro único rival es la inercia de no organizarse…"* y la
+tarjeta 3 ahora se titula *"Nuestro único competidor es la inercia"*. Se dejó así porque
+pides explícitamente no tocar el titular ni la bajada.
