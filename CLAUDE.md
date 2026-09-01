@@ -117,7 +117,10 @@ Con el sitio en una URL pública, que se vea que son placeholders importa más, 
 ## Pendientes
 
 Rama `cambios-pre-lanzamiento`: 31 de 33 tareas de la revisión de Jesús aplicadas.
-Dudas y decisiones en `docs/PARA-JESUS.md`.
+Dos documentos de entrega:
+- `docs/PARA-JESUS.md` — para Jesús, en lenguaje llano. Qué quedó, qué se necesita de él.
+- `docs/PARA-JESUS-CLAUDE.md` — para que él se lo pase a su Claude Code: rutas, valores
+  medidos, comandos y las trampas conocidas del repo.
 
 Siete páginas construidas; el Blog existe pero está oculto (sin enlaces en nav ni footer). QA de §10: 18 pasan, 2 a criterio, 0 fallan.
 
