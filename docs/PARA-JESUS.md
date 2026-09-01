@@ -110,3 +110,47 @@ No se inventó ninguno:
 - Razón social completa para el footer
 
 LinkedIn, Instagram y TikTok sí tienen URL confirmada y se montaron.
+
+---
+
+## 9 · T12 — tres ubicaciones de CTA que tu lista no cubre
+
+Nombras cuatro valores: `hero`, `planes`, `cta_final`, `nav`. Al recorrer el sitio
+aparecieron 19 CTAs en siete ubicaciones. Las tres extra se nombraron por su sección
+para no dejarlas ciegas:
+
+| valor | cuántos |
+|---|---|
+| `nav` · `hero` · `planes` · `cta_final` | 4 · 2 · 6 · 4 |
+| `testimonios` | 1 — el botón dentro del bloque navy |
+| `flotante` | 1 — "Crear mi Tarjeta Médica" |
+| `newsletter` | 1 — el alta del blog |
+
+Si prefieres otros nombres, es un `sed`.
+
+---
+
+## 10 · T10 — los botones de tienda estaban en cuatro páginas
+
+La tarea decía "en `index.html`". El CTA final es idéntico byte por byte en index,
+nosotros, como-funciona y blog. Se quitaron de las cuatro: dejarlo en una sola habría
+roto esa paridad, que `build/qa.mjs` verifica en cada commit.
+
+Lo mismo aplica a T11, que sí lista las cuatro.
+
+---
+
+## 11 · Falsos positivos en tus comandos de verificación
+
+- `grep -rn "paz mental" *.html` marca `nosotros.html:118`. Es copy legítimo de §7.2
+  sobre la carpeta médica viva, no el bloque que se eliminó en T2.
+- `isaa-home.html` aparece en casi todos los greps. Es el respaldo del archivo único
+  original, gitignoreado, y no es parte del sitio.
+
+---
+
+## 12 · El footer todavía no lleva logotipo
+
+T14 dice "en el footer, sobre navy, ambos en blanco". Hoy el footer no tiene marca ni
+símbolo — solo las tres columnas y la línea base. Si quieres el logotipo ahí, dilo y se
+agrega; no lo inventé.
