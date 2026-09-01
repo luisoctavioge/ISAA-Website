@@ -2,7 +2,7 @@
 
 **Todo lo de aquí es material de relleno.** Son fotos de banco elegidas para que el
 sitio se pueda revisar con imagen real en vez de manchas de degradado. **Ninguna es
-definitiva.** Se sustituyen por fotografía propia antes de publicar en isaa.app.
+definitiva.** Se sustituyen por fotografía propia antes de publicar en isaa.io.
 
 Todas de [Pexels](https://www.pexels.com/license/), cuya licencia permite uso comercial
 sin atribución. Se registran aquí de todos modos, para poder rastrear y reemplazar.

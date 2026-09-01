@@ -24,7 +24,7 @@ Verificado el 2026-08-23: el PDF nunca estuvo en el historial de git.
 ## Stack
 
 HTML, CSS y JS planos. Sin framework, sin bundler, sin TypeScript, sin Tailwind.
-El requisito real: el sitio se monta en isaa.app subiendo la carpeta, sin paso de build.
+El requisito real: el sitio se monta en isaa.io subiendo la carpeta, sin paso de build.
 Única petición externa: Google Fonts (Inter).
 
 **No cambies el stack sin preguntar.**
@@ -40,7 +40,7 @@ docs/brief.md     la especificación
 ```
 
 Rutas a `assets/` siempre **relativas** (`assets/isaa.css`, nunca `/assets/isaa.css`),
-para que funcionen igual en GitHub Pages bajo subruta y en la raíz de isaa.app.
+para que funcionen igual en GitHub Pages bajo subruta y en la raíz de isaa.io.
 
 `assets/isaa.js` corre en las cuatro páginas: cada bloque comprueba que su nodo exista
 antes de renderizar. Una página sin FAQ simplemente no ejecuta ese render. Al agregar
@@ -126,7 +126,7 @@ Siete páginas construidas; el Blog existe pero está oculto (sin enlaces en nav
       que desarrolla otro equipo. Al cablearlos, buscar por ese `data-ph`.
 - [ ] El sitio NUNCA maneja credenciales: solo enlaza a la plataforma. Nada de
       formularios de login, contraseñas ni tokens en este repo.
-- [ ] Quitar el `<meta name="robots" content="noindex">` de las 7 páginas antes de isaa.app
+- [ ] Quitar el `<meta name="robots" content="noindex">` de las 7 páginas antes de isaa.io
 - [ ] Sombra de un solo lado en `.nav[data-solid="true"]` — barra fija de ancho completo,
       una sombra clara a la izquierda no tendría sentido ahí
 - [ ] Video final del hero — hoy es TEST-HERO comprimido
@@ -137,4 +137,4 @@ Siete páginas construidas; el Blog existe pero está oculto (sin enlaces en nav
 - [ ] Métricas reales del hero
 - [ ] Convenios reales para la banda de compatibilidad
 - [ ] Badges oficiales de App Store y Google Play
-- [ ] Borrar el bloque `.devnotes` antes de publicar en isaa.app
+- [ ] Borrar el bloque `.devnotes` antes de publicar en isaa.io

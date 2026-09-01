@@ -152,7 +152,7 @@ section{position:relative}
 .list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;line-height:1.45;color:var(--fg)}
 
 /* ── Slots de fotografía ────────────────────────────────────── */
-/* En isaa.app sustituye cada .photo por <img> o background-image.
+/* En isaa.io sustituye cada .photo por <img> o background-image.
    Aquí van como slots porque el visor de Artifacts bloquea
    imágenes externas. Los tonos son los del registro emocional [BB]. */
 .photo{position:relative;overflow:hidden;background:var(--muted);background-size:cover;background-position:center}

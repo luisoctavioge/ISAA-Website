@@ -5,7 +5,7 @@
    archivo, con el CSS y el JS locales embebidos.
 
    Existe solo para previsualizar en Artifacts, que admite un
-   único archivo. NO es parte del deploy: a isaa.app se sube la
+   único archivo. NO es parte del deploy: a isaa.io se sube la
    carpeta tal cual.
 
    Uso:
