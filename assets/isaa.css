@@ -332,8 +332,6 @@ section{position:relative}
 .cta__mark circle,.cta__mark path{stroke:#fff;fill:none;stroke-width:5;stroke-linecap:round}
 .cta__mark .eye{fill:#fff;stroke:none}
 .cta:hover .cta__mark{animation:heartbeat 1.4s ease-in-out infinite}
-.stores{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:4px}
-.store{display:flex;align-items:center;gap:9px;padding:10px 18px;border-radius:12px;background:rgba(255,255,255,.1);font-size:14px;font-weight:600;color:#fff}
 
 .foot{padding-block:80px 48px}
 .foot__cols{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
