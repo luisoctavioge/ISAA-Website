@@ -70,13 +70,13 @@
 
   var STEPS = [
     {n:"Paso 1",c:"#0F3460",bgc:"rgba(15,52,96,.14)",ic:"tarjeta",t:"Tarjeta Médica",
-     d:"La información base de cada persona — sangre, alergias, medicinas, seguro y contactos. Compartible por QR."},
+     d:"Sangre, alergias, medicinas, seguro y contactos. Cinco minutos y ya la puedes compartir por QR."},
     {n:"Paso 2",c:"var(--c-teal)",bgc:"rgba(13,148,136,.14)",ic:"circulo",t:"Mi Círculo",
-     d:"Agrupa a las personas: titular y adicionales."},
-    {n:"Paso 3",c:"var(--c-morado)",bgc:"rgba(124,58,237,.14)",ic:"ojo",t:"Ojo Clínico / Nuevo Evento",
-     d:"Escanea; la IA clasifica y propone el evento. O créalo a mano y adjunta sus documentos."},
+     d:"Agrega a quien quieras cuidar. Cada persona con su propio expediente."},
+    {n:"Paso 3",c:"var(--c-morado)",bgc:"rgba(124,58,237,.14)",ic:"ojo",t:"Ojo Clínico",
+     d:"Capturas el documento y te guía a dónde va. Tú confirmas. Y si prefieres, también puedes hacerlo manualmente."},
     {n:"Paso 4",c:"var(--c-azul)",bgc:"rgba(37,99,235,.14)",ic:"evento",t:"Eventos Médicos",
-     d:"Gestión del expediente — todo vive aquí."}
+     d:"Todo lo que pasa alrededor de un motivo de salud, junto: documentos, fechas y conversaciones."}
   ];
 
   var FAQ = [
