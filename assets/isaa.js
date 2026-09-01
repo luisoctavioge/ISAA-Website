@@ -54,7 +54,7 @@
     {c:"#0F3460",bgc:"rgba(15,52,96,.14)",ic:"corazon",over:"Confianza",t:"Lista cuando más importa",
      em:"Tranquilidad en cualquier emergencia.",
      fu:"Tu identidad médica con QR, accesible al instante y compartible con quien decidas.",
-     chips:["Tarjeta QR","Acceso sin login","Sangre · alergias · medicinas","Contacto de emergencia"]}
+     chips:["Tarjeta QR","Sin cuenta para quien recibe","Sangre · alergias · medicinas","Contacto de emergencia"]}
   ];
 
   var QUOTES = [
