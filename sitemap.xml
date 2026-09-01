@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 6 páginas públicas. blog.html queda fuera a propósito: conserva su
+     noindex mientras la sección no se use. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://isaa.io/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://isaa.io/como-funciona.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://isaa.io/nosotros.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://isaa.io/aviso-privacidad.html</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://isaa.io/terminos.html</loc>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://isaa.io/datos-salud.html</loc>
+    <priority>0.3</priority>
+  </url>
+</urlset>

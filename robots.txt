@@ -1,0 +1,7 @@
+# El sitio entero sigue con <meta name="robots" content="noindex">
+# hasta producción. Aquí no se bloquea nada más.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://isaa.io/sitemap.xml
