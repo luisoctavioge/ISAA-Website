@@ -20,6 +20,9 @@
 
   /* Código funcional fijo [BB] */
   --c-azul:#2563EB;
+  /* Colores del logotipo — no son tokens del sistema [T14] */
+  --logo-wordmark:#0075BE;
+  --logo-simbolo:#4DC0DF;
   --c-verde:#16A34A;
   --c-morado:#7C3AED;
   --c-teal:#0D9488;
@@ -193,7 +196,8 @@ section{position:relative}
 .mark{width:34px;height:34px;flex:none}
 .mark circle,.mark path{stroke:var(--c-azul);fill:none;stroke-width:5;stroke-linecap:round}
 .mark .eye{fill:var(--c-azul);stroke:none}
-.wordmark{font-weight:800;font-size:21px;letter-spacing:.16em;color:var(--c-azul)}
+.wordmark{display:block;width:94px;color:var(--logo-wordmark)}
+.wordmark svg{display:block;width:100%;height:auto}
 
 /* ── Splash · el latido del smiley [BB] ─────────────────────── */
 .splash{
