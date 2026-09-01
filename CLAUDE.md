@@ -116,9 +116,14 @@ Con el sitio en una URL pública, que se vea que son placeholders importa más, 
 
 ## Pendientes
 
+Rama `cambios-pre-lanzamiento`: 31 de 33 tareas de la revisión de Jesús aplicadas.
+Dudas y decisiones en `docs/PARA-JESUS.md`.
+
 Siete páginas construidas; el Blog existe pero está oculto (sin enlaces en nav ni footer). QA de §10: 18 pasan, 2 a criterio, 0 fallan.
 
-- [ ] Contraste de `--primary` en fondo claro: 2.73:1, por debajo del mínimo AA
+- [ ] Contraste de los chips: el color al 15% detrás de su propio label deja el
+      texto en 3.95–4.15, bajo AA. Se cierra bajando el tinte a 6–7%.
+- [ ] `--c-morado` sin variante `-txt`: pasa sobre --bg pero no sobre su tinte
 - [ ] Alta de newsletter (§9.4) — sin backend, el botón no envía nada
 - [ ] Redacción legal de `aviso-privacidad.html`, `terminos.html` y `datos-salud.html` — hoy son andamios
 - [ ] Los CTAs de alta son `<button>` inertes marcados con `data-ph`. Todos conectan

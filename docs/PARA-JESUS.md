@@ -258,3 +258,48 @@ Las reglas `.rows` y `.row` del CSS quedaron sin uso al borrar la sección de
 La bajada del bloque dice *"Nuestro único rival es la inercia de no organizarse…"* y la
 tarjeta 3 ahora se titula *"Nuestro único competidor es la inercia"*. Se dejó así porque
 pides explícitamente no tocar el titular ni la bajada.
+
+---
+
+# Resumen de ejecución
+
+Rama `cambios-pre-lanzamiento`, 35 commits, uno por tarea.
+QA de §10 después de cada una: **19 pasan · 2 a criterio · 0 fallan.**
+
+## Ejecutadas — 31 de 33
+
+T1–T18 y T23–T36. **T19 no se ejecutó**, es el retiro de producción.
+
+## No ejecutadas, y por qué
+
+| | |
+|---|---|
+| **T19** | Retiro de producción. Lo dices dos veces y Luis lo confirmó. |
+| **T20, T21, T22** | No existen en el archivo. Ver punto 4. |
+
+## Sección 2 — requieren tu criterio, no se tocaron
+
+- Rediseño de todas las pills del sitio
+- Encuadre de los mockups: recortar al detalle, no el dispositivo completo.
+  Nota: desde que se aplicó tu design system, las siete planchas de §8.2 ya
+  muestran pantallas reales de la app, no cajitas grises. El recorte que pides
+  ahora es más viable y vale más.
+
+## Sección 3 — bloqueadas, no se inventó nada
+
+`og:image` · Facebook · WhatsApp · correos de contacto, prensa y ARCO ·
+las 4 respuestas de FAQ marcadas PENDIENTE · Nulshock · widget de chat ·
+página 404 y redirección www ↔ apex · razón social para el footer.
+
+**LinkedIn, Instagram y TikTok tienen URL confirmada y no se montaron todavía**:
+el punto 27 del PDF pide una columna nueva en el footer, que es trabajo de la
+sección 1 pero no tiene número de tarea en `TAREAS-CLAUDE-CODE.md`. Dime si la
+armo o si esperabas que fuera con T30 del PDF (Footer), que tampoco tiene tarea.
+
+## Lo que más conviene que revises
+
+1. **El tercer fondo de contraste** (punto 16). Los chips siguen por debajo de AA
+   y la solución cambia cómo se ven.
+2. **`--c-morado` no está en tu lista de seis** y también falla sobre su tinte.
+3. **La bajada de pilares** describe una estructura que T27 eliminó (punto 13).
+4. **`simbolo.svg`** no llegó.
