@@ -302,9 +302,6 @@ section{position:relative}
 .plan .list{margin-top:4px}
 .plan .list li{font-size:15px}
 .plan__foot{margin-top:auto;padding-top:8px}
-.value{margin-top:24px;border-radius:var(--r);background:var(--muted);box-shadow:var(--inset);padding:32px;display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;gap:28px;align-items:start}
-.value h4{font-size:22px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
-.value div p{margin-top:6px;font-size:15px;color:var(--mfg)}
 
 /* ── Pasos ──────────────────────────────────────────────────── */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;align-items:start}
@@ -394,7 +391,6 @@ body[data-review="on"] [data-ph]::before{
   .split{grid-template-columns:1fr}
   .split__media{min-height:340px}
   .masonry{columns:1}
-  .value{grid-template-columns:1fr;gap:20px}
   .nav__links{display:none}
   .step__arrow{display:none}
   .float{right:16px;left:16px;width:auto;bottom:16px}
