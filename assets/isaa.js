@@ -78,11 +78,11 @@
   ];
 
   var FAQ = [
-    ["¿ISAA reemplaza a mi médico o a mi aseguradora?","No. ISAA no atiende ni asegura: organiza. Guardamos y ordenamos la documentación de tu seguimiento de salud para que la tengas lista cuando cualquier médico, hospital o aseguradora te la pida."],
-    ["¿Quién puede ver la información de mi familia?","Solo quien tú decidas. Los permisos son por persona: cada miembro del Círculo tiene su propio expediente y tú controlas qué se comparte y con quién."],
-    ["¿Necesito subir todo mi historial para empezar?","No. Empieza con tu Tarjeta Médica —sangre, alergias, medicinas y contactos— y agrega eventos conforme ocurran. El expediente se construye solo, con el uso."],
-    ["¿Qué hace exactamente el Ojo Clínico?","Escanea el documento que le tomes en foto, lo lee, lo clasifica y te propone a qué evento médico pertenece. Tú solo confirmas."],
-    ["¿Sirve si no tengo seguro de gastos médicos mayores?","Sí. El expediente y la Tarjeta Médica funcionan igual sin póliza. La función de armar el paquete para reembolso es la única que aplica solo con seguro."]
+    ["reemplaza-medico","¿ISAA reemplaza a mi médico o a mi aseguradora?","No. ISAA no atiende ni asegura: organiza. Guardamos y ordenamos la documentación de tu seguimiento de salud para que la tengas lista cuando cualquier médico, hospital o aseguradora te la pida."],
+    ["quien-ve-info","¿Quién puede ver la información de mi familia?","Solo quien tú decidas. Los permisos son por persona: cada miembro del Círculo tiene su propio expediente y tú controlas qué se comparte y con quién."],
+    ["subir-historial","¿Necesito subir todo mi historial para empezar?","No. Empieza con tu Tarjeta Médica —sangre, alergias, medicinas y contactos— y agrega eventos conforme ocurran. El expediente se construye solo, con el uso."],
+    ["que-hace-ojo-clinico","¿Qué hace exactamente el Ojo Clínico?","Escanea el documento que le tomes en foto, lo lee, lo clasifica y te propone a qué evento médico pertenece. Tú solo confirmas."],
+    ["sin-seguro","¿Sirve si no tengo seguro de gastos médicos mayores?","Sí. El expediente y la Tarjeta Médica funcionan igual sin póliza. La función de armar el paquete para reembolso es la única que aplica solo con seguro."]
   ];
 
   var LOGOS = ["Hospitales","Laboratorios","Farmacias","Aseguradoras","Consultorios","Clínicas"];
@@ -137,9 +137,9 @@
   }).join("");
 
   el("faq").innerHTML = FAQ.map(function(f){
-    return '<details class="q rv"><summary>'+esc(f[0])
+    return '<details class="q rv" id="faq-'+f[0]+'"><summary>'+esc(f[1])
       + '<svg class="q__x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>'
-      + '</summary><p class="q__a">'+esc(f[1])+'</p></details>';
+      + '</summary><p class="q__a">'+esc(f[2])+'</p></details>';
   }).join("");
 
   /* ── Reveal al hacer scroll ────────────────────────────── */
