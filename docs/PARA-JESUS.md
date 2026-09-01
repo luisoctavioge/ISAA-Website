@@ -154,3 +154,42 @@ Lo mismo aplica a T11, que sí lista las cuatro.
 T14 dice "en el footer, sobre navy, ambos en blanco". Hoy el footer no tiene marca ni
 símbolo — solo las tres columnas y la línea base. Si quieres el logotipo ahí, dilo y se
 agrega; no lo inventé.
+
+---
+
+## 13 · T27 dejó la bajada de pilares describiendo algo que ya no existe
+
+`index.html:193` dice:
+
+> Cuatro pilares derivados de las funcionalidades reales — **su beneficio emocional,
+> su beneficio funcional** y lo que los hace posibles.
+
+T27 quitó exactamente esa estructura: las tarjetas ya no separan emocional de funcional.
+La bajada quedó describiendo un formato que no está en pantalla.
+
+**No la reescribí**, porque es copy y el copy es tuyo. Una opción, por si sirve de punto
+de partida:
+
+> Cuatro cosas que dejas de cargar, y una app que se encarga de las cuatro.
+
+Es la que ya usa el H2 de esa misma sección, así que habría que cambiar una de las dos.
+
+---
+
+## 14 · T17 — el FAQPage queda pendiente
+
+La tarea dice "después de que se aplique T22", y T22 no existe en el archivo. El
+`SoftwareApplication` sí está, con los tres precios verificados contra las tarjetas
+(0 · 149 · 1149, coinciden).
+
+El `FAQPage` se añade al terminar T34–T36: no tiene sentido marcar cinco preguntas que
+van a ser trece.
+
+---
+
+## 15 · T18 — el hero de index no tiene `<img>`
+
+Pides `fetchpriority="high"` "solo a la imagen del hero". En `index.html` el hero es
+video con póster, no una etiqueta `<img>`. El único hero con imagen es el de
+`nosotros.html`, y ahí se aplicó — junto con quitarle `loading="lazy"`, que se
+contradice con `fetchpriority`.
