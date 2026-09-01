@@ -53,7 +53,14 @@ track.includes('-.02') && !track.includes('-.07')
   : bad('Tracking incorrecto', track.join(', '));
 
 const h2s = [...all.matchAll(/<h2 class="h2[^"]*"[^>]*>([\s\S]*?)<\/h2>/g)].map(m=>m[1]);
-const sinHl = h2s.filter(h => !h.includes('class="hl"'));
+/* Excepción deliberada: T30 de la revisión de Jesús pide quitarle la
+   segunda cláusula a este H2. Rompe la regla 7 del manual, pero es
+   decisión del dueño. Se reporta como criterio, no como fallo. */
+const EXCEPCIONES = ['Cuatro cosas no negociables'];
+const sinHl = h2s.filter(h => !h.includes('class="hl"'))
+  .filter(h => !EXCEPCIONES.some(e => h.includes(e)));
+const exentos = h2s.filter(h => EXCEPCIONES.some(e => h.includes(e)));
+if (exentos.length) warn(`${exentos.length} H2 sin segunda cláusula, por decisión`, 'T30 · "Cuatro cosas no negociables" — Jesús pidió quitarla');
 sinHl.length ? bad(`${sinHl.length} H2 sin segunda cláusula en Primary`, sinHl.map(h=>h.replace(/<[^>]+>/g,' ').trim().slice(0,45)).join(' | '))
              : ok(`Los ${h2s.length} H2 tienen su segunda cláusula en Primary`);
 

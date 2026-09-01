@@ -20,12 +20,14 @@
   var PAINS_A = [
     ["desk","El estudio está en WhatsApp, en un correo, o en ningún lado"],
     ["sofa","Te piden un documento de hace dos años y empieza la búsqueda"],
-    ["warm","El reembolso se atora por un papel que sí tenías"]
+    ["warm","El reembolso se atora por un papel que sí tenías"],
+    ["desk","Llevas cuatro años con el mismo tratamiento y los estudios están en cuatro lugares distintos."]
   ];
   var PAINS_B = [
     ["sofa","Nadie más en tu familia sabe dónde está nada"],
     ["warm","Llegas a consulta y repites tu historial de memoria"],
-    ["desk","Cambias de doctor y empiezas el expediente otra vez"]
+    ["desk","Cambias de doctor y empiezas el expediente otra vez"],
+    ["sofa","Cambias de ginecólogo a mitad del embarazo y hay que empezar de cero."]
   ];
 
   var ICONS = {
@@ -37,24 +39,31 @@
     evento:'<path d="M2 12h4l2.5-7 5 14L17 12h5"/>'
   };
   function svg(p){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+p+'</svg>';}
+  /* Un color de marca que carga texto usa su variante -txt [T33].
+     El icono conserva el original: T33 excluye fill de iconos. */
+  var TXT = {"var(--primary)":"var(--primary-txt)","var(--secondary)":"var(--secondary-txt)",
+             "var(--c-naranja)":"var(--c-naranja-txt)","var(--c-verde)":"var(--c-verde-txt)",
+             "var(--c-teal)":"var(--c-teal-txt)","var(--c-azul)":"var(--c-azul-txt)"};
+  function txt(c){ return TXT[c] || c; }
+
 
   var PILLARS = [
-    {c:"var(--c-teal)",bgc:"rgba(13,148,136,.14)",ic:"circulo",over:"Pertenencia",t:"Tu familia médica, unida",
-     em:"Los que más te importan, cuidados y cerca.",
-     fu:"Cada persona con su propio expediente e identidad, dentro de un Círculo.",
-     chips:["Mi Círculo","Titular + miembros","Expediente por persona","Círculo broker"]},
-    {c:"var(--c-morado)",bgc:"rgba(124,58,237,.14)",ic:"ojo",over:"Orden",t:"Todo capturado y clasificado, solo",
-     em:"La calma de no perder nada.",
-     fu:"El Ojo Clínico lee y clasifica con IA; un correo único por evento termina con la fragmentación.",
+    {c:"var(--c-teal)",bgc:"rgba(13,148,136,.14)",ic:"circulo",
+     t:"Los que más te importan en un solo lugar",
+     d:"Cada persona con su expediente, y su historia completa en orden.",
+     chips:["Mi Círculo","Cada quien su expediente","Expediente por persona","Círculo broker"]},
+    {c:"var(--c-morado)",bgc:"rgba(124,58,237,.14)",ic:"ojo",
+     t:"Se ordena mientras vas avanzando",
+     d:"Capturas el documento y el Ojo Clínico, asistido por IA, te guía. Tú confirmas.",
      chips:["Ojo Clínico IA","Registro de eventos","Correo único por evento","Expediente + PDF","Búsqueda"]},
-    {c:"var(--c-verde)",bgc:"rgba(22,163,74,.14)",ic:"escudo",over:"Control",t:"Gestiona y resuelve sin moverte",
-     em:"Dejas de perseguir trámites.",
-     fu:"Te comunicas con cada instancia por evento y armas el paquete listo para tu aseguradora.",
+    {c:"var(--c-verde)",bgc:"rgba(22,163,74,.14)",ic:"escudo",
+     t:"Todas las conversaciones, junto al evento del que hablan",
+     d:"Hospitales, laboratorios, farmacias, consultorios, aseguradoras — todos en un mismo lugar. Sin buscar en el correo ni en WhatsApp.",
      chips:["Chat por evento → correo","Reembolsos","Paquete + checklist","Descarga lista para enviar"]},
-    {c:"#0F3460",bgc:"rgba(15,52,96,.14)",ic:"corazon",over:"Confianza",t:"Lista cuando más importa",
-     em:"Tranquilidad en cualquier emergencia.",
-     fu:"Tu identidad médica con QR, accesible al instante y compartible con quien decidas.",
-     chips:["Tarjeta QR","Acceso sin login","Sangre · alergias · medicinas","Contacto de emergencia"]}
+    {c:"#0F3460",bgc:"rgba(15,52,96,.14)",ic:"corazon",
+     t:"Todo va contigo, siempre",
+     d:"Tu historial y el de tu Círculo, de un médico a otro. Y en una urgencia, tu Tarjeta Médica se abre con un QR — quien la recibe no necesita cuenta.",
+     chips:["Tarjeta QR","Sin cuenta para quien recibe","Sangre · alergias · medicinas","Contacto de emergencia"]}
   ];
 
   var QUOTES = [
@@ -68,24 +77,46 @@
 
   var STEPS = [
     {n:"Paso 1",c:"#0F3460",bgc:"rgba(15,52,96,.14)",ic:"tarjeta",t:"Tarjeta Médica",
-     d:"La información base de cada persona — sangre, alergias, medicinas, seguro y contactos. Compartible por QR."},
+     d:"Sangre, alergias, medicinas, seguro y contactos. Cinco minutos y ya la puedes compartir por QR."},
     {n:"Paso 2",c:"var(--c-teal)",bgc:"rgba(13,148,136,.14)",ic:"circulo",t:"Mi Círculo",
-     d:"Agrupa a las personas: titular y adicionales."},
-    {n:"Paso 3",c:"var(--c-morado)",bgc:"rgba(124,58,237,.14)",ic:"ojo",t:"Ojo Clínico / Nuevo Evento",
-     d:"Escanea; la IA clasifica y propone el evento. O créalo a mano y adjunta sus documentos."},
+     d:"Agrega a quien quieras cuidar. Cada persona con su propio expediente."},
+    {n:"Paso 3",c:"var(--c-morado)",bgc:"rgba(124,58,237,.14)",ic:"ojo",t:"Ojo Clínico",
+     d:"Capturas el documento y te guía a dónde va. Tú confirmas. Y si prefieres, también puedes hacerlo manualmente."},
     {n:"Paso 4",c:"var(--c-azul)",bgc:"rgba(37,99,235,.14)",ic:"evento",t:"Eventos Médicos",
-     d:"Gestión del expediente — todo vive aquí."}
+     d:"Todo lo que pasa alrededor de un motivo de salud, junto: documentos, fechas y conversaciones."}
   ];
 
-  var FAQ = [
-    ["¿ISAA reemplaza a mi médico o a mi aseguradora?","No. ISAA no atiende ni asegura: organiza. Guardamos y ordenamos la documentación de tu seguimiento de salud para que la tengas lista cuando cualquier médico, hospital o aseguradora te la pida."],
-    ["¿Quién puede ver la información de mi familia?","Solo quien tú decidas. Los permisos son por persona: cada miembro del Círculo tiene su propio expediente y tú controlas qué se comparte y con quién."],
-    ["¿Necesito subir todo mi historial para empezar?","No. Empieza con tu Tarjeta Médica —sangre, alergias, medicinas y contactos— y agrega eventos conforme ocurran. El expediente se construye solo, con el uso."],
-    ["¿Qué hace exactamente el Ojo Clínico?","Escanea el documento que le tomes en foto, lo lee, lo clasifica y te propone a qué evento médico pertenece. Tú solo confirmas."],
-    ["¿Sirve si no tengo seguro de gastos médicos mayores?","Sí. El expediente y la Tarjeta Médica funcionan igual sin póliza. La función de armar el paquete para reembolso es la única que aplica solo con seguro."]
+  /* FAQ partido por página [T34]. Cada contenedor declara cuál le
+     toca con data-faq. Las entradas marcadas PENDIENTE quedan
+     comentadas hasta que pasen revisión legal [T35, T36]. */
+  var FAQ_HOME = [
+    ["reemplaza-medico","¿ISAA reemplaza a mi médico o a mi aseguradora?","No. ISAA no atiende ni asegura: organiza. Guardamos y ordenamos la documentación de tu seguimiento de salud para que la tengas lista cuando cualquier médico, hospital o aseguradora te la pida."],
+    ["aseguradora-no-ve","¿Mi aseguradora puede ver lo que guardo aquí?","No, salvo que tú se lo mandes. ISAA no está conectada con ninguna aseguradora ni le reporta nada a nadie. Tu expediente es tuyo y sale de aquí solo cuando tú lo compartes."],
+    ["gratis-no-expira","¿El plan Gratis es una prueba que se acaba?","No. Es un plan permanente, con límites: 2 eventos médicos, 5 documentos, 2 hilos de conversación y una exportación en PDF. No pedimos tarjeta y no se convierte en cobro."],
+    ["cuanto-cuesta-premium","¿Cuánto cuesta y qué incluye Premium?","$149 al mes o $1,149 al año, que sale en $96 mensuales. Quita todos los límites del plan Gratis para el titular."],
+    ["costo-por-persona","¿Cuánto cuesta agregar a alguien de mi familia?","$99 al mes o $749 al año por cada persona adicional, sin límite de cuántas. Cada una tiene su propio expediente."],
+    ["quien-ve-info","¿Quién puede ver mi información?","Solo quien tú decidas. Nada se comparte por omisión. Al crear tu cuenta aceptas tres cosas por separado —términos, manejo de datos sensibles y comunicaciones de marketing— y puedes rechazar la última sin perder nada de la app."],
+    ["cerrar-cuenta","¿Qué pasa con mis datos si cierro mi cuenta?","Puedes llevarte tu expediente completo. La portabilidad es un derecho que te da la ley, no una función del plan, y aplica igual en Gratis que en Premium."]
   ];
 
-  var LOGOS = ["Hospitales","Laboratorios","Farmacias","Aseguradoras","Consultorios","Clínicas"];
+  /* PENDIENTE · sin publicar, esperan redacción legal [T35]
+     · ¿Cómo cancelo?
+     · ¿Qué pasa con mi expediente si dejo de pagar?
+     Van entre "costo-por-persona" y "quien-ve-info". */
+
+  var FAQ_COMO = [
+    ["subir-historial","¿Necesito subir todo mi historial para empezar?","No. Empieza con tu Tarjeta Médica —sangre, alergias, medicinas y contactos— y agrega eventos conforme ocurran. El expediente crece con el uso."],
+    ["medico-sin-cuenta","¿Mi doctor tiene que crear una cuenta para recibir lo que le mando?","No, y eso es a propósito. Quien recibe —tu médico, un laboratorio, tu aseguradora— abre lo que le compartes sin registrarse ni instalar nada. ISAA hace el trabajo para que nadie más tenga que cambiar cómo trabaja."],
+    ["que-hace-ojo-clinico","¿Qué hace exactamente el Ojo Clínico?","Lee la foto del documento, lo clasifica y te propone a qué evento médico pertenece. Tú solo confirmas."],
+    ["sin-seguro","¿Sirve si no tengo seguro de gastos médicos mayores?","Sí. El expediente y la Tarjeta Médica funcionan igual sin póliza. Armar el paquete para reembolso es lo único que aplica solo con seguro."]
+  ];
+
+  /* PENDIENTE · sin publicar, esperan redacción legal [T36]
+     · ¿Quién lee mis documentos cuando los subo?
+     · ¿Dónde se guardan mis datos?
+     Van al final de FAQ_COMO. */
+
+  var LOGOS = ["Hospitales","Laboratorios","Farmacias","Consultorios","Aseguradoras"];
 
   /* ── Render ────────────────────────────────────────────── */
   function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
@@ -103,17 +134,11 @@
 
   el("pilares-grid").innerHTML = PILLARS.map(function(p){
     return '<article class="card pillar rv">'
-      + '<div class="pillar__head">'
-      +   '<span class="ico" style="background:'+p.bgc+';color:'+p.c+';stroke:'+p.c+'">'+svg(ICONS[p.ic])+'</span>'
-      +   '<span class="overline" style="color:'+p.c+'">'+esc(p.over)+'</span>'
-      + '</div>'
+      + '<span class="ico" style="background:'+p.bgc+';color:'+p.c+';stroke:'+p.c+'">'+svg(ICONS[p.ic])+'</span>'
       + '<h3 class="card-t">'+esc(p.t)+'</h3>'
-      + '<div class="pillar__ben">'
-      +   '<div><span class="overline">Emocional</span><p class="body">'+esc(p.em)+'</p></div>'
-      +   '<div><span class="overline">Funcional</span><p class="body">'+esc(p.fu)+'</p></div>'
-      + '</div>'
+      + '<p class="body">'+esc(p.d)+'</p>'
       + '<div class="pillar__chips">'+p.chips.map(function(c){
-            return '<span class="chip" style="background:'+p.bgc+';color:'+p.c+'">'+esc(c)+'</span>';}).join("")
+            return '<span class="chip" style="background:'+p.bgc+';color:'+txt(p.c)+'">'+esc(c)+'</span>';}).join("")
       + '</div></article>';
   }).join("");
 
@@ -129,18 +154,22 @@
   el("steps").innerHTML = STEPS.map(function(s){
     return '<div class="step rv">'
       + '<span class="ico ico--lg" style="background:'+s.bgc+';color:'+s.c+';stroke:'+s.c+'">'+svg(ICONS[s.ic])+'</span>'
-      + '<span class="overline" style="color:'+s.c+'">'+esc(s.n)+'</span>'
+      + '<span class="overline" style="color:'+txt(s.c)+'">'+esc(s.n)+'</span>'
       + '<h3 class="card-t">'+esc(s.t)+'</h3>'
       + '<p class="body">'+esc(s.d)+'</p>'
       + '<svg class="step__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>'
       + '</div>';
   }).join("");
 
-  el("faq").innerHTML = FAQ.map(function(f){
-    return '<details class="q rv"><summary>'+esc(f[0])
-      + '<svg class="q__x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>'
-      + '</summary><p class="q__a">'+esc(f[1])+'</p></details>';
-  }).join("");
+  var cajaFaq = $("faq");
+  if (cajaFaq) {
+    var lista = cajaFaq.getAttribute("data-faq") === "como" ? FAQ_COMO : FAQ_HOME;
+    cajaFaq.innerHTML = lista.map(function(f){
+      return '<details class="q rv" id="faq-'+f[0]+'"><summary>'+esc(f[1])
+        + '<svg class="q__x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>'
+        + '</summary><p class="q__a">'+esc(f[2])+'</p></details>';
+    }).join("");
+  }
 
   /* ── Reveal al hacer scroll ────────────────────────────── */
   var items = document.querySelectorAll(".rv");

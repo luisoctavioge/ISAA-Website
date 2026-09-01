@@ -19,7 +19,7 @@ Se sube la carpeta tal cual. Sin compilación, sin dependencias de Node en produ
 La única petición externa es Google Fonts (Inter).
 
 Las rutas a `assets/` son relativas, así que la misma carpeta funciona en GitHub Pages
-bajo subruta y en la raíz de `isaa.app`.
+bajo subruta y en la raíz de `isaa.io`.
 
 ## Estructura
 
@@ -55,7 +55,7 @@ node build/inline.mjs --all
 
 Escribe en `build/inline/` (ignorado por git). No es parte del deploy.
 
-## Antes de publicar en isaa.app
+## Antes de publicar en isaa.io
 
 Las siete páginas llevan `<meta name="robots" content="noindex, nofollow">` porque el
 staging es público. Hay que quitarlo, y borrar el bloque `.devnotes` de `index.html`.

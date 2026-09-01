@@ -6,6 +6,9 @@
 *.zip
 /docs/internal/
 
+# Carpeta de entrega · se genera desde docs/, no se versiona
+/Para-Jesus/
+
 # Salida de build/inline.mjs · se regenera, no se versiona
 /build/inline/
 

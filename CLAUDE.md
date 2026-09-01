@@ -24,7 +24,7 @@ Verificado el 2026-08-23: el PDF nunca estuvo en el historial de git.
 ## Stack
 
 HTML, CSS y JS planos. Sin framework, sin bundler, sin TypeScript, sin Tailwind.
-El requisito real: el sitio se monta en isaa.app subiendo la carpeta, sin paso de build.
+El requisito real: el sitio se monta en isaa.io subiendo la carpeta, sin paso de build.
 Única petición externa: Google Fonts (Inter).
 
 **No cambies el stack sin preguntar.**
@@ -40,7 +40,7 @@ docs/brief.md     la especificación
 ```
 
 Rutas a `assets/` siempre **relativas** (`assets/isaa.css`, nunca `/assets/isaa.css`),
-para que funcionen igual en GitHub Pages bajo subruta y en la raíz de isaa.app.
+para que funcionen igual en GitHub Pages bajo subruta y en la raíz de isaa.io.
 
 `assets/isaa.js` corre en las cuatro páginas: cada bloque comprueba que su nodo exista
 antes de renderizar. Una página sin FAQ simplemente no ejecuta ese render. Al agregar
@@ -116,9 +116,17 @@ Con el sitio en una URL pública, que se vea que son placeholders importa más, 
 
 ## Pendientes
 
+Rama `cambios-pre-lanzamiento`: 31 de 33 tareas de la revisión de Jesús aplicadas.
+Dos documentos de entrega:
+- `docs/PARA-JESUS.md` — para Jesús, en lenguaje llano. Qué quedó, qué se necesita de él.
+- `docs/PARA-JESUS-CLAUDE.md` — para que él se lo pase a su Claude Code: rutas, valores
+  medidos, comandos y las trampas conocidas del repo.
+
 Siete páginas construidas; el Blog existe pero está oculto (sin enlaces en nav ni footer). QA de §10: 18 pasan, 2 a criterio, 0 fallan.
 
-- [ ] Contraste de `--primary` en fondo claro: 2.73:1, por debajo del mínimo AA
+- [ ] Contraste de los chips: el color al 15% detrás de su propio label deja el
+      texto en 3.95–4.15, bajo AA. Se cierra bajando el tinte a 6–7%.
+- [ ] `--c-morado` sin variante `-txt`: pasa sobre --bg pero no sobre su tinte
 - [ ] Alta de newsletter (§9.4) — sin backend, el botón no envía nada
 - [ ] Redacción legal de `aviso-privacidad.html`, `terminos.html` y `datos-salud.html` — hoy son andamios
 - [ ] Los CTAs de alta son `<button>` inertes marcados con `data-ph`. Todos conectan
@@ -126,7 +134,7 @@ Siete páginas construidas; el Blog existe pero está oculto (sin enlaces en nav
       que desarrolla otro equipo. Al cablearlos, buscar por ese `data-ph`.
 - [ ] El sitio NUNCA maneja credenciales: solo enlaza a la plataforma. Nada de
       formularios de login, contraseñas ni tokens en este repo.
-- [ ] Quitar el `<meta name="robots" content="noindex">` de las 7 páginas antes de isaa.app
+- [ ] Quitar el `<meta name="robots" content="noindex">` de las 7 páginas antes de isaa.io
 - [ ] Sombra de un solo lado en `.nav[data-solid="true"]` — barra fija de ancho completo,
       una sombra clara a la izquierda no tendría sentido ahí
 - [ ] Video final del hero — hoy es TEST-HERO comprimido
@@ -137,4 +145,4 @@ Siete páginas construidas; el Blog existe pero está oculto (sin enlaces en nav
 - [ ] Métricas reales del hero
 - [ ] Convenios reales para la banda de compatibilidad
 - [ ] Badges oficiales de App Store y Google Play
-- [ ] Borrar el bloque `.devnotes` antes de publicar en isaa.app
+- [ ] Borrar el bloque `.devnotes` antes de publicar en isaa.io
