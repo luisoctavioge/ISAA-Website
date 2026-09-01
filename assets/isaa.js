@@ -86,13 +86,35 @@
      d:"Todo lo que pasa alrededor de un motivo de salud, junto: documentos, fechas y conversaciones."}
   ];
 
-  var FAQ = [
+  /* FAQ partido por página [T34]. Cada contenedor declara cuál le
+     toca con data-faq. Las entradas marcadas PENDIENTE quedan
+     comentadas hasta que pasen revisión legal [T35, T36]. */
+  var FAQ_HOME = [
     ["reemplaza-medico","¿ISAA reemplaza a mi médico o a mi aseguradora?","No. ISAA no atiende ni asegura: organiza. Guardamos y ordenamos la documentación de tu seguimiento de salud para que la tengas lista cuando cualquier médico, hospital o aseguradora te la pida."],
-    ["quien-ve-info","¿Quién puede ver la información de mi familia?","Solo quien tú decidas. Los permisos son por persona: cada miembro del Círculo tiene su propio expediente y tú controlas qué se comparte y con quién."],
-    ["subir-historial","¿Necesito subir todo mi historial para empezar?","No. Empieza con tu Tarjeta Médica —sangre, alergias, medicinas y contactos— y agrega eventos conforme ocurran. El expediente se construye solo, con el uso."],
-    ["que-hace-ojo-clinico","¿Qué hace exactamente el Ojo Clínico?","Escanea el documento que le tomes en foto, lo lee, lo clasifica y te propone a qué evento médico pertenece. Tú solo confirmas."],
-    ["sin-seguro","¿Sirve si no tengo seguro de gastos médicos mayores?","Sí. El expediente y la Tarjeta Médica funcionan igual sin póliza. La función de armar el paquete para reembolso es la única que aplica solo con seguro."]
+    ["aseguradora-no-ve","¿Mi aseguradora puede ver lo que guardo aquí?","No, salvo que tú se lo mandes. ISAA no está conectada con ninguna aseguradora ni le reporta nada a nadie. Tu expediente es tuyo y sale de aquí solo cuando tú lo compartes."],
+    ["gratis-no-expira","¿El plan Gratis es una prueba que se acaba?","No. Es un plan permanente, con límites: 2 eventos médicos, 5 documentos, 2 hilos de conversación y una exportación en PDF. No pedimos tarjeta y no se convierte en cobro."],
+    ["cuanto-cuesta-premium","¿Cuánto cuesta y qué incluye Premium?","$149 al mes o $1,149 al año, que sale en $96 mensuales. Quita todos los límites del plan Gratis para el titular."],
+    ["costo-por-persona","¿Cuánto cuesta agregar a alguien de mi familia?","$99 al mes o $749 al año por cada persona adicional, sin límite de cuántas. Cada una tiene su propio expediente."],
+    ["quien-ve-info","¿Quién puede ver mi información?","Solo quien tú decidas. Nada se comparte por omisión. Al crear tu cuenta aceptas tres cosas por separado —términos, manejo de datos sensibles y comunicaciones de marketing— y puedes rechazar la última sin perder nada de la app."],
+    ["cerrar-cuenta","¿Qué pasa con mis datos si cierro mi cuenta?","Puedes llevarte tu expediente completo. La portabilidad es un derecho que te da la ley, no una función del plan, y aplica igual en Gratis que en Premium."]
   ];
+
+  /* PENDIENTE · sin publicar, esperan redacción legal [T35]
+     · ¿Cómo cancelo?
+     · ¿Qué pasa con mi expediente si dejo de pagar?
+     Van entre "costo-por-persona" y "quien-ve-info". */
+
+  var FAQ_COMO = [
+    ["subir-historial","¿Necesito subir todo mi historial para empezar?","No. Empieza con tu Tarjeta Médica —sangre, alergias, medicinas y contactos— y agrega eventos conforme ocurran. El expediente crece con el uso."],
+    ["medico-sin-cuenta","¿Mi doctor tiene que crear una cuenta para recibir lo que le mando?","No, y eso es a propósito. Quien recibe —tu médico, un laboratorio, tu aseguradora— abre lo que le compartes sin registrarse ni instalar nada. ISAA hace el trabajo para que nadie más tenga que cambiar cómo trabaja."],
+    ["que-hace-ojo-clinico","¿Qué hace exactamente el Ojo Clínico?","Lee la foto del documento, lo clasifica y te propone a qué evento médico pertenece. Tú solo confirmas."],
+    ["sin-seguro","¿Sirve si no tengo seguro de gastos médicos mayores?","Sí. El expediente y la Tarjeta Médica funcionan igual sin póliza. Armar el paquete para reembolso es lo único que aplica solo con seguro."]
+  ];
+
+  /* PENDIENTE · sin publicar, esperan redacción legal [T36]
+     · ¿Quién lee mis documentos cuando los subo?
+     · ¿Dónde se guardan mis datos?
+     Van al final de FAQ_COMO. */
 
   var LOGOS = ["Hospitales","Laboratorios","Farmacias","Consultorios","Aseguradoras"];
 
@@ -139,11 +161,15 @@
       + '</div>';
   }).join("");
 
-  el("faq").innerHTML = FAQ.map(function(f){
-    return '<details class="q rv" id="faq-'+f[0]+'"><summary>'+esc(f[1])
-      + '<svg class="q__x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>'
-      + '</summary><p class="q__a">'+esc(f[2])+'</p></details>';
-  }).join("");
+  var cajaFaq = $("faq");
+  if (cajaFaq) {
+    var lista = cajaFaq.getAttribute("data-faq") === "como" ? FAQ_COMO : FAQ_HOME;
+    cajaFaq.innerHTML = lista.map(function(f){
+      return '<details class="q rv" id="faq-'+f[0]+'"><summary>'+esc(f[1])
+        + '<svg class="q__x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>'
+        + '</summary><p class="q__a">'+esc(f[2])+'</p></details>';
+    }).join("");
+  }
 
   /* ── Reveal al hacer scroll ────────────────────────────── */
   var items = document.querySelectorAll(".rv");
