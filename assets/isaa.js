@@ -41,21 +41,21 @@
   function svg(p){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+p+'</svg>';}
 
   var PILLARS = [
-    {c:"var(--c-teal)",bgc:"rgba(13,148,136,.14)",ic:"circulo",over:"Pertenencia",t:"Tu familia médica, unida",
-     em:"Los que más te importan, cuidados y cerca.",
-     fu:"Cada persona con su propio expediente e identidad, dentro de un Círculo.",
-     chips:["Mi Círculo","Titular + miembros","Expediente por persona","Círculo broker"]},
-    {c:"var(--c-morado)",bgc:"rgba(124,58,237,.14)",ic:"ojo",over:"Orden",t:"Todo capturado y clasificado, solo",
-     em:"La calma de no perder nada.",
-     fu:"El Ojo Clínico lee y clasifica con IA; un correo único por evento termina con la fragmentación.",
+    {c:"var(--c-teal)",bgc:"rgba(13,148,136,.14)",ic:"circulo",
+     t:"Los que más te importan en un solo lugar",
+     d:"Cada persona con su expediente, y su historia completa en orden.",
+     chips:["Mi Círculo","Cada quien su expediente","Expediente por persona","Círculo broker"]},
+    {c:"var(--c-morado)",bgc:"rgba(124,58,237,.14)",ic:"ojo",
+     t:"Se ordena mientras vas avanzando",
+     d:"Capturas el documento y el Ojo Clínico, asistido por IA, te guía. Tú confirmas.",
      chips:["Ojo Clínico IA","Registro de eventos","Correo único por evento","Expediente + PDF","Búsqueda"]},
-    {c:"var(--c-verde)",bgc:"rgba(22,163,74,.14)",ic:"escudo",over:"Control",t:"Gestiona y resuelve sin moverte",
-     em:"Dejas de perseguir trámites.",
-     fu:"Te comunicas con cada instancia por evento y armas el paquete listo para tu aseguradora.",
+    {c:"var(--c-verde)",bgc:"rgba(22,163,74,.14)",ic:"escudo",
+     t:"Todas las conversaciones, junto al evento del que hablan",
+     d:"Hospitales, laboratorios, farmacias, consultorios, aseguradoras — todos en un mismo lugar. Sin buscar en el correo ni en WhatsApp.",
      chips:["Chat por evento → correo","Reembolsos","Paquete + checklist","Descarga lista para enviar"]},
-    {c:"#0F3460",bgc:"rgba(15,52,96,.14)",ic:"corazon",over:"Confianza",t:"Lista cuando más importa",
-     em:"Tranquilidad en cualquier emergencia.",
-     fu:"Tu identidad médica con QR, accesible al instante y compartible con quien decidas.",
+    {c:"#0F3460",bgc:"rgba(15,52,96,.14)",ic:"corazon",
+     t:"Todo va contigo, siempre",
+     d:"Tu historial y el de tu Círculo, de un médico a otro. Y en una urgencia, tu Tarjeta Médica se abre con un QR — quien la recibe no necesita cuenta.",
      chips:["Tarjeta QR","Sin cuenta para quien recibe","Sangre · alergias · medicinas","Contacto de emergencia"]}
   ];
 
@@ -87,7 +87,7 @@
     ["sin-seguro","¿Sirve si no tengo seguro de gastos médicos mayores?","Sí. El expediente y la Tarjeta Médica funcionan igual sin póliza. La función de armar el paquete para reembolso es la única que aplica solo con seguro."]
   ];
 
-  var LOGOS = ["Hospitales","Laboratorios","Farmacias","Aseguradoras","Consultorios","Clínicas"];
+  var LOGOS = ["Hospitales","Laboratorios","Farmacias","Consultorios","Aseguradoras"];
 
   /* ── Render ────────────────────────────────────────────── */
   function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
@@ -105,15 +105,9 @@
 
   el("pilares-grid").innerHTML = PILLARS.map(function(p){
     return '<article class="card pillar rv">'
-      + '<div class="pillar__head">'
-      +   '<span class="ico" style="background:'+p.bgc+';color:'+p.c+';stroke:'+p.c+'">'+svg(ICONS[p.ic])+'</span>'
-      +   '<span class="overline" style="color:'+p.c+'">'+esc(p.over)+'</span>'
-      + '</div>'
+      + '<span class="ico" style="background:'+p.bgc+';color:'+p.c+';stroke:'+p.c+'">'+svg(ICONS[p.ic])+'</span>'
       + '<h3 class="card-t">'+esc(p.t)+'</h3>'
-      + '<div class="pillar__ben">'
-      +   '<div><span class="overline">Emocional</span><p class="body">'+esc(p.em)+'</p></div>'
-      +   '<div><span class="overline">Funcional</span><p class="body">'+esc(p.fu)+'</p></div>'
-      + '</div>'
+      + '<p class="body">'+esc(p.d)+'</p>'
       + '<div class="pillar__chips">'+p.chips.map(function(c){
             return '<span class="chip" style="background:'+p.bgc+';color:'+p.c+'">'+esc(c)+'</span>';}).join("")
       + '</div></article>';
