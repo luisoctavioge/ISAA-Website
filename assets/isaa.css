@@ -27,6 +27,15 @@
   --c-morado:#7C3AED;
   --c-teal:#0D9488;
   --c-naranja:#FF9500;
+  /* Variantes de texto [T33]. Los tokens de arriba se quedan para
+     fondos, chips y gradientes; estos son para cuando el color
+     carga texto. Pasan AA 4.5:1 sobre --bg y sobre --muted. */
+  --primary-txt:#0F68C0;
+  --secondary-txt:#247644;
+  --c-naranja-txt:#985800;
+  --c-verde-txt:#107837;
+  --c-teal-txt:#0B746C;
+  --c-azul-txt:#1C5CEA;
 
   /* Familia de gradientes [BB] · 135° */
   --g-azul:linear-gradient(135deg,#1D4ED8 0%,#2563EB 50%,#0EA5E9 100%);
@@ -86,7 +95,7 @@ a{color:inherit;text-decoration:none}
 .tnum{font-variant-numeric:tabular-nums}
 
 /* La regla del titular [BB]: la segunda cláusula en Primary */
-.hl{color:var(--primary)}
+.hl{color:var(--primary-txt)}
 
 /* ── Estructura ─────────────────────────────────────────────── */
 .wrap{max-width:var(--container);margin:0 auto;padding-inline:var(--pad)}
@@ -119,7 +128,7 @@ section{position:relative}
 }
 .btn--primary{background:var(--g-azul);color:#fff;box-shadow:var(--e1)}
 .btn--primary:hover{box-shadow:var(--e2);filter:saturate(1.12)}
-.btn--secondary{background:var(--bg);color:var(--primary);box-shadow:var(--e1)}
+.btn--secondary{background:var(--bg);color:var(--primary-txt);box-shadow:var(--e1)}
 .btn--secondary:hover{box-shadow:var(--e2)}
 .btn--light{background:#fff;color:var(--fg);box-shadow:var(--e-over)}
 .btn--light:hover{filter:brightness(.97)}
@@ -448,7 +457,7 @@ body[data-review="on"] [data-ph]::before{
 /* ── En qué creemos · numeral grande [§7.3] ────────────────── */
 .beliefs{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .belief{display:flex;flex-direction:column;gap:14px;padding:40px}
-.belief__n{font-size:44px;font-weight:800;line-height:1;letter-spacing:-.02em;color:var(--primary)}
+.belief__n{font-size:44px;font-weight:800;line-height:1;letter-spacing:-.02em;color:var(--primary-txt)}
 
 /* ── Por qué confiar · filas horizontales [§7.4] ───────────── */
 .rows{display:flex;flex-direction:column;gap:12px}

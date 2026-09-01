@@ -39,6 +39,13 @@
     evento:'<path d="M2 12h4l2.5-7 5 14L17 12h5"/>'
   };
   function svg(p){return '<svg viewBox="0 0 24 24" aria-hidden="true">'+p+'</svg>';}
+  /* Un color de marca que carga texto usa su variante -txt [T33].
+     El icono conserva el original: T33 excluye fill de iconos. */
+  var TXT = {"var(--primary)":"var(--primary-txt)","var(--secondary)":"var(--secondary-txt)",
+             "var(--c-naranja)":"var(--c-naranja-txt)","var(--c-verde)":"var(--c-verde-txt)",
+             "var(--c-teal)":"var(--c-teal-txt)","var(--c-azul)":"var(--c-azul-txt)"};
+  function txt(c){ return TXT[c] || c; }
+
 
   var PILLARS = [
     {c:"var(--c-teal)",bgc:"rgba(13,148,136,.14)",ic:"circulo",
@@ -109,7 +116,7 @@
       + '<h3 class="card-t">'+esc(p.t)+'</h3>'
       + '<p class="body">'+esc(p.d)+'</p>'
       + '<div class="pillar__chips">'+p.chips.map(function(c){
-            return '<span class="chip" style="background:'+p.bgc+';color:'+p.c+'">'+esc(c)+'</span>';}).join("")
+            return '<span class="chip" style="background:'+p.bgc+';color:'+txt(p.c)+'">'+esc(c)+'</span>';}).join("")
       + '</div></article>';
   }).join("");
 
@@ -125,7 +132,7 @@
   el("steps").innerHTML = STEPS.map(function(s){
     return '<div class="step rv">'
       + '<span class="ico ico--lg" style="background:'+s.bgc+';color:'+s.c+';stroke:'+s.c+'">'+svg(ICONS[s.ic])+'</span>'
-      + '<span class="overline" style="color:'+s.c+'">'+esc(s.n)+'</span>'
+      + '<span class="overline" style="color:'+txt(s.c)+'">'+esc(s.n)+'</span>'
       + '<h3 class="card-t">'+esc(s.t)+'</h3>'
       + '<p class="body">'+esc(s.d)+'</p>'
       + '<svg class="step__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>'
