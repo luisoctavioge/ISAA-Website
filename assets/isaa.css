@@ -341,7 +341,7 @@ section{position:relative}
 .cta:hover .cta__mark{animation:heartbeat 1.4s ease-in-out infinite}
 
 .foot{padding-block:80px 48px}
-.foot__cols{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.foot__cols{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
 .foot h4{font-size:17px;font-weight:600;margin-bottom:18px}
 .foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
 .foot a{font-size:16px;color:rgba(255,255,255,.7);transition:color .2s}
