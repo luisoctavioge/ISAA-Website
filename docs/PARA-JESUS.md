@@ -22,7 +22,7 @@ mismo criterio que ya aprobaste la vez pasada. El morado sí necesitó su varian
 **Resultado, medido en pantalla:** 39 elementos en Inicio y 20 en Cómo funciona, ninguno
 por debajo del mínimo. Antes de esto había 18 que no llegaban.
 
-Si prefieres el 7% a secas y vivir con esas cuatro centésimas, se revierte en un commit.
+Si prefieres el 7% a secas y vivir con esas cuatro centésimas, se revierte en un momento.
 
 ---
 
