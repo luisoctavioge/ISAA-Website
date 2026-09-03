@@ -196,15 +196,12 @@ section{position:relative}
 /* Estado sobre el hero */
 .nav[data-solid="false"]{color:#fff}
 .nav[data-solid="false"] .wordmark{color:#fff}
-.nav[data-solid="false"] .mark circle,
-.nav[data-solid="false"] .mark path{stroke:#fff}
+.nav[data-solid="false"] .mark{color:#fff}
 /* Estado tras el hero */
 .nav[data-solid="true"]{background:var(--bg);box-shadow:0 6px 22px rgba(27,30,44,.10);padding-block:12px;color:var(--fg)}
 
 .brand{display:flex;align-items:center;gap:10px}
-.mark{width:34px;height:34px;flex:none}
-.mark circle,.mark path{stroke:var(--c-azul);fill:none;stroke-width:5;stroke-linecap:round}
-.mark .eye{fill:var(--c-azul);stroke:none}
+.mark{width:34px;height:34px;flex:none;color:var(--logo-simbolo)}
 .wordmark{display:block;width:94px;color:var(--logo-wordmark)}
 .wordmark svg{display:block;width:100%;height:auto}
 
@@ -215,9 +212,7 @@ section{position:relative}
   transition:opacity .5s ease,visibility .5s ease;
 }
 .splash[hidden]{opacity:0;visibility:hidden;display:grid}
-.splash__mark{width:74px;height:74px;animation:heartbeat 1.4s ease-in-out infinite}
-.splash__mark circle,.splash__mark path{stroke:#3BBFE0;fill:none;stroke-width:5;stroke-linecap:round}
-.splash__mark .eye{fill:#3BBFE0;stroke:none}
+.splash__mark{width:74px;height:74px;color:var(--logo-simbolo);animation:heartbeat 1.4s ease-in-out infinite}
 .splash__txt{font-size:14px;color:var(--mfg);text-align:center}
 @keyframes heartbeat{
   0%{transform:scale(1)} 14%{transform:scale(1.15)}
@@ -341,9 +336,7 @@ section{position:relative}
 .cta{padding-block:clamp(72px,9vw,120px);text-align:center}
 .cta__in{max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px}
 .cta .h2{color:#fff}
-.cta__mark{width:64px;height:64px}
-.cta__mark circle,.cta__mark path{stroke:#fff;fill:none;stroke-width:5;stroke-linecap:round}
-.cta__mark .eye{fill:#fff;stroke:none}
+.cta__mark{width:64px;height:64px;color:#fff}
 .cta:hover .cta__mark{animation:heartbeat 1.4s ease-in-out infinite}
 
 .foot{padding-block:80px 48px}
