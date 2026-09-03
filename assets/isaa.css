@@ -33,9 +33,10 @@
   --primary-txt:#0F68C0;
   --secondary-txt:#247644;
   --c-naranja-txt:#985800;
-  --c-verde-txt:#107837;
-  --c-teal-txt:#0B746C;
-  --c-azul-txt:#1C5CEA;
+  --c-morado-txt:#7631EC;
+  --c-verde-txt:#0F7234;
+  --c-teal-txt:#0B6F68;
+  --c-azul-txt:#1555E4;
 
   /* Familia de gradientes [BB] · 135° */
   --g-azul:linear-gradient(135deg,#1D4ED8 0%,#2563EB 50%,#0EA5E9 100%);

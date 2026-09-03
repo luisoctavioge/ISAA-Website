@@ -43,8 +43,14 @@
      El icono conserva el original: T33 excluye fill de iconos. */
   var TXT = {"var(--primary)":"var(--primary-txt)","var(--secondary)":"var(--secondary-txt)",
              "var(--c-naranja)":"var(--c-naranja-txt)","var(--c-verde)":"var(--c-verde-txt)",
-             "var(--c-teal)":"var(--c-teal-txt)","var(--c-azul)":"var(--c-azul-txt)"};
+             "var(--c-teal)":"var(--c-teal-txt)","var(--c-azul)":"var(--c-azul-txt)",
+             "var(--c-morado)":"var(--c-morado-txt)"};
   function txt(c){ return TXT[c] || c; }
+
+  /* El chip que lleva texto va al 7%: al 15% el label del mismo color
+     no alcanza AA sobre su propio fondo [B2]. El chip del icono se
+     queda al 15%, que es lo que fija §3.5 del manual. */
+  function chipBg(c){ return c.split(",.15)").join(",.07)").split(",.14)").join(",.07)"); }
 
 
   var PILLARS = [
@@ -138,7 +144,7 @@
       + '<h3 class="card-t">'+esc(p.t)+'</h3>'
       + '<p class="body">'+esc(p.d)+'</p>'
       + '<div class="pillar__chips">'+p.chips.map(function(c){
-            return '<span class="chip" style="background:'+p.bgc+';color:'+txt(p.c)+'">'+esc(c)+'</span>';}).join("")
+            return '<span class="chip" style="background:'+chipBg(p.bgc)+';color:'+txt(p.c)+'">'+esc(c)+'</span>';}).join("")
       + '</div></article>';
   }).join("");
 
