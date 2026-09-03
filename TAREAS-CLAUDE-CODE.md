@@ -88,6 +88,8 @@ En `index.html` y `como-funciona.html`:
 
 Añade además un cuarto elemento a la lista del plan Gratis, entre `5 documentos` y la línea del PDF: `2 hilos de conversación`.
 
+Y en la tarjeta del plan Anual, sustituye `Equivale a dos meses de regalo` por `35% menos que pagando mes a mes`. El número anterior está mal calculado: el ahorro real son $639 al año, más de cuatro meses.
+
 ## T10 · Quitar los botones de tienda
 
 En `index.html`, en el bloque `.cta`, eliminar los dos `<span class="store">` de App Store y Google Play. Debe quedar solo el botón "Empieza gratis".
