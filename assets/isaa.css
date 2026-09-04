@@ -349,6 +349,19 @@ section{position:relative}
 .foot__rule{border:0;border-top:1px solid rgba(255,255,255,.12);margin:56px 0 32px}
 .foot__base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:rgba(255,255,255,.65)}
 
+/* Redes del footer. Sin tamaño explícito el SVG hereda el ancho del
+   contenedor y se pinta a pantalla completa. */
+.foot__redes{display:flex;gap:12px;margin-top:40px}
+.foot__redes a{
+  width:42px;height:42px;flex:none;border-radius:var(--r);
+  display:grid;place-items:center;
+  background:rgba(255,255,255,.08);color:rgba(255,255,255,.82);
+  transition:background .25s ease,color .25s ease;
+}
+.foot__redes a:hover{background:rgba(255,255,255,.16);color:#fff}
+.foot__redes a:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+.foot__redes svg{width:20px;height:20px;flex:none;fill:currentColor}
+
 /* ── Tarjeta flotante ───────────────────────────────────────── */
 .float{
   position:fixed;right:24px;bottom:24px;z-index:55;width:340px;

@@ -92,6 +92,25 @@ const ph = Object.fromEntries(PAGES.map(p => [p, (html[p].match(/data-ph="/g)||[
 PAGES.every(p=>ph[p]>0) ? ok(`Placeholders señalados en las ${PAGES.length} páginas`, PAGES.map(p=>`${p.replace('.html','')}:${ph[p]}`).join(' · '))
                         : bad('Alguna página sin placeholders marcados', JSON.stringify(ph));
 
+
+/* ── Clases huérfanas ──────────────────────────────────────── */
+/* Marcado que usa una clase sin ninguna regla en el CSS. Así se
+   coló .foot__redes: el HTML entró, el CSS no, y el SVG sin tamaño
+   se pintó a 1080px. Se ignoran las de estado y las utilitarias. */
+const IGNORAR = /^(rv|hl|tnum|wrap|sec|card|btn|chip|list|check|ico|photo|q|mark|eye|st0)$/;
+const clasesHtml = new Set();
+for (const p of PAGES)
+  for (const m of html[p].matchAll(/class="([^"]+)"/g))
+    for (const c of m[1].split(/\s+/)) if (c && !IGNORAR.test(c)) clasesHtml.add(c);
+const jsSrc = await readFile('assets/isaa.js','utf8');
+for (const m of jsSrc.matchAll(/class=\\?"([a-z0-9_ -]+)\\?"/g))
+  for (const c of m[1].split(/\s+/)) if (c && !IGNORAR.test(c)) clasesHtml.add(c);
+
+const huerfanas = [...clasesHtml].filter(c => !new RegExp("\\." + c.replace(/[-]/g, "\\-") + "[^a-zA-Z0-9_-]").test(css));
+huerfanas.length
+  ? bad(`${huerfanas.length} clase(s) sin regla en el CSS`, huerfanas.join(", "))
+  : ok(`Las ${clasesHtml.size} clases del marcado tienen regla en el CSS`);
+
 /* ── Enlaces ───────────────────────────────────────────────── */
 const muertos = Object.fromEntries(PAGES.map(p => [p, (html[p].match(/href="#"/g)||[]).length]));
 const total = Object.values(muertos).reduce((a,b)=>a+b,0);
