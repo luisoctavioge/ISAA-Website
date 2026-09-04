@@ -102,8 +102,8 @@
     ["cerrar-cuenta","¿Qué pasa con mis datos si cierro mi cuenta?","Puedes llevarte tu expediente completo. La portabilidad es un derecho que te da la ley, no una función del plan, y aplica igual en Gratis que en Premium."]
   ];
 
-  /* Las de precio viven en precios.html, que es donde se buscan. */
-  var FAQ_PRECIOS = [
+  /* Las de precio viven en planes.html, que es donde se buscan. */
+  var FAQ_PLANES = [
     ["gratis-no-expira","¿El plan Gratis es una prueba que se acaba?","No. Es un plan permanente, con límites: 2 eventos médicos, 5 documentos, 2 hilos de conversación y una exportación en PDF. No pedimos tarjeta y no se convierte en cobro."],
     ["cuanto-cuesta-premium","¿Cuánto cuesta y qué incluye Premium?","$149 al mes o $1,149 al año, que sale en $96 mensuales. Quita todos los límites del plan Gratis para el titular."],
     ["costo-por-persona","¿Cuánto cuesta agregar a alguien de mi familia?","$79 al mes o $609 al año por cada persona adicional. Cada una tiene su propio expediente, y una cuenta admite hasta 8 personas contándote a ti."]
@@ -174,7 +174,7 @@
   var cajaFaq = $("faq");
   if (cajaFaq) {
     var cual = cajaFaq.getAttribute("data-faq");
-    var lista = cual === "como" ? FAQ_COMO : cual === "precios" ? FAQ_PRECIOS : FAQ_HOME;
+    var lista = cual === "como" ? FAQ_COMO : cual === "planes" ? FAQ_PLANES : FAQ_HOME;
     cajaFaq.innerHTML = lista.map(function(f){
       return '<details class="q rv" id="faq-'+f[0]+'"><summary>'+esc(f[1])
         + '<svg class="q__x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>'
