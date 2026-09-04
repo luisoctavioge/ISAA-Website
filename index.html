@@ -49,7 +49,7 @@
     },
     {
       "@type": "Offer",
-      "name": "Mensual",
+      "name": "Titular · mensual",
       "price": "149",
       "priceCurrency": "MXN",
       "priceSpecification": {
@@ -63,12 +63,40 @@
     },
     {
       "@type": "Offer",
-      "name": "Anual",
+      "name": "Titular · anual",
       "price": "1149",
       "priceCurrency": "MXN",
       "priceSpecification": {
         "@type": "UnitPriceSpecification",
         "price": "1149",
+        "priceCurrency": "MXN",
+        "billingDuration": 1,
+        "billingIncrement": 1,
+        "unitCode": "ANN"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Persona adicional · mensual",
+      "price": "79",
+      "priceCurrency": "MXN",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "79",
+        "priceCurrency": "MXN",
+        "billingDuration": 1,
+        "billingIncrement": 1,
+        "unitCode": "MON"
+      }
+    },
+    {
+      "@type": "Offer",
+      "name": "Persona adicional · anual",
+      "price": "609",
+      "priceCurrency": "MXN",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "609",
         "priceCurrency": "MXN",
         "billingDuration": 1,
         "billingIncrement": 1,
@@ -122,7 +150,7 @@
       "name": "¿Cuánto cuesta agregar a alguien de mi familia?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "$99 al mes o $749 al año por cada persona adicional, sin límite de cuántas. Cada una tiene su propio expediente."
+        "text": "$79 al mes o $609 al año por cada persona adicional. Cada una tiene su propio expediente, y una cuenta admite hasta 8 personas contándote a ti."
       }
     },
     {
@@ -305,52 +333,58 @@
     <div class="head rv">
       <span class="chip">Planes</span>
       <h2 class="h2">Un precio. Tres formas de usarlo.<br><span class="hl">Empieza gratis y crece cuando lo necesites.</span></h2>
-      <p class="lead">Empieza sin tarjeta. Sube de plan cuando el expediente crezca.</p>
+      <p class="lead">Empieza sin tarjeta. Agrega a quien quieras cuidar cuando lo necesites.</p>
     </div>
 
-    <div class="grid3">
-      <article class="card plan rv">
+    <div class="precios">
+      <article class="card precios__gratis rv">
         <span class="overline" style="color:var(--mfg)">Gratis</span>
         <div class="plan__price"><b class="tnum">$0</b></div>
-        <p class="body">Para empezar</p>
+        <p class="body">Para empezar. No pedimos tarjeta y no se convierte en cobro.</p>
         <hr>
         <ul class="list">
-          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>2 eventos médicos</li>
-          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>5 documentos</li>
-          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>2 hilos de conversación</li>
-          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>1 exportación en PDF (única)</li>
+            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>2 eventos médicos</li>
+            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>5 documentos</li>
+            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>2 hilos de conversación</li>
+            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>1 exportación en PDF (única)</li>
         </ul>
-        <div class="plan__foot"><button data-cta="planes" class="btn btn--secondary btn--full" type="button" data-ph="Conectar con inicio de sesión / registro — misma pantalla">Empieza gratis</button></div>
       </article>
 
-      <article class="card plan rv">
-        <span class="overline" style="color:var(--mfg)">Mensual</span>
-        <div class="plan__price"><b class="tnum">$149</b><i>MXN /mes</i></div>
-        <p class="body">Titular, sin límites</p>
-        <hr>
-        <ul class="list">
-          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Eventos y documentos ilimitados</li>
-          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Expediente completo en PDF</li>
-          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span><b style="font-weight:600">Miembro adicional · +$99/mes</b></li>
-        </ul>
-        <div class="plan__foot"><button data-cta="planes" class="btn btn--primary btn--full" type="button" data-ph="Conectar con inicio de sesión / registro — misma pantalla">Suscribirse</button></div>
-      </article>
+      <article class="card calc rv" id="calc">
+        <span class="overline" style="color:var(--primary-txt)">Tú y tu Círculo</span>
+        <p class="calc__q" id="calcQ">¿Cuántas personas quieres cuidar, contándote a ti?</p>
 
-      <article class="card plan plan--best rv">
-        <span class="plan__tag tnum">−35%</span>
-        <span class="overline" style="color:var(--primary-txt)">Anual · Mejor valor</span>
-        <div class="plan__price"><b class="tnum">$1,149</b><i>MXN /año</i></div>
-        <p class="body" style="color:var(--primary-txt);font-weight:600">= $96/mes</p>
-        <hr>
-        <ul class="list">
-          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Todo lo del plan Mensual</li>
-          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Equivale a dos meses de regalo</li>
-          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span><b style="font-weight:600">Miembro adicional · +$749/año (=$62/mes)</b></li>
-        </ul>
-        <div class="plan__foot"><button data-cta="planes" class="btn btn--primary btn--full" type="button" data-ph="Conectar con inicio de sesión / registro — misma pantalla">Suscribirse</button></div>
+        <div class="calc__sel" role="group" aria-labelledby="calcQ">
+        <button class="calc__n" type="button" data-n="1" aria-pressed="true">1</button>
+        <button class="calc__n" type="button" data-n="2" aria-pressed="false">2</button>
+        <button class="calc__n" type="button" data-n="3" aria-pressed="false">3</button>
+        <button class="calc__n" type="button" data-n="4" aria-pressed="false">4</button>
+        <button class="calc__n" type="button" data-n="5" aria-pressed="false">5</button>
+        <button class="calc__n" type="button" data-n="6" aria-pressed="false">6</button>
+        <button class="calc__n" type="button" data-n="7" aria-pressed="false">7</button>
+        <button class="calc__n" type="button" data-n="8" aria-pressed="false">8</button>
+      </div>
+
+        <div class="calc__out" aria-live="polite">
+          <div class="calc__col">
+            <span class="overline">Al mes</span>
+            <b class="calc__cifra tnum" id="calcMes">$149</b>
+            <span class="calc__pie" id="calcMesPie">por mes</span>
+          </div>
+          <div class="calc__col calc__col--anual">
+            <span class="overline" style="color:var(--primary-txt)">Al año</span>
+            <b class="calc__cifra tnum" id="calcAnio">$1,149</b>
+            <span class="calc__pie" id="calcAhorro">ahorras $639 · 35.7% menos que pagando mes a mes</span>
+          </div>
+        </div>
+
+        <p class="calc__nota">Precios en pesos mexicanos, IVA incluido. Máximo 8 personas por cuenta.</p>
       </article>
     </div>
 
+    <div class="precios__cta rv">
+      <button class="btn btn--primary" type="button" data-cta="planes" data-ph="Conectar con inicio de sesión / registro — misma pantalla">Empieza gratis</button>
+    </div>
   </div>
 </section>
 

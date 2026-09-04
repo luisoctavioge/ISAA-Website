@@ -100,7 +100,7 @@
     ["aseguradora-no-ve","¿Mi aseguradora puede ver lo que guardo aquí?","No, salvo que tú se lo mandes. ISAA no está conectada con ninguna aseguradora ni le reporta nada a nadie. Tu expediente es tuyo y sale de aquí solo cuando tú lo compartes."],
     ["gratis-no-expira","¿El plan Gratis es una prueba que se acaba?","No. Es un plan permanente, con límites: 2 eventos médicos, 5 documentos, 2 hilos de conversación y una exportación en PDF. No pedimos tarjeta y no se convierte en cobro."],
     ["cuanto-cuesta-premium","¿Cuánto cuesta y qué incluye Premium?","$149 al mes o $1,149 al año, que sale en $96 mensuales. Quita todos los límites del plan Gratis para el titular."],
-    ["costo-por-persona","¿Cuánto cuesta agregar a alguien de mi familia?","$99 al mes o $749 al año por cada persona adicional, sin límite de cuántas. Cada una tiene su propio expediente."],
+    ["costo-por-persona","¿Cuánto cuesta agregar a alguien de mi familia?","$79 al mes o $609 al año por cada persona adicional. Cada una tiene su propio expediente, y una cuenta admite hasta 8 personas contándote a ti."],
     ["quien-ve-info","¿Quién puede ver mi información?","Solo quien tú decidas. Nada se comparte por omisión. Al crear tu cuenta aceptas tres cosas por separado —términos, manejo de datos sensibles y comunicaciones de marketing— y puedes rechazar la última sin perder nada de la app."],
     ["cerrar-cuenta","¿Qué pasa con mis datos si cierro mi cuenta?","Puedes llevarte tu expediente completo. La portabilidad es un derecho que te da la ley, no una función del plan, y aplica igual en Gratis que en Premium."]
   ];
@@ -226,6 +226,46 @@
     document.body.setAttribute("data-review", on ? "off" : "on");
     rev.textContent = on ? "Modo revisión" : "Ocultar placeholders";
   });
+
+  /* ── Calculadora de precios ────────────────────────────── */
+  /* Titular $149/mes o $1,149/año · cada persona adicional
+     $79/mes o $609/año. Tope de 8: el titular más siete.
+     El ahorro se compara contra pagar ese mismo servicio mes a
+     mes durante doce meses. Los montos se calculan, no se
+     transcriben: así no se pueden desincronizar de la fórmula. */
+  var calc = $("calc");
+  if (calc) {
+    var TITULAR_MES = 149, TITULAR_ANIO = 1149;
+    var PERSONA_MES = 79,  PERSONA_ANIO = 609;
+
+    var pesos = function(n){ return "$" + n.toLocaleString("es-MX"); };
+
+    var pintar = function(n){
+      var mes  = TITULAR_MES  + PERSONA_MES  * (n - 1);
+      var anio = TITULAR_ANIO + PERSONA_ANIO * (n - 1);
+      var mesAMes = mes * 12;
+      var ahorro  = mesAMes - anio;
+      var pct = (ahorro / mesAMes * 100).toFixed(1);
+
+      el("calcMes").textContent  = pesos(mes);
+      el("calcAnio").textContent = pesos(anio);
+      el("calcMesPie").textContent = n === 1
+        ? "por mes" : "por mes · " + pesos(mes) + " por " + n + " personas";
+      el("calcAhorro").textContent =
+        "ahorras " + pesos(ahorro) + " · " + pct + "% menos que pagando mes a mes";
+    };
+
+    calc.addEventListener("click", function(ev){
+      var b = ev.target.closest ? ev.target.closest(".calc__n") : null;
+      if (!b) return;
+      Array.prototype.forEach.call(calc.querySelectorAll(".calc__n"), function(x){
+        x.setAttribute("aria-pressed", x === b ? "true" : "false");
+      });
+      pintar(+b.getAttribute("data-n"));
+    });
+
+    pintar(1);
+  }
 
   /* ── Filtros del blog [§9.2] ───────────────────────────── */
   /* El brief los especifica como fila de chips con "Todos" activo.
