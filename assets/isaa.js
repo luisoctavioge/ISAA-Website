@@ -98,11 +98,15 @@
   var FAQ_HOME = [
     ["reemplaza-medico","¿ISAA reemplaza a mi médico o a mi aseguradora?","No. ISAA no atiende ni asegura: organiza. Guardamos y ordenamos la documentación de tu seguimiento de salud para que la tengas lista cuando cualquier médico, hospital o aseguradora te la pida."],
     ["aseguradora-no-ve","¿Mi aseguradora puede ver lo que guardo aquí?","No, salvo que tú se lo mandes. ISAA no está conectada con ninguna aseguradora ni le reporta nada a nadie. Tu expediente es tuyo y sale de aquí solo cuando tú lo compartes."],
-    ["gratis-no-expira","¿El plan Gratis es una prueba que se acaba?","No. Es un plan permanente, con límites: 2 eventos médicos, 5 documentos, 2 hilos de conversación y una exportación en PDF. No pedimos tarjeta y no se convierte en cobro."],
-    ["cuanto-cuesta-premium","¿Cuánto cuesta y qué incluye Premium?","$149 al mes o $1,149 al año, que sale en $96 mensuales. Quita todos los límites del plan Gratis para el titular."],
-    ["costo-por-persona","¿Cuánto cuesta agregar a alguien de mi familia?","$79 al mes o $609 al año por cada persona adicional. Cada una tiene su propio expediente, y una cuenta admite hasta 8 personas contándote a ti."],
     ["quien-ve-info","¿Quién puede ver mi información?","Solo quien tú decidas. Nada se comparte por omisión. Al crear tu cuenta aceptas tres cosas por separado —términos, manejo de datos sensibles y comunicaciones de marketing— y puedes rechazar la última sin perder nada de la app."],
     ["cerrar-cuenta","¿Qué pasa con mis datos si cierro mi cuenta?","Puedes llevarte tu expediente completo. La portabilidad es un derecho que te da la ley, no una función del plan, y aplica igual en Gratis que en Premium."]
+  ];
+
+  /* Las de precio viven en precios.html, que es donde se buscan. */
+  var FAQ_PRECIOS = [
+    ["gratis-no-expira","¿El plan Gratis es una prueba que se acaba?","No. Es un plan permanente, con límites: 2 eventos médicos, 5 documentos, 2 hilos de conversación y una exportación en PDF. No pedimos tarjeta y no se convierte en cobro."],
+    ["cuanto-cuesta-premium","¿Cuánto cuesta y qué incluye Premium?","$149 al mes o $1,149 al año, que sale en $96 mensuales. Quita todos los límites del plan Gratis para el titular."],
+    ["costo-por-persona","¿Cuánto cuesta agregar a alguien de mi familia?","$79 al mes o $609 al año por cada persona adicional. Cada una tiene su propio expediente, y una cuenta admite hasta 8 personas contándote a ti."]
   ];
 
   /* PENDIENTE · sin publicar, esperan redacción legal [T35]
@@ -169,7 +173,8 @@
 
   var cajaFaq = $("faq");
   if (cajaFaq) {
-    var lista = cajaFaq.getAttribute("data-faq") === "como" ? FAQ_COMO : FAQ_HOME;
+    var cual = cajaFaq.getAttribute("data-faq");
+    var lista = cual === "como" ? FAQ_COMO : cual === "precios" ? FAQ_PRECIOS : FAQ_HOME;
     cajaFaq.innerHTML = lista.map(function(f){
       return '<details class="q rv" id="faq-'+f[0]+'"><summary>'+esc(f[1])
         + '<svg class="q__x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>'

@@ -131,30 +131,6 @@
     },
     {
       "@type": "Question",
-      "name": "¿El plan Gratis es una prueba que se acaba?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Es un plan permanente, con límites: 2 eventos médicos, 5 documentos, 2 hilos de conversación y una exportación en PDF. No pedimos tarjeta y no se convierte en cobro."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuánto cuesta y qué incluye Premium?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "$149 al mes o $1,149 al año, que sale en $96 mensuales. Quita todos los límites del plan Gratis para el titular."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "¿Cuánto cuesta agregar a alguien de mi familia?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "$79 al mes o $609 al año por cada persona adicional. Cada una tiene su propio expediente, y una cuenta admite hasta 8 personas contándote a ti."
-      }
-    },
-    {
-      "@type": "Question",
       "name": "¿Quién puede ver mi información?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -192,6 +168,7 @@
     <nav class="nav__links">
       <a href="index.html" aria-current="page">Inicio</a>
       <a href="como-funciona.html">Cómo funciona</a>
+      <a href="precios.html">Precios</a>
       <a href="nosotros.html">Nosotros</a>
     </nav>
     <button data-cta="nav" class="btn btn--primary" type="button" data-ph="Conectar con inicio de sesión / registro — misma pantalla">Empieza gratis</button>
@@ -206,6 +183,7 @@
     <nav class="menu" id="menu" hidden aria-label="Menú principal">
       <a href="index.html" aria-current="page">Inicio</a>
       <a href="como-funciona.html">Cómo funciona</a>
+      <a href="precios.html">Precios</a>
       <a href="nosotros.html">Nosotros</a>
     </nav>
   </div>
@@ -224,7 +202,7 @@
       <h1 class="h1 rv">Todo el seguimiento de tu salud, a la mano. <span class="hl">La de los que más te importan, también.</span></h1>
       <p class="lead rv">Para quien la vive, la cuida o la acompaña — ISAA reúne todo el seguimiento de salud en un solo lugar: ordenado, seguro y siempre a la mano.</p>
       <div class="hero__btns rv">
-        <a data-cta="hero" class="btn btn--primary" href="#planes">Empieza gratis</a>
+        <a data-cta="hero" class="btn btn--primary" href="precios.html">Empieza gratis</a>
         <a data-cta="hero" class="btn btn--light" href="#pilares">Ver cómo funciona</a>
       </div>
     </div>
@@ -288,7 +266,7 @@
       <span class="chip chip--glass">Ejemplos de layout</span>
       <h2 class="h2">Nadie extraña el desorden.<br><span class="hl">Extrañan el tiempo que les quitaba.</span></h2>
       <p class="lead" style="color:rgba(255,255,255,.8)">Pacientes, cuidadores y brokers que dejaron de perseguir papeles.</p>
-      <a data-cta="testimonios" class="btn btn--primary" href="#planes">Empieza gratis</a>
+      <a data-cta="testimonios" class="btn btn--primary" href="precios.html">Empieza gratis</a>
     </div>
     <div class="masonry" id="quotes"></div>
   </div>
@@ -323,73 +301,6 @@
         <h3 class="card-t">Te lo puedes llevar cuando quieras</h3>
         <p class="body">Si decides irte, tu expediente completo se va contigo. No es una función que te damos: es un derecho que te da la ley.</p>
       </article>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════════ PLANES ── -->
-<section class="sec" id="planes">
-  <div class="wrap">
-    <div class="head rv">
-      <span class="chip">Planes</span>
-      <h2 class="h2">Un precio. Tres formas de usarlo.<br><span class="hl">Empieza gratis y crece cuando lo necesites.</span></h2>
-      <p class="lead">Empieza sin tarjeta. Agrega a quien quieras cuidar cuando lo necesites.</p>
-    </div>
-
-    <div class="precios">
-      <article class="card precios__gratis rv">
-        <span class="overline" style="color:var(--mfg)">Gratis</span>
-        <div class="plan__price"><b class="tnum">$0</b></div>
-        <p class="body">Para empezar. No pedimos tarjeta y no se convierte en cobro.</p>
-        <hr>
-        <ul class="list">
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>2 eventos médicos</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>5 documentos</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>2 hilos de conversación</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>1 exportación en PDF (única)</li>
-        </ul>
-      </article>
-
-      <article class="card calc rv" id="calc">
-        <span class="overline" style="color:var(--primary-txt)">Tú y tu Círculo</span>
-        <p class="calc__q" id="calcQ">¿Cuántas personas quieres cuidar, contándote a ti?</p>
-
-        <div class="calc__sel" role="group" aria-labelledby="calcQ">
-        <button class="calc__n" type="button" data-n="1" aria-pressed="true">1</button>
-        <button class="calc__n" type="button" data-n="2" aria-pressed="false">2</button>
-        <button class="calc__n" type="button" data-n="3" aria-pressed="false">3</button>
-        <button class="calc__n" type="button" data-n="4" aria-pressed="false">4</button>
-        <button class="calc__n" type="button" data-n="5" aria-pressed="false">5</button>
-        <button class="calc__n" type="button" data-n="6" aria-pressed="false">6</button>
-        <button class="calc__n" type="button" data-n="7" aria-pressed="false">7</button>
-        <button class="calc__n" type="button" data-n="8" aria-pressed="false">8</button>
-      </div>
-
-        <div class="calc__out" aria-live="polite">
-          <div class="calc__col">
-            <span class="overline">Al mes</span>
-            <b class="calc__cifra tnum" id="calcMes">$149</b>
-            <span class="calc__pie" id="calcMesPie">por mes</span>
-          </div>
-          <div class="calc__col calc__col--anual">
-            <span class="overline" style="color:var(--primary-txt)">Al año</span>
-            <b class="calc__cifra tnum" id="calcAnio">$1,149</b>
-            <span class="calc__pie" id="calcAhorro">ahorras $639 · 35.7% menos que pagando mes a mes</span>
-          </div>
-        </div>
-
-        <hr>
-        <ul class="list">
-          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Eventos, documentos y conversaciones sin límite</li>
-          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Expediente completo en PDF cuando quieras</li>
-          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Cada persona con su propio expediente</li>
-        </ul>
-        <p class="calc__nota">Precios en pesos mexicanos, IVA incluido. Máximo 8 personas por cuenta.</p>
-      </article>
-    </div>
-
-    <div class="precios__cta rv">
-      <button class="btn btn--primary" type="button" data-cta="planes" data-ph="Conectar con inicio de sesión / registro — misma pantalla">Empieza gratis</button>
     </div>
   </div>
 </section>
@@ -429,11 +340,11 @@
     <div class="foot__cols">
       <div>
         <h4>Navegar</h4>
-        <ul><li><a href="index.html">Inicio</a></li><li><a href="como-funciona.html">Cómo funciona</a></li><li><a href="nosotros.html">Nosotros</a></li></ul>
+        <ul><li><a href="index.html">Inicio</a></li><li><a href="como-funciona.html">Cómo funciona</a></li><li><a href="precios.html">Precios</a></li><li><a href="nosotros.html">Nosotros</a></li></ul>
       </div>
       <div>
         <h4>Producto</h4>
-        <ul><li><a href="como-funciona.html">Tarjeta Médica</a></li><li><a href="como-funciona.html">Mi Círculo</a></li><li><a href="como-funciona.html">Ojo Clínico</a></li><li><a href="como-funciona.html">Eventos Médicos</a></li><li><a href="index.html#planes">Planes</a></li></ul>
+        <ul><li><a href="como-funciona.html">Tarjeta Médica</a></li><li><a href="como-funciona.html">Mi Círculo</a></li><li><a href="como-funciona.html">Ojo Clínico</a></li><li><a href="como-funciona.html">Eventos Médicos</a></li><li><a href="precios.html">Precios</a></li></ul>
       </div>
       <div>
         <h4>Legal</h4>
@@ -480,7 +391,7 @@
   <span class="chip chip--solid" style="background:var(--g-azul);align-self:flex-start">Gratis</span>
   <b>Arma tu Tarjeta Médica hoy.</b>
   <p class="body">Sangre, alergias, medicinas y contactos de emergencia. Listos en un QR, sin costo y sin tarjeta.</p>
-  <a data-cta="flotante" class="btn btn--primary btn--full" href="#planes">Crear mi Tarjeta Médica</a>
+  <a data-cta="flotante" class="btn btn--primary btn--full" href="precios.html">Crear mi Tarjeta Médica</a>
 </aside>
 
 <button class="rev" id="rev">Modo revisión</button>

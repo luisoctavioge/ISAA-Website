@@ -665,3 +665,21 @@ body[data-review="on"] [data-ph]::before{
   .precios{grid-template-columns:1fr}
   .calc__out{grid-template-columns:1fr;gap:20px}
 }
+
+/* ── Desglose de precios [precios.html] ─────────────────────── */
+/* Explica por qué dos personas no cuestan el doble que una. */
+.desglose{display:flex;flex-direction:column;gap:12px;max-width:760px}
+.desglose__fila{
+  display:grid;grid-template-columns:1fr auto auto;gap:8px 20px;align-items:baseline;
+  background:var(--bg);border-radius:var(--r);box-shadow:var(--e1);padding:24px 28px;
+}
+.desglose__q{font-size:16px;line-height:1.4;color:var(--mfg)}
+.desglose__n{font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--fg)}
+.desglose__u{font-size:14px;color:var(--mfg)}
+.desglose__fila--total{background:var(--muted);box-shadow:var(--inset)}
+.desglose__fila--total .desglose__q{color:var(--fg);font-weight:600}
+.desglose__fila--total .desglose__n{color:var(--primary-txt)}
+@media (max-width:640px){
+  .desglose__fila{grid-template-columns:1fr auto}
+  .desglose__u{grid-column:2;text-align:right}
+}

@@ -5,7 +5,7 @@
    No es parte del deploy. Uso: node build/qa.mjs
    ══════════════════════════════════════════════════════════════ */
 import { readFile } from 'node:fs/promises';
-const PAGES = ['index.html','nosotros.html','como-funciona.html','blog.html','aviso-privacidad.html','terminos.html','datos-salud.html'];
+const PAGES = ['index.html','nosotros.html','como-funciona.html','blog.html','precios.html','aviso-privacidad.html','terminos.html','datos-salud.html'];
 const css = await readFile('assets/isaa.css','utf8');
 const html = Object.fromEntries(await Promise.all(PAGES.map(async p => [p, await readFile(p,'utf8')])));
 const all = Object.values(html).join('\n');

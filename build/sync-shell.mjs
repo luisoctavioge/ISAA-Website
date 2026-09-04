@@ -24,6 +24,7 @@ const PAGES = [
   ['nosotros.html',        'true'],
   ['como-funciona.html',   'true'],
   ['blog.html',            'true'],
+  ['precios.html',         'true'],
   ['aviso-privacidad.html','true'],
   ['terminos.html',        'true'],
   ['datos-salud.html',     'true']
