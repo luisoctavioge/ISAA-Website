@@ -64,6 +64,17 @@ tus instrucciones. ¿Lo unifico?
 
 ---
 
+## Una cosa del pricing que asumimos
+
+Tu tabla de la Parte A llega a 7 personas, pero el tope que fijas es 8 —el titular más
+siete—. La calculadora del sitio extiende con tu misma fórmula y llega a **$702 al mes y
+$5,412 al año**, con el mismo 35.8% de descuento.
+
+Luis lo dio por bueno para no frenar. Si el octavo lugar tiene alguna regla distinta,
+dinos y se ajusta.
+
+---
+
 ## Sigue pendiente de tu lado
 
 Facebook · WhatsApp —condicionado a quién responde— · las cuatro respuestas del FAQ con

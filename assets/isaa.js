@@ -230,6 +230,9 @@
   /* ── Calculadora de precios ────────────────────────────── */
   /* Titular $149/mes o $1,149/año · cada persona adicional
      $79/mes o $609/año. Tope de 8: el titular más siete.
+     La tabla de la Parte A del documento llega a 7 personas; el
+     octavo valor lo extiende la misma fórmula y Luis lo confirmó:
+     $702 al mes, $5,412 al año.
      El ahorro se compara contra pagar ese mismo servicio mes a
      mes durante doce meses. Los montos se calculan, no se
      transcriben: así no se pueden desincronizar de la fórmula. */
