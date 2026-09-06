@@ -116,33 +116,66 @@ Con el sitio en una URL pública, que se vea que son placeholders importa más, 
 
 ## Pendientes
 
-Rama `cambios-pre-lanzamiento`: 31 de 33 tareas de la revisión de Jesús aplicadas.
-Dos documentos de entrega:
-- `docs/PARA-JESUS.md` — para Jesús, en lenguaje llano. Qué quedó, qué se necesita de él.
-- `docs/PARA-JESUS-CLAUDE.md` — para que él se lo pase a su Claude Code: rutas, valores
-  medidos, comandos y las trampas conocidas del repo.
+Una sola rama, `main`. Nueve páginas: siete públicas, el Blog oculto (sin enlaces en
+nav ni footer) y las tres legales. QA de §10: 20 pasan, 2 a criterio, 0 fallan.
 
-Siete páginas construidas; el Blog existe pero está oculto (sin enlaces en nav ni footer). QA de §10: 18 pasan, 2 a criterio, 0 fallan.
+Documentos de entrega:
+- `docs/PARA-JESUS.md` — lenguaje llano. Qué quedó y qué se necesita de él.
+- `docs/PARA-JESUS-CLAUDE.md` — para su Claude Code: rutas, valores medidos y trampas.
+- `docs/LLAMADA-JESUS.md` — guion de la llamada del 4 de septiembre.
 
-- [ ] Contraste de los chips: el color al 15% detrás de su propio label deja el
-      texto en 3.95–4.15, bajo AA. Se cierra bajando el tinte a 6–7%.
-- [ ] `--c-morado` sin variante `-txt`: pasa sobre --bg pero no sobre su tinte
-- [ ] Alta de newsletter (§9.4) — sin backend, el botón no envía nada
-- [ ] Redacción legal de `aviso-privacidad.html`, `terminos.html` y `datos-salud.html` — hoy son andamios
-- [ ] Los CTAs de alta son `<button>` inertes marcados con `data-ph`. Todos conectan
-      con la MISMA pantalla de inicio de sesión / registro, que vive en la plataforma
-      que desarrolla otro equipo. Al cablearlos, buscar por ese `data-ph`.
+### Bloqueado en terceros — no se inventa nada de esto
+
+- [ ] **El modelo de precio tiene dos versiones vivas.** `FAQ-SITIO-ISAA.md` dice que
+      quedó cerrado en la V9 —Individual $149 / Círculo $349 hasta 6 personas— y el
+      sitio corre con el de su PDF de pricing: $149 el titular y $79 por persona hasta
+      8. Las notas de la llamada apuntan al segundo («Yo», «Yo + 1», «Yo + 2»), que es
+      el que está montado. **Lo confirma Jesús.**
+- [ ] Tres respuestas del FAQ sin publicar, comentadas en `assets/isaa.js` con el
+      motivo: qué pasa si dejo de pagar (Sergio Alzaga: su corte dice a la vez «solo
+      lectura» y «borrado a los 30 días»), quién lee mis documentos y dónde se guardan
+      mis datos (ambas dependen de Sergio y después de Hernán Garza).
+- [ ] Copy de **ID Invention Company** para el footer — lo escribe Jesús.
+- [ ] Fusionar `datos-salud.html` dentro del aviso de privacidad — espera a Hernán.
+- [ ] Redacción legal de las tres páginas legales: hoy son andamios.
+- [ ] Links de **Facebook** y **WhatsApp**. WhatsApp solo si ya se sabe quién contesta.
+- [ ] SVG oficial del wordmark en **Nulshock**, cuando salga la licencia.
+
+### Diseño sin definir — de la llamada del 4 de septiembre
+
+- [ ] **Animación tipo Apple** (scroll + zoom) para las pantallas de la app. Hoy los
+      mockups son iframes escalados por JS contra el alto disponible. Hay que decidir
+      si se animan esos o si se sustituyen por otra pieza.
+- [ ] El carrusel de hospitales · laboratorios · farmacias pasa a **tarjetas** que
+      ilustren el «universo de documentos». Con los testimonios ocultos esa banda navy
+      quedó sola y se nota vacía: rehacerla resuelve las dos cosas.
+- [ ] **Revisión de chips.** Jesús pidió quitar los innecesarios y reestilar el resto;
+      cuáles sobran es criterio suyo.
+
+### Contenido real que sustituye placeholders
+
+- [ ] Video final del hero — hoy es TEST-HERO comprimido.
+- [ ] Fotografía propia — hoy son placeholders de Pexels. Origen y qué revisar al
+      sustituirlas, en `assets/img/FUENTES.md`.
+- [ ] Métricas reales del hero.
+- [ ] Convenios reales para la banda de compatibilidad.
+- [ ] Testimonios reales. La sección está oculta con `hidden`, no borrada: el render
+      de `#quotes` sigue vivo y vuelve quitando el atributo.
+- [ ] Alta de newsletter (§9.4) — sin backend, el botón no envía nada.
+
+### Antes de publicar en isaa.io
+
+- [ ] Quitar el `<meta name="robots" content="noindex">` de las 8 páginas públicas.
+      El Blog conserva el suyo mientras la sección no se use.
+- [ ] Borrar el bloque `.devnotes` de `index.html` y el botón **Modo revisión** de las
+      nueve páginas.
+- [ ] Cablear los 20 CTAs de alta. Son `<button>` inertes marcados con `data-ph`, y
+      todos van a la MISMA pantalla de inicio de sesión / registro, que vive en la
+      plataforma de otro equipo. Al cablearlos, buscar por ese `data-ph`.
 - [ ] El sitio NUNCA maneja credenciales: solo enlaza a la plataforma. Nada de
       formularios de login, contraseñas ni tokens en este repo.
-- [ ] Quitar el `<meta name="robots" content="noindex">` de las 7 páginas antes de isaa.io
-- [ ] Sombra de un solo lado en `.nav[data-solid="true"]` — barra fija de ancho completo,
-      una sombra clara a la izquierda no tendría sentido ahí
-- [ ] Video final del hero — hoy es TEST-HERO comprimido
-- [ ] Fotografía propia — hoy son placeholders de Pexels. Origen y qué revisar al
-      sustituirlas, en `assets/img/FUENTES.md`
-- [ ] SVG oficial del wordmark en Nulshock
-- [ ] Testimonios reales (los actuales son placeholder marcado)
-- [ ] Métricas reales del hero
-- [ ] Convenios reales para la banda de compatibilidad
-- [ ] Badges oficiales de App Store y Google Play
-- [ ] Borrar el bloque `.devnotes` antes de publicar en isaa.io
+
+### Deuda conocida
+
+- [ ] Sombra de un solo lado en `.nav[data-solid="true"]` — barra fija de ancho
+      completo; una sombra clara a la izquierda no tendría sentido ahí.

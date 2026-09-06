@@ -47,11 +47,6 @@
              "var(--c-morado)":"var(--c-morado-txt)"};
   function txt(c){ return TXT[c] || c; }
 
-  /* El chip que lleva texto va al 7%: al 15% el label del mismo color
-     no alcanza AA sobre su propio fondo [B2]. El chip del icono se
-     queda al 15%, que es lo que fija §3.5 del manual. */
-  function chipBg(c){ return c.split(",.15)").join(",.07)").split(",.14)").join(",.07)"); }
-
 
   var PILLARS = [
     {c:"var(--c-teal)",bgc:"rgba(13,148,136,.14)",ic:"circulo",
