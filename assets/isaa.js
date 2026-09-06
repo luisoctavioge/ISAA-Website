@@ -264,7 +264,7 @@
       el("calcMes").textContent  = pesos(mes);
       el("calcAnio").textContent = pesos(anio);
       el("calcMesPie").textContent = n === 1
-        ? "por mes" : "por mes · " + pesos(mes) + " por " + n + " personas";
+        ? "solo tú" : "las " + n + " personas juntas";
       el("calcAhorro").textContent =
         "ahorras " + pesos(ahorro) + " · " + pct + "% menos que pagando mes a mes";
     };
