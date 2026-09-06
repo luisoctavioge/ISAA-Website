@@ -373,6 +373,7 @@ section{position:relative}
 }
 .float[data-in="true"]{transform:translateY(0)}
 .float[hidden]{display:none}
+[hidden]{display:none!important}
 .float__x{position:absolute;top:14px;right:14px;width:26px;height:26px;border:0;border-radius:999px;background:var(--muted);color:var(--mfg);cursor:pointer;font-size:15px;line-height:1;display:grid;place-items:center}
 .float__x:hover{color:var(--fg)}
 .float b{font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.3}

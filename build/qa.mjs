@@ -79,7 +79,7 @@ superficies.length ? bad('Radios <16px en superficies', superficies.join(', '))
                    : ok('Radio mínimo 16px en superficies', 'los 12px son chips de ícono [§3.5], los 4px el tag de revisión');
 
 /* ── Color ─────────────────────────────────────────────────── */
-const FUERA = { '#7C3AED':'morado (solo IA · Ojo Clínico)', '#0D9488':'teal (solo Círculo · broker)' };
+const FUERA = { '#7C3AED':'morado (solo IA · Ojo Clínico)', '#0D9488':'teal (solo Círculos)' };
 for (const [hex,que] of Object.entries(FUERA)) {
   const usos = PAGES.flatMap(p => [...html[p].matchAll(new RegExp(hex,'gi'))].map(()=>p));
   ok(`${que}`, usos.length ? `${usos.length} usos, todos por variable o asignación del brief` : 'solo vía token');

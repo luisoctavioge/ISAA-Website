@@ -57,7 +57,7 @@
     {c:"var(--c-teal)",bgc:"rgba(13,148,136,.14)",ic:"circulo",
      t:"Los que más te importan en un solo lugar",
      d:"Cada persona con su expediente, y su historia completa en orden.",
-     chips:["Mi Círculo","Cada quien su expediente","Expediente por persona","Círculo broker"]},
+     chips:["Mi Círculo","Cada quien su expediente","Expediente por persona"]},
     {c:"var(--c-morado)",bgc:"rgba(124,58,237,.14)",ic:"ojo",
      t:"Se ordena mientras vas avanzando",
      d:"Capturas el documento y el Ojo Clínico, asistido por IA, te guía. Tú confirmas.",
@@ -74,11 +74,9 @@
 
   var QUOTES = [
     ["Mi mamá tiene cuatro médicos distintos y yo llevaba todo en una carpeta física. Ahora abro la app y ahí está todo, ordenado por evento.","Cuidadores","var(--c-verde)"],
-    ["Vendo seguros desde hace once años. Es la primera herramienta que mis clientes usan entre renovaciones.","Brokers","var(--c-teal)"],
     ["Subí una receta con una foto y el Ojo Clínico la clasificó sola. No tuve que escribir nada.","Pacientes","var(--c-azul)"],
     ["Armé el paquete del reembolso en una tarde. Antes me tomaba tres semanas juntar los papeles.","Pacientes","var(--c-azul)"],
-    ["El día que mi hijo se cayó en la escuela, mostré su tarjeta con el QR y no tuve que explicar sus alergias a nadie.","Cuidadores","var(--c-verde)"],
-    ["Sumé a mis clientes a un Círculo y ahora el seguimiento post-venta es parte de mi servicio, no un favor.","Brokers","var(--c-teal)"]
+    ["El día que mi hijo se cayó en la escuela, mostré su tarjeta con el QR y no tuve que explicar sus alergias a nadie.","Cuidadores","var(--c-verde)"]
   ];
 
   var STEPS = [
