@@ -21,13 +21,13 @@
     ["desk","El estudio está en WhatsApp, en un correo, o en ningún lado"],
     ["sofa","Te piden un documento de hace dos años y empieza la búsqueda"],
     ["warm","El reembolso se atora por un papel que sí tenías"],
-    ["desk","Llevas cuatro años con el mismo tratamiento y los estudios están en cuatro lugares distintos."]
+    ["desk","Llevas cuatro años con el mismo tratamiento y los estudios están en cuatro lugares distintos"]
   ];
   var PAINS_B = [
     ["sofa","Nadie más en tu familia sabe dónde está nada"],
     ["warm","Llegas a consulta y repites tu historial de memoria"],
     ["desk","Cambias de doctor y empiezas el expediente otra vez"],
-    ["sofa","Cambias de ginecólogo a mitad del embarazo y hay que empezar de cero."]
+    ["sofa","Cambias de ginecólogo a mitad del embarazo y el expediente se queda con el anterior"]
   ];
 
   var ICONS = {
