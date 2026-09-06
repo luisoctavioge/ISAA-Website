@@ -280,8 +280,15 @@ section{position:relative}
 .pillar__ben{display:flex;flex-direction:column;gap:14px}
 .pillar__ben div{display:flex;flex-direction:column;gap:4px}
 .pillar__ben .overline{font-size:11px;color:var(--mfg)}
-.pillar__chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:8px}
-.pillar__chips .chip{box-shadow:none;font-size:12px;padding:5px 12px}
+.pillar__feats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:auto;padding-top:8px}
+.pfeat{
+  display:flex;align-items:center;gap:9px;min-width:0;
+  padding:13px 14px;border-radius:16px;
+  background:var(--muted);box-shadow:var(--inset);
+  font-size:13px;line-height:1.35;font-weight:500;color:var(--mfg);
+}
+.pfeat__d{width:7px;height:7px;flex:none;border-radius:999px}
+.pfeat:last-child:nth-child(odd){grid-column:1/-1}
 
 /* ── Testimonios ────────────────────────────────────────────── */
 .masonry{columns:2;column-gap:24px}
@@ -318,8 +325,6 @@ section{position:relative}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;align-items:start}
 .step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;position:relative}
 .step .ico{margin-bottom:4px}
-.step__arrow{position:absolute;top:26px;right:-22px;width:20px;color:var(--mfg);opacity:.5}
-.step:last-child .step__arrow{display:none}
 .steps__note{text-align:center;margin-top:48px;font-size:16px;color:var(--mfg)}
 
 /* ── FAQ ────────────────────────────────────────────────────── */
@@ -498,13 +503,15 @@ body[data-review="on"] [data-ph]::before{
 .feat .list{margin-top:6px}
 .feat .list li{font-size:16px}
 
-/* Plancha de gradiente: blanco a la izquierda para el copy, el
-   color del feature entrando por la derecha, detrás del producto.
+/* Plancha plana. Llevaba un degradado del blanco al color del feature;
+   Jesús lo bajó en la llamada del 4 de septiembre. Queda el tinte del
+   color funcional, hundido como los demás pozos del sistema, para que
+   el teléfono —que sí va elevado— destaque contra él.
    Registro funcional — nunca personas aquí. [BB §3.6] */
 .plinth{
-  position:relative;border-radius:var(--r);box-shadow:var(--e1);
+  position:relative;border-radius:var(--r);box-shadow:var(--inset);
   aspect-ratio:4/3;display:grid;place-items:center;overflow:hidden;
-  background:linear-gradient(100deg,#fff 0%,#fff 34%,var(--f-soft) 68%,var(--f-wash) 100%);
+  background:var(--f-soft);
 }
 .mock{
   height:82%;aspect-ratio:390/844;width:auto;position:relative;overflow:hidden;

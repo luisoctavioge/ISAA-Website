@@ -80,13 +80,13 @@
   ];
 
   var STEPS = [
-    {n:"Paso 1",c:"#0F3460",bgc:"rgba(15,52,96,.14)",ic:"tarjeta",t:"Tarjeta Médica",
+    {c:"#0F3460",bgc:"rgba(15,52,96,.14)",ic:"tarjeta",t:"Tarjeta Médica",
      d:"Sangre, alergias, medicinas, seguro y contactos. Cinco minutos y ya la puedes compartir por QR."},
-    {n:"Paso 2",c:"var(--c-teal)",bgc:"rgba(13,148,136,.14)",ic:"circulo",t:"Mi Círculo",
+    {c:"var(--c-teal)",bgc:"rgba(13,148,136,.14)",ic:"circulo",t:"Mi Círculo",
      d:"Agrega a quien quieras cuidar. Cada persona con su propio expediente."},
-    {n:"Paso 3",c:"var(--c-morado)",bgc:"rgba(124,58,237,.14)",ic:"ojo",t:"Ojo Clínico",
+    {c:"var(--c-morado)",bgc:"rgba(124,58,237,.14)",ic:"ojo",t:"Ojo Clínico",
      d:"Capturas el documento y te guía a dónde va. Tú confirmas. Y si prefieres, también puedes hacerlo manualmente."},
-    {n:"Paso 4",c:"var(--c-azul)",bgc:"rgba(37,99,235,.14)",ic:"evento",t:"Eventos Médicos",
+    {c:"var(--c-azul)",bgc:"rgba(37,99,235,.14)",ic:"evento",t:"Eventos Médicos",
      d:"Todo lo que pasa alrededor de un motivo de salud, junto: documentos, fechas y conversaciones."}
   ];
 
@@ -150,8 +150,8 @@
       + '<span class="ico" style="background:'+p.bgc+';color:'+p.c+';stroke:'+p.c+'">'+svg(ICONS[p.ic])+'</span>'
       + '<h3 class="card-t">'+esc(p.t)+'</h3>'
       + '<p class="body">'+esc(p.d)+'</p>'
-      + '<div class="pillar__chips">'+p.chips.map(function(c){
-            return '<span class="chip" style="background:'+chipBg(p.bgc)+';color:'+txt(p.c)+'">'+esc(c)+'</span>';}).join("")
+      + '<div class="pillar__feats">'+p.chips.map(function(c){
+            return '<span class="pfeat"><i class="pfeat__d" style="background:'+txt(p.c)+'"></i>'+esc(c)+'</span>';}).join("")
       + '</div></article>';
   }).join("");
 
@@ -167,10 +167,8 @@
   el("steps").innerHTML = STEPS.map(function(s){
     return '<div class="step rv">'
       + '<span class="ico ico--lg" style="background:'+s.bgc+';color:'+s.c+';stroke:'+s.c+'">'+svg(ICONS[s.ic])+'</span>'
-      + '<span class="overline" style="color:'+txt(s.c)+'">'+esc(s.n)+'</span>'
       + '<h3 class="card-t">'+esc(s.t)+'</h3>'
       + '<p class="body">'+esc(s.d)+'</p>'
-      + '<svg class="step__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg>'
       + '</div>';
   }).join("");
 
