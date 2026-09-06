@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 6 páginas públicas. blog.html queda fuera a propósito: conserva su
+<!-- 7 páginas públicas. blog.html queda fuera a propósito: conserva su
      noindex mientras la sección no se use. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -12,6 +12,10 @@
   </url>
   <url>
     <loc>https://isaa.io/planes.html</loc>
+    <priority>0.9</priority>
+  </url>
+<url>
+    <loc>https://isaa.io/preguntas.html</loc>
     <priority>0.9</priority>
   </url>
   <url>
