@@ -223,14 +223,6 @@
     float.setAttribute("data-in", window.scrollY > window.innerHeight*1.4 ? "true" : "false");
   }, {passive:true});
 
-  /* ── Modo revisión ─────────────────────────────────────── */
-  var rev = el("rev");
-  rev.addEventListener("click", function(){
-    var on = document.body.getAttribute("data-review") === "on";
-    document.body.setAttribute("data-review", on ? "off" : "on");
-    rev.textContent = on ? "Modo revisión" : "Ocultar placeholders";
-  });
-
   /* ── Calculadora de precios ────────────────────────────── */
   /* Titular $149/mes o $1,149/año · cada persona adicional
      $79/mes o $609/año. Tope de 8: el titular más siete.

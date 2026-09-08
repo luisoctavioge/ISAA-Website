@@ -111,8 +111,12 @@ núcleo de beneficiarios"*, *"cloud AI interoperable"*.
 ## Placeholders
 
 Todo lo marcado como PLACEHOLDER sigue siendo placeholder. **No lo des por bueno ni lo
-escondas.** Va señalado con `data-ph="…"` y se revela con el botón **Modo revisión**.
-Con el sitio en una URL pública, que se vea que son placeholders importa más, no menos.
+escondas.** Va señalado con `data-ph="…"`, que se queda en el marcado aunque no se pinte:
+es el inventario de lo que falta y el gancho por el que se encuentran los CTAs al cablearlos.
+
+El botón **Modo revisión**, que los revelaba en pantalla, se retiró el 8 de septiembre a
+petición de Luis. Para verlos hoy hay que buscar `data-ph` en el código, o correr
+`node build/qa.mjs`, que los cuenta por página.
 
 ## Pendientes
 
@@ -167,8 +171,6 @@ Documentos de entrega:
 
 - [ ] Quitar el `<meta name="robots" content="noindex">` de las 8 páginas públicas.
       El Blog conserva el suyo mientras la sección no se use.
-- [ ] Borrar el bloque `.devnotes` de `index.html` y el botón **Modo revisión** de las
-      nueve páginas.
 - [ ] Cablear los 20 CTAs de alta. Son `<button>` inertes marcados con `data-ph`, y
       todos van a la MISMA pantalla de inicio de sesión / registro, que vive en la
       plataforma de otro equipo. Al cablearlos, buscar por ese `data-ph`.
