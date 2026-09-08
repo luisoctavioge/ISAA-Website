@@ -474,7 +474,6 @@ section{position:relative}
 .feat:nth-child(even) .feat__media{order:-1}
 .feat__copy{max-width:460px;display:flex;flex-direction:column;gap:14px}
 .feat__copy .card-t{font-size:28px;font-weight:600;letter-spacing:-.015em}
-.feat__chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
 .feat__d{font-size:18px;line-height:1.55;color:var(--mfg)}
 .feat .list{margin-top:6px}
 .feat .list li{font-size:16px}
