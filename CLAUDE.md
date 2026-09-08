@@ -153,8 +153,18 @@ Documentos de entrega:
 - [ ] El carrusel de hospitales · laboratorios · farmacias pasa a **tarjetas** que
       ilustren el «universo de documentos». Con los testimonios ocultos esa banda navy
       quedó sola y se nota vacía: rehacerla resuelve las dos cosas.
-- [ ] **Revisión de chips.** Jesús pidió quitar los innecesarios y reestilar el resto;
-      cuáles sobran es criterio suyo.
+- [ ] **Revisión de chips** — empezada el 8 de septiembre con Luis, uno por uno.
+      Fuera ocho: los del hero y el Círculo de Inicio, «Pilares de valor», «Cómo
+      funciona», «Nosotros», «Corazón», «Núcleo» y la coda de las funcionalidades.
+      Tres pasaron a  —la tipografía del chip sin píldora ni relieve—:
+      «Cómo se suma», «Cómo trabajamos» y «En qué creemos».
+
+      Quedan 14. Por la misma regla que ya se aplicó dos veces, **«Planes» y «Blog»**
+      rotulan la pestaña en la que ya estás. Y **«Permisos por persona» está dos
+      veces**, en Inicio y en Nosotros, diciendo lo mismo.
+
+      «Ejemplos de layout» no se toca: es el aviso de que los testimonios son
+      placeholder, y vive dentro del bloque que está oculto.
 
 ### Contenido real que sustituye placeholders
 
