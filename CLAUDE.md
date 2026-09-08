@@ -166,24 +166,32 @@ Documentos de entrega:
       «Ejemplos de layout» no se toca: es el aviso de que los testimonios son
       placeholder, y vive dentro del bloque que está oculto.
 
-### Contenido real que sustituye placeholders
+### Contenido
 
-- [ ] Video final del hero — hoy es TEST-HERO comprimido.
-- [ ] Fotografía propia — hoy son placeholders de Pexels. Origen y qué revisar al
-      sustituirlas, en `assets/img/FUENTES.md`.
-- [ ] Métricas reales del hero.
-- [ ] Convenios reales para la banda de compatibilidad.
-- [ ] Testimonios reales. La sección está oculta con `hidden`, no borrada: el render
-      de `#quotes` sigue vivo y vuelve quitando el atributo.
+Luis dio por definitivo el 8 de septiembre de 2026 el contenido que hay: la fotografía
+de banco, el video del hero, las métricas, la banda de categorías y las pantallas del
+design system. **Dejaron de estar marcados como placeholder.** Las fotos son de Pexels,
+con licencia comercial sin atribución; el origen de cada una está en
+`assets/img/FUENTES.md`.
+
 - [ ] Alta de newsletter (§9.4) — sin backend, el botón no envía nada.
+- [ ] Testimonios reales. Los actuales son citas inventadas firmadas «Nombre Apellido»,
+      y por eso la sección sigue oculta con `hidden` — publicarlas como reales sería
+      inventar reseñas. El render de `#quotes` está vivo: vuelve quitando el atributo,
+      pero solo con testimonios de personas de verdad.
+- [ ] Blog: los tres artículos son placeholder y el titular dice «miles de familias»,
+      un dato sin confirmar. La sección sigue oculta y conserva su `noindex`.
 
 ### Antes de publicar en isaa.io
 
-- [ ] Quitar el `<meta name="robots" content="noindex">` de las 8 páginas públicas.
-      El Blog conserva el suyo mientras la sección no se use.
-- [ ] Cablear los 20 CTAs de alta. Son `<button>` inertes marcados con `data-ph`, y
-      todos van a la MISMA pantalla de inicio de sesión / registro, que vive en la
-      plataforma de otro equipo. Al cablearlos, buscar por ese `data-ph`.
+El `noindex` ya salió de las ocho públicas. El Blog conserva el suyo mientras siga sin
+enlaces en nav ni footer.
+
+- [ ] **Poner `URL_ALTA` en `assets/isaa.js`.** Es lo único que falta para conectar los
+      diecinueve CTAs de «Empieza gratis»: todos abren la MISMA pantalla de registro,
+      que vive en la plataforma de otro equipo. Se marcan con `data-alta` y una línea
+      de JS les pone el `href`. Mientras esté vacía apuntan a `planes.html`, así que
+      ninguno queda muerto. `build/qa.mjs` avisa si a alguno se le olvida el atributo.
 - [ ] El sitio NUNCA maneja credenciales: solo enlaza a la plataforma. Nada de
       formularios de login, contraseñas ni tokens en este repo.
 

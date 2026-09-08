@@ -1,11 +1,12 @@
-# Fotografía — placeholders
+# Fotografía del sitio
 
-**Todo lo de aquí es material de relleno.** Son fotos de banco elegidas para que el
-sitio se pueda revisar con imagen real en vez de manchas de degradado. **Ninguna es
-definitiva.** Se sustituyen por fotografía propia antes de publicar en isaa.io.
+Luis las dio por definitivas el 8 de septiembre de 2026: **son la fotografía que se
+publica**, no un relleno a la espera de material propio. El día que haya fotografía
+de ISAA se sustituyen por aquí.
 
-Todas de [Pexels](https://www.pexels.com/license/), cuya licencia permite uso comercial
-sin atribución. Se registran aquí de todos modos, para poder rastrear y reemplazar.
+Todas de [Pexels](https://www.pexels.com/license/), cuya licencia permite uso
+comercial sin atribución ni pago. No hay obligación de crédito; se registran de
+todos modos para poder rastrear el origen de cada una.
 
 | Archivo | Dónde se usa | Origen |
 |---|---|---|
