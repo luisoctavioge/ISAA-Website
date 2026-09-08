@@ -156,7 +156,7 @@ Documentos de entrega:
 - [ ] **Revisión de chips** — empezada el 8 de septiembre con Luis, uno por uno.
       Fuera ocho: los del hero y el Círculo de Inicio, «Pilares de valor», «Cómo
       funciona», «Nosotros», «Corazón», «Núcleo» y la coda de las funcionalidades.
-      Tres pasaron a  —la tipografía del chip sin píldora ni relieve—:
+      Tres pasaron a `.rotulo` —la tipografía del chip sin píldora ni relieve—:
       «Cómo se suma», «Cómo trabajamos» y «En qué creemos».
 
       Quedan 14. Por la misma regla que ya se aplicó dos veces, **«Planes» y «Blog»**
