@@ -88,9 +88,28 @@ const blancoPuro = /background:\s*#fff\b|background-color:\s*#fff\b|background:\
 blancoPuro ? warn('Blanco puro en .btn--light','es el botón claro sobre el hero fotográfico, no un fondo de sección') : ok('Ningún blanco ni negro puro como fondo de sección');
 
 /* ── Placeholders ──────────────────────────────────────────── */
+/* Informativo: cuenta, no exige. Una página en cero es la meta. */
 const ph = Object.fromEntries(PAGES.map(p => [p, (html[p].match(/data-ph="/g)||[]).length]));
-PAGES.every(p=>ph[p]>0) ? ok(`Placeholders señalados en las ${PAGES.length} páginas`, PAGES.map(p=>`${p.replace('.html','')}:${ph[p]}`).join(' · '))
-                        : bad('Alguna página sin placeholders marcados', JSON.stringify(ph));
+const phTotal = Object.values(ph).reduce((a,b)=>a+b,0);
+ok(`${phTotal} placeholders señalados`, PAGES.map(p=>`${p.replace('.html','')}:${ph[p]}`).join(' · '));
+
+/* ── CTAs de alta ──────────────────────────────────────────── */
+/* Los diecinueve dependen de URL_ALTA en isaa.js. Uno al que se le
+   olvide el data-alta se pinta idéntico y no se conecta el día que
+   llegue la URL: no hay forma de verlo mirando la página. */
+const altas = PAGES.map(p => (html[p].match(/data-alta/g)||[]).length).reduce((a,b)=>a+b,0);
+const sueltos = [];
+for (const p of PAGES)
+  for (const m of html[p].matchAll(/<a\b[^>]*>Empieza gratis<\/a>|<button\b[^>]*>Empieza gratis<\/button>/g))
+    if (!m[0].includes("data-alta")) sueltos.push(p);
+sueltos.length
+  ? bad(`${sueltos.length} "Empieza gratis" sin data-alta`, [...new Set(sueltos)].join(", "))
+  : ok(`Los ${altas} CTAs de alta cuelgan de URL_ALTA`, "una línea de isaa.js los conecta todos");
+
+const js = await readFile("assets/isaa.js","utf8");
+/^\s*var URL_ALTA = /m.test(js)
+  ? ok("URL_ALTA declarada en isaa.js", (js.match(/var URL_ALTA = "([^"]*)"/)||[])[1] ? "apuntando a la plataforma" : "vacía · los CTAs llevan a planes.html")
+  : bad("URL_ALTA no está en isaa.js");
 
 
 /* ── Clases huérfanas ──────────────────────────────────────── */

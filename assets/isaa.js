@@ -16,6 +16,20 @@
   function $(id){ return document.getElementById(id); }
   function el(id){ return $(id) || SINK; }
 
+  /* ── Alta en la plataforma ─────────────────────────────── */
+  /* Los CTAs de "Empieza gratis" abren todos la MISMA pantalla de
+     registro, que vive en la plataforma y no en este sitio. Poner
+     la URL aquí los conecta los diecinueve de una vez: no hay que
+     tocar una sola línea de HTML.
+
+     Mientras esté vacía llevan a planes.html, que es un destino
+     real. Así ninguno queda muerto mientras llega la URL.
+
+     ISAA no maneja credenciales: este sitio enlaza a la pantalla
+     de registro, nunca la implementa. Nada de formularios de
+     login, contraseñas ni tokens en este repo. */
+  var URL_ALTA = "";
+
   /* ── Datos ─────────────────────────────────────────────── */
   var PAINS_A = [
     ["desk","El estudio está en WhatsApp, en un correo, o en ningún lado"],
@@ -179,6 +193,12 @@
               + '</summary><p class="q__a">'+esc(f[2])+'</p></details>';
           }).join("");
     }).join("");
+  }
+
+  /* ── Los CTAs de alta ──────────────────────────────────── */
+  if (URL_ALTA) {
+    Array.prototype.forEach.call(document.querySelectorAll("[data-alta]"),
+      function(a){ a.setAttribute("href", URL_ALTA); });
   }
 
   /* ── Reveal al hacer scroll ────────────────────────────── */
