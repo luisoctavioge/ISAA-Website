@@ -285,7 +285,6 @@ section{position:relative}
   font-size:13px;line-height:1.35;font-weight:500;color:var(--mfg);
 }
 .pfeat__d{width:7px;height:7px;flex:none;border-radius:999px}
-.pfeat:last-child:nth-child(odd){grid-column:1/-1}
 
 /* ── Testimonios ────────────────────────────────────────────── */
 .masonry{columns:2;column-gap:24px}
