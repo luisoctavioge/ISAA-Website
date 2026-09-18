@@ -104,7 +104,9 @@
      todas juntas o no se buscan. Fuente: FAQ-SITIO-ISAA.md.
 
      De las 15 que mandó Jesús se publican 12. Las otras 3 están
-     abajo, comentadas — ninguna se inventa. */
+     abajo, comentadas — ninguna se inventa. «¿Qué acepto al crear mi
+     cuenta?» no viene de su lista: es la tarjeta que vivía en Inicio,
+     con el mismo texto, movida aquí el 18 de septiembre. */
   var FAQ = [
     {cat:'Qué es ISAA', qs:[
       ['reemplaza-medico','¿ISAA reemplaza a mi médico o a mi aseguradora?','No. ISAA no atiende ni asegura: organiza. Guardamos y ordenamos la documentación de tu seguimiento de salud para que la tengas lista cuando cualquier médico, hospital o aseguradora te la pida.'],
@@ -120,6 +122,7 @@
     ]},
     {cat:'Privacidad y control', qs:[
       ['quien-ve-info','¿Quién puede ver mi información?','Solo quien tú decidas. Nada se comparte por omisión. Al crear tu cuenta aceptas tres cosas por separado —términos, manejo de datos sensibles y comunicaciones de marketing— y puedes rechazar la última sin perder absolutamente nada de la app.'],
+      ['que-acepto','¿Qué acepto al crear mi cuenta?','Tres cosas, por separado: términos, manejo de datos sensibles y comunicaciones. Son tres decisiones distintas y puedes rechazar la última sin perder nada de la app. Nada viene marcado por omisión.'],
       ['cerrar-cuenta','¿Qué pasa con mis datos si cierro mi cuenta?','Puedes llevarte tu expediente completo. La portabilidad es un derecho que te da la ley, no una función del plan, y aplica igual si estás en Gratis que si pagas.']
     ]},
     {cat:'Compartir con médicos y aseguradoras', qs:[
@@ -153,7 +156,8 @@
   }
   fillMarquee(el("mqA"), PAINS_A, painCard);
   fillMarquee(el("mqB"), PAINS_B, painCard);
-  function logo(l){return '<i class="mq__emo">'+l[0]+'</i><b>'+esc(l[1])+'</b>';}
+  /* Emoji y palabra van juntos: al apuntar a uno se ilumina el par completo. */
+  function logo(l){return '<span class="mq__item"><i class="mq__emo">'+l[0]+'</i><b>'+esc(l[1])+'</b></span>';}
   /* Ninguna palabra en las dos filas: tres arriba, dos abajo. */
   fillMarquee(el("mqL"), LOGOS.slice(0,3), logo);
   fillMarquee(el("mqL2"), LOGOS.slice(3), logo);

@@ -167,12 +167,15 @@ Documentos de entrega:
 - [ ] **Revisión de chips** — empezada el 8 de septiembre con Luis, uno por uno.
       Fuera ocho: los del hero y el Círculo de Inicio, «Pilares de valor», «Cómo
       funciona», «Nosotros», «Corazón», «Núcleo» y la coda de las funcionalidades.
-      Tres pasaron a `.rotulo` —la tipografía del chip sin píldora ni relieve—:
-      «Cómo se suma», «Cómo trabajamos» y «En qué creemos».
+      Seis pasaron a `.rotulo` —la tipografía del chip sin píldora ni relieve—:
+      «Cómo se suma», «Cómo trabajamos», «En qué creemos» y, el 18 de septiembre,
+      las tres tarjetas de Nosotros: «Independientes de todos», «Permisos por
+      persona» y «Nuestro único competidor es la inercia».
 
-      Quedan 14. Por la misma regla que ya se aplicó dos veces, **«Planes» y «Blog»**
-      rotulan la pestaña en la que ya estás. Y **«Permisos por persona» está dos
-      veces**, en Inicio y en Nosotros, diciendo lo mismo.
+      Quedan en HTML público: «Planes» (rotula la pestaña en la que ya estás, por la
+      regla que ya se aplicó dos veces), «Titular + miembros», «Expediente por
+      persona» y «Permisos por persona» en Inicio —este último repite el rótulo de
+      Nosotros— y «Gratis», que marca el plan. El Blog se queda como está.
 
       «Ejemplos de layout» no se toca: es el aviso de que los testimonios son
       placeholder, y vive dentro del bloque que está oculto.

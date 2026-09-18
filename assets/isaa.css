@@ -258,6 +258,9 @@ section{position:relative}
 .marquee--b{bottom:19%}
 .mq__track{display:flex;gap:20px;padding-right:20px;flex:none;animation:slide 46s linear infinite}
 .marquee--b .mq__track{animation-direction:reverse}
+/* La fila recorta con overflow:hidden; sin aire vertical se come la sombra dual
+   de las tarjetas (--e1 llega a ~22px). El margen negativo deja todo en su sitio. */
+.pains .marquee{padding-block:28px;margin-block:-28px}
 @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 .pain{
@@ -309,20 +312,19 @@ section{position:relative}
 .universo .marquee{position:relative;top:auto;bottom:auto}
 /* Las dos filas son una sola zona de hover: frenan juntas (isaa.js). */
 .universo__lista{position:relative}
-.universo .marquee + .marquee{margin-top:clamp(4px,1vw,12px)}
-.universo .mq__track{align-items:center;gap:clamp(40px,5vw,72px);padding-right:clamp(40px,5vw,72px);animation-duration:52s}
+/* Inter baja ~0.24em bajo la línea: con line-height 1.1 la fila recortaba la «g». */
+.universo .marquee + .marquee{margin-top:clamp(-18px,-1.2vw,-6px)}
+.universo .mq__track{--hueco:clamp(40px,5vw,72px);align-items:center;gap:var(--hueco);padding-right:var(--hueco);animation-duration:52s}
+.mq__item{display:flex;align-items:center;gap:var(--hueco);flex:none;transition:opacity .35s ease}
 .universo b{
-  font-size:clamp(48px,8.5vw,128px);line-height:1.1;font-weight:800;letter-spacing:-.02em;
+  font-size:clamp(48px,8.5vw,128px);line-height:1.32;font-weight:800;letter-spacing:-.02em;
   color:#fff;white-space:nowrap;flex:none;
 }
-.universo .marquee--b b{color:rgba(255,255,255,.22)}
 .mq__emo{font-style:normal;font-size:clamp(36px,6vw,92px);line-height:1;flex:none;align-self:center}
-.universo .marquee--b .mq__emo{opacity:.45}
-.universo__pruebas{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:960px;margin-top:clamp(56px,7vw,88px)}
-.card--over,
-.card--over:hover{background:rgba(255,255,255,.06);box-shadow:var(--e-over)}
-.card--over .card-t{color:#fff}
-.card--over .body{color:rgba(255,255,255,.72)}
+/* Las dos filas en blanco. Al apuntar a una palabra, esa se queda en blanco y las
+   demás bajan; la lista, además, frena (isaa.js). */
+.universo__lista:has(.mq__item:hover) .mq__item{opacity:.22}
+.universo__lista:has(.mq__item:hover) .mq__item:hover{opacity:1}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 /* ── Planes ─────────────────────────────────────────────────── */
@@ -400,7 +402,11 @@ section{position:relative}
 /* ── Tarjeta flotante ───────────────────────────────────────── */
 .float{
   position:fixed;right:24px;bottom:24px;z-index:55;width:340px;
-  background:var(--bg);border-radius:var(--r);box-shadow:var(--e2);padding:28px;
+  /* Es fija: pasa sobre la plancha clara y sobre el footer navy. La luz blanca de
+     --e2 ahí se lee como un halo: la luz va por dentro (filo superior) y la
+     sombra, oscura y centrada. Dual, sin halo. */
+  background:var(--bg);border-radius:var(--r);padding:28px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9), 0 14px 36px rgba(27,30,44,.30), 0 3px 8px rgba(27,30,44,.14);
   display:flex;flex-direction:column;gap:12px;
   transform:translateY(140%);transition:transform .6s cubic-bezier(.2,.8,.25,1);
 }
@@ -470,7 +476,8 @@ section{position:relative}
 /* ── Tarjeta con chip de color por título [§7.2] ───────────── */
 .grid3--even{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
 .tcard{display:flex;flex-direction:column;gap:16px;padding:32px}
-.tcard .chip{align-self:flex-start}
+/* El rótulo que titula una tarjeta va en azul; los de sección siguen en --mfg. */
+.tcard .rotulo{color:var(--primary-txt)}
 
 /* ── En qué creemos · numeral grande [§7.3] ────────────────── */
 .beliefs{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
@@ -530,7 +537,7 @@ section{position:relative}
 
 /* ── Responsive de las páginas interiores ──────────────────── */
 @media (max-width:980px){
-  .hero-p__in,.beliefs,.grid3--even,.split-t,.posts,.universo__pruebas{grid-template-columns:1fr}
+  .hero-p__in,.beliefs,.grid3--even,.split-t,.posts{grid-template-columns:1fr}
   .hero-p__media{aspect-ratio:4/3;max-height:none}
   .row{flex-wrap:wrap;gap:16px}
   .row__body{flex-basis:100%;order:2}
@@ -652,6 +659,8 @@ section{position:relative}
 /* ── Desglose de precios [precios.html] ─────────────────────── */
 /* Explica por qué dos personas no cuestan el doble que una. */
 .desglose{display:flex;flex-direction:column;gap:12px;max-width:760px}
+/* Lo que pasa si te vas, junto a lo que pagas (vino de Inicio el 18 de septiembre). */
+.desglose__salida{max-width:760px;margin-top:24px}
 .desglose__fila{
   display:grid;grid-template-columns:1fr auto auto;gap:8px 20px;align-items:baseline;
   background:var(--bg);border-radius:var(--r);box-shadow:var(--e1);padding:24px 28px;
