@@ -109,6 +109,10 @@ section{position:relative}
 /* Primera sección de una página sin hero: despeja la nav fija. */
 .sec--primera{padding-top:clamp(116px,11vw,152px)}
 .sec--navy{background:var(--g-navy);color:#fff}
+/* Sobre navy, la segunda cláusula usa --primary: --primary-txt está pensado para
+   el fondo claro y ahí no contrasta. El texto de apoyo va en blanco translúcido. */
+.sec--navy:not(.cta) .hl{color:var(--primary)}
+.sec--navy:not(.cta) .lead{color:rgba(255,255,255,.8)}
 .head{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;margin-bottom:clamp(48px,6vw,72px)}
 .head .h2{max-width:900px}
 .head .lead{max-width:620px}
@@ -300,7 +304,6 @@ section{position:relative}
 /* ── Compatibilidad + confianza ─────────────────────────────── */
 /* La lista es el titular visual: dos filas a tamaño de display que se cruzan. */
 .universo{padding-block:clamp(72px,8vw,112px)}
-.universo .hl{color:var(--primary)}
 /* El titular cede el tamaño a la lista, que es la que habla aquí. */
 .universo .h2{font-size:clamp(22px,2.3vw,32px);line-height:1.2}
 .universo .marquee{position:relative;top:auto;bottom:auto}
@@ -361,14 +364,15 @@ section{position:relative}
 .cta .h2{color:#fff}
 .cta .lead{color:rgba(255,255,255,.8)}
 .cta__mark{width:64px;height:64px;color:#fff}
-/* En Inicio el CTA sigue a la banda navy de compatibilidad: dos navy seguidos no
-   respiran, así que ahí va sobre la plancha clara, entre esa banda y el footer. */
-.sec--universo + .cta{background:var(--bg);color:var(--fg)}
-.sec--universo + .cta .h2{color:var(--fg)}
-.sec--universo + .cta .lead{color:var(--mfg)}
-.sec--universo + .cta .cta__mark{color:var(--logo-simbolo)}
-.sec--universo + .cta .btn{box-shadow:var(--e1)}
-.sec--universo + .cta .btn:hover{box-shadow:var(--e2)}
+/* Si el CTA sigue a una sección navy, dos navy seguidos no respiran: el CTA va
+   sobre la plancha clara, entre esa sección y el footer. Hoy pasa en Inicio y en
+   Cómo funciona; en las demás páginas el CTA sigue navy. */
+.sec--navy + .cta{background:var(--bg);color:var(--fg)}
+.sec--navy + .cta .h2{color:var(--fg)}
+.sec--navy + .cta .lead{color:var(--mfg)}
+.sec--navy + .cta .cta__mark{color:var(--logo-simbolo)}
+.sec--navy + .cta .btn{box-shadow:var(--e1)}
+.sec--navy + .cta .btn:hover{box-shadow:var(--e2)}
 .cta:hover .cta__mark{animation:heartbeat 1.4s ease-in-out infinite}
 
 .foot{padding-block:80px 48px}

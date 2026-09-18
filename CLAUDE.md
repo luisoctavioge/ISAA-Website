@@ -185,26 +185,29 @@ design system. **Dejaron de estar marcados como placeholder.** Las fotos son de 
 con licencia comercial sin atribución; el origen de cada una está en
 `assets/img/FUENTES.md`.
 
-- [ ] Alta de newsletter (§9.4) — sin backend, el botón no envía nada.
-- [ ] Testimonios reales. Los actuales son citas inventadas firmadas «Nombre Apellido»,
-      y por eso la sección sigue oculta con `hidden` — publicarlas como reales sería
-      inventar reseñas. El render de `#quotes` está vivo: vuelve quitando el atributo,
-      pero solo con testimonios de personas de verdad.
-- [ ] Blog: los tres artículos son placeholder y el titular dice «miles de familias»,
-      un dato sin confirmar. La sección sigue oculta y conserva su `noindex`.
+**Aceptado así por Luis el 18 de septiembre de 2026 — no se reporta como pendiente.**
+Los tres se quedan como están hasta que él diga otra cosa:
+
+- Newsletter (§9.4): sin backend, el botón no envía nada.
+- Testimonios: la sección sigue oculta con `hidden`. Las citas actuales son inventadas
+  («Nombre Apellido»); publicarlas como reales sería inventar reseñas. El render de
+  `#quotes` está vivo y vuelve quitando el atributo, pero solo con personas de verdad.
+- Blog: los tres artículos son placeholder y «miles de familias» es un dato sin
+  confirmar. Sigue oculto, sin enlaces en nav ni footer, y conserva su `noindex`.
 
 ### Antes de publicar en isaa.io
 
 El `noindex` ya salió de las ocho públicas. El Blog conserva el suyo mientras siga sin
 enlaces en nav ni footer.
 
-- [ ] **Poner `URL_ALTA` en `assets/isaa.js`.** Es lo único que falta para conectar los
-      diecinueve CTAs de «Empieza gratis»: todos abren la MISMA pantalla de registro,
-      que vive en la plataforma de otro equipo. Se marcan con `data-alta` y una línea
-      de JS les pone el `href`. Mientras esté vacía apuntan a `planes.html`, así que
-      ninguno queda muerto. `build/qa.mjs` avisa si a alguno se le olvida el atributo.
-- [ ] El sitio NUNCA maneja credenciales: solo enlaza a la plataforma. Nada de
-      formularios de login, contraseñas ni tokens en este repo.
+- **`URL_ALTA` en `assets/isaa.js` la pone Scanda**, los devs de la plataforma — no es
+  pendiente de este lado y no se reporta como tal (Luis, 18 de septiembre de 2026).
+  Conecta los diecinueve CTAs de «Empieza gratis»: todos abren la MISMA pantalla de
+  registro, que vive en la plataforma. Se marcan con `data-alta` y una línea de JS les
+  pone el `href`. Mientras esté vacía apuntan a `planes.html`, así que ninguno queda
+  muerto. `build/qa.mjs` avisa si a alguno se le olvida el atributo.
+- El sitio NUNCA maneja credenciales: solo enlaza a la plataforma. Nada de
+  formularios de login, contraseñas ni tokens en este repo.
 
 ### Deuda conocida
 
