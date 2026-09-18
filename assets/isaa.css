@@ -254,7 +254,6 @@ section{position:relative}
 .marquee--b{bottom:19%}
 .mq__track{display:flex;gap:20px;padding-right:20px;flex:none;animation:slide 46s linear infinite}
 .marquee--b .mq__track{animation-direction:reverse}
-.marquee:hover .mq__track{animation-play-state:paused}
 @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 .pain{
@@ -298,11 +297,30 @@ section{position:relative}
 .who__r{font-size:14px;color:rgba(255,255,255,.62)}
 .t-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
 
-/* ── Compatibilidad ─────────────────────────────────────────── */
-.logos{padding-block:40px 72px}
-.logos .marquee{position:relative;top:auto;bottom:auto;margin-top:32px}
-.logos .mq__track{gap:80px;padding-right:80px;animation-duration:38s}
-.logos b{font-size:26px;font-weight:700;letter-spacing:-.01em;color:rgba(255,255,255,.4);white-space:nowrap;flex:none}
+/* ── Compatibilidad + confianza ─────────────────────────────── */
+/* La lista es el titular visual: dos filas a tamaño de display que se cruzan. */
+.universo{padding-block:clamp(72px,8vw,112px)}
+.universo .hl{color:var(--primary)}
+/* El titular cede el tamaño a la lista, que es la que habla aquí. */
+.universo .h2{font-size:clamp(22px,2.3vw,32px);line-height:1.2}
+.universo .marquee{position:relative;top:auto;bottom:auto}
+/* Las dos filas son una sola zona de hover: frenan juntas (isaa.js). */
+.universo__lista{position:relative}
+.universo .marquee + .marquee{margin-top:clamp(4px,1vw,12px)}
+.universo .mq__track{align-items:center;gap:clamp(40px,5vw,72px);padding-right:clamp(40px,5vw,72px);animation-duration:52s}
+.universo b{
+  font-size:clamp(48px,8.5vw,128px);line-height:1.1;font-weight:800;letter-spacing:-.02em;
+  color:#fff;white-space:nowrap;flex:none;
+}
+.universo .marquee--b b{color:rgba(255,255,255,.22)}
+.mq__emo{font-style:normal;font-size:clamp(36px,6vw,92px);line-height:1;flex:none;align-self:center}
+.universo .marquee--b .mq__emo{opacity:.45}
+.universo__pruebas{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:960px;margin-top:clamp(56px,7vw,88px)}
+.card--over,
+.card--over:hover{background:rgba(255,255,255,.06);box-shadow:var(--e-over)}
+.card--over .card-t{color:#fff}
+.card--over .body{color:rgba(255,255,255,.72)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 
 /* ── Planes ─────────────────────────────────────────────────── */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
@@ -341,7 +359,16 @@ section{position:relative}
 .cta{padding-block:clamp(72px,9vw,120px);text-align:center}
 .cta__in{max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:24px}
 .cta .h2{color:#fff}
+.cta .lead{color:rgba(255,255,255,.8)}
 .cta__mark{width:64px;height:64px;color:#fff}
+/* En Inicio el CTA sigue a la banda navy de compatibilidad: dos navy seguidos no
+   respiran, así que ahí va sobre la plancha clara, entre esa banda y el footer. */
+.sec--universo + .cta{background:var(--bg);color:var(--fg)}
+.sec--universo + .cta .h2{color:var(--fg)}
+.sec--universo + .cta .lead{color:var(--mfg)}
+.sec--universo + .cta .cta__mark{color:var(--logo-simbolo)}
+.sec--universo + .cta .btn{box-shadow:var(--e1)}
+.sec--universo + .cta .btn:hover{box-shadow:var(--e2)}
 .cta:hover .cta__mark{animation:heartbeat 1.4s ease-in-out infinite}
 
 .foot{padding-block:80px 48px}
@@ -528,7 +555,7 @@ section{position:relative}
 
 /* ── Responsive de las páginas interiores ──────────────────── */
 @media (max-width:980px){
-  .hero-p__in,.beliefs,.grid3--even,.split-t,.feat,.posts{grid-template-columns:1fr}
+  .hero-p__in,.beliefs,.grid3--even,.split-t,.feat,.posts,.universo__pruebas{grid-template-columns:1fr}
   .hero-p__media{aspect-ratio:4/3;max-height:none}
   .feat:nth-child(even) .feat__media{order:0}
   .row{flex-wrap:wrap;gap:16px}

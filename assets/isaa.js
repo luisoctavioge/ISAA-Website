@@ -138,7 +138,8 @@
        definida, y sin eso no hay declaración de transferencia.
      Las tres pasan después por Hernán Garza. */
 
-  var LOGOS = ["Hospitales","Laboratorios","Farmacias","Consultorios","Aseguradoras"];
+  var LOGOS = [["🏥","Hospitales"],["🔬","Laboratorios"],["💊","Farmacias"],
+               ["🩺","Consultorios"],["🛡️","Aseguradoras"]];
 
   /* ── Render ────────────────────────────────────────────── */
   function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
@@ -152,7 +153,33 @@
   }
   fillMarquee(el("mqA"), PAINS_A, painCard);
   fillMarquee(el("mqB"), PAINS_B, painCard);
-  fillMarquee(el("mqL"), LOGOS, function(l){return "<b>"+esc(l)+"</b>";});
+  function logo(l){return '<i class="mq__emo">'+l[0]+'</i><b>'+esc(l[1])+'</b>';}
+  /* Ninguna palabra en las dos filas: tres arriba, dos abajo. */
+  fillMarquee(el("mqL"), LOGOS.slice(0,3), logo);
+  fillMarquee(el("mqL2"), LOGOS.slice(3), logo);
+
+  /* Los carruseles no se detienen con el cursor: frenan a un cuarto de velocidad,
+     sus dos filas juntas, con una rampa corta para que no dé tirón. Cada zona de
+     hover agrupa sus filas, para que el hueco entre ellas no las acelere.
+     Con prefers-reduced-motion no hay animación y esto no hace nada. */
+  if (Element.prototype.getAnimations) {
+    [].forEach.call(document.querySelectorAll(".pains, .universo__lista"), function(zona){
+      var tracks = [].slice.call(zona.querySelectorAll(".mq__track"));
+      var rate = 1, raf = 0;
+      function ramp(to){
+        cancelAnimationFrame(raf);
+        var from = rate, t0 = performance.now();
+        (function step(now){
+          var k = Math.min(1, (now - t0) / 450);
+          rate = from + (to - from) * (1 - Math.pow(1 - k, 3));
+          tracks.forEach(function(t){ t.getAnimations().forEach(function(a){ a.playbackRate = rate; }); });
+          if (k < 1) raf = requestAnimationFrame(step);
+        })(t0);
+      }
+      zona.addEventListener("mouseenter", function(){ ramp(.25); });
+      zona.addEventListener("mouseleave", function(){ ramp(1); });
+    });
+  }
 
   el("pilares-grid").innerHTML = PILLARS.map(function(p){
     return '<article class="card pillar rv">'

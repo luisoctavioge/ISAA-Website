@@ -121,7 +121,7 @@ petición de Luis. Para verlos hoy hay que buscar `data-ph` en el código, o cor
 ## Pendientes
 
 Una sola rama, `main`. Nueve páginas: siete públicas, el Blog oculto (sin enlaces en
-nav ni footer) y las tres legales. QA de §10: 20 pasan, 2 a criterio, 0 fallan.
+nav ni footer) y las tres legales. QA de §10: 22 pasan, 2 a criterio, 0 fallan.
 
 Documentos de entrega:
 - `docs/PARA-JESUS.md` — lenguaje llano. Qué quedó y qué se necesita de él.
@@ -150,9 +150,14 @@ Documentos de entrega:
 - [ ] **Animación tipo Apple** (scroll + zoom) para las pantallas de la app. Hoy los
       mockups son iframes escalados por JS contra el alto disponible. Hay que decidir
       si se animan esos o si se sustituyen por otra pieza.
-- [ ] El carrusel de hospitales · laboratorios · farmacias pasa a **tarjetas** que
-      ilustren el «universo de documentos». Con los testimonios ocultos esa banda navy
-      quedó sola y se nota vacía: rehacerla resuelve las dos cosas.
+- [x] La banda navy de Inicio, resuelta el 18 de septiembre con Luis de otra forma que
+      las tarjetas previstas: la lista de hospitales · laboratorios · farmacias ·
+      consultorios · aseguradoras es el titular visual (`.universo`), a tamaño display,
+      con emoji entre palabras y sin repetir ninguna entre filas. Absorbió la sección
+      de confianza (T31) y se fue la de los cuatro pasos (`STEPS` sigue en `isaa.js`
+      sin pintarse). El CTA de Inicio va en claro, entre esa banda y el footer.
+      Pendiente de marca: las emoji traen color propio — que lo valide Jesús.
+      Los carruseles frenan con el cursor, no se detienen.
 - [ ] **Revisión de chips** — empezada el 8 de septiembre con Luis, uno por uno.
       Fuera ocho: los del hero y el Círculo de Inicio, «Pilares de valor», «Cómo
       funciona», «Nosotros», «Corazón», «Núcleo» y la coda de las funcionalidades.
