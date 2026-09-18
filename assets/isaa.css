@@ -489,38 +489,9 @@ section{position:relative}
 .split-t{display:grid;grid-template-columns:minmax(0,460px) minmax(0,540px);gap:clamp(40px,6vw,72px);justify-content:space-between;align-items:start}
 .split-t__body{display:flex;flex-direction:column;gap:20px}
 
-/* ── Bloques de funcionalidad alternados [§8.2] ────────────── */
-.feats{display:flex;flex-direction:column;gap:72px}
-.feat{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,72px);align-items:center}
-.feat:nth-child(even) .feat__media{order:-1}
-.feat__copy{max-width:460px;display:flex;flex-direction:column;gap:14px}
-.feat__copy .card-t{font-size:28px;font-weight:600;letter-spacing:-.015em}
+/* ── Funcionalidades [§8.2] · frase y nota ─────────────────── */
 .feat__d{font-size:18px;line-height:1.55;color:var(--mfg)}
-.feat .list{margin-top:6px}
-.feat .list li{font-size:16px}
 
-/* Plancha plana. Llevaba un degradado del blanco al color del feature;
-   Jesús lo bajó en la llamada del 4 de septiembre. Queda el tinte del
-   color funcional, hundido como los demás pozos del sistema, para que
-   el teléfono —que sí va elevado— destaque contra él.
-   Registro funcional — nunca personas aquí. [BB §3.6] */
-.plinth{
-  position:relative;border-radius:var(--r);box-shadow:var(--inset);
-  aspect-ratio:4/3;display:grid;place-items:center;overflow:hidden;
-  background:var(--f-soft);
-}
-.mock{
-  height:82%;aspect-ratio:390/844;width:auto;position:relative;overflow:hidden;
-  border-radius:24px;background:var(--bg);
-  box-shadow:-8px -8px 20px rgba(255,255,255,.7), 14px 14px 34px rgba(163,177,198,.5);
-}
-/* La pantalla va a su tamaño real (390×844) y se escala; el factor lo
-   calcula isaa.js contra el alto disponible. Es decorativa: sin foco,
-   sin puntero, fuera del árbol de accesibilidad. */
-.mock__f{
-  position:absolute;top:0;left:0;width:390px;height:844px;border:0;
-  transform-origin:0 0;pointer-events:none;
-}
 .feat__note{text-align:center;margin-top:56px;font-size:16px;color:var(--mfg)}
 
 /* ── Blog · filtros [§9.2] ─────────────────────────────────── */
@@ -555,9 +526,8 @@ section{position:relative}
 
 /* ── Responsive de las páginas interiores ──────────────────── */
 @media (max-width:980px){
-  .hero-p__in,.beliefs,.grid3--even,.split-t,.feat,.posts,.universo__pruebas{grid-template-columns:1fr}
+  .hero-p__in,.beliefs,.grid3--even,.split-t,.posts,.universo__pruebas{grid-template-columns:1fr}
   .hero-p__media{aspect-ratio:4/3;max-height:none}
-  .feat:nth-child(even) .feat__media{order:0}
   .row{flex-wrap:wrap;gap:16px}
   .row__body{flex-basis:100%;order:2}
   .row .chip{order:1;margin-left:auto}
@@ -691,4 +661,109 @@ section{position:relative}
 @media (max-width:640px){
   .desglose__fila{grid-template-columns:1fr auto}
   .desglose__u{grid-column:2;text-align:right}
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Cómo funciona · teléfono 3D (como-funciona.html)
+   Un escenario sticky; el teléfono es CSS 3D puro —frente, dorso y
+   un canto hecho de capas— y las pantallas son las del design
+   system. isaa.js (bloque cf3d) lo mueve según el scroll.
+   Todo vive bajo .cf3d: no afecta a ninguna otra página.
+   ══════════════════════════════════════════════════════════════ */
+@property --tinte{syntax:'<color>';inherits:true;initial-value:rgba(37,99,235,0)}
+
+.cf3d{position:relative;height:calc((var(--pasos,7) + 1.6) * 100vh);background:var(--bg)}
+.cf3d__stage{
+  position:sticky;top:0;height:100vh;overflow:hidden;
+  --tinte:rgba(37,99,235,0);transition:--tinte .7s ease;
+}
+
+/* Titular de entrada, arriba: se va mientras el teléfono sube. */
+.cf3d__intro{
+  position:absolute;left:50%;top:calc(72px + 17vh);z-index:3;
+  width:min(760px,calc(100% - 32px));transform:translate(-50%,0);
+  display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center;
+}
+.cf3d__intro .h1{font-size:clamp(31px,3.4vw,48px)}
+
+/* Escena 3D */
+.cf3d__escena{position:absolute;inset:0;z-index:2;perspective:1900px;perspective-origin:50% 45%;pointer-events:none}
+/* El pozo: la plancha hundida del sistema, teñida con el color funcional del paso. */
+.cf3d__pozo{
+  position:absolute;left:50%;top:50%;width:min(68vh,640px);aspect-ratio:1;border-radius:50%;
+  background:var(--tinte);box-shadow:var(--inset);transform:translate(-50%,-50%);
+}
+/* El teléfono va a su tamaño real (410×864) y se escala dentro del transform. */
+.cf3d__tel{
+  position:absolute;left:50%;top:50%;width:410px;height:864px;margin:-432px 0 0 -205px;
+  transform-style:preserve-3d;will-change:transform;
+}
+.cf3d__frente,.cf3d__dorso,.cf3d__canto{position:absolute;inset:0;border-radius:56px}
+.cf3d__canto{background:#2a2e39}
+.cf3d__frente{
+  background:#15171e;box-shadow:inset 0 0 0 2px #3c4150;
+  transform:translateZ(10px);backface-visibility:hidden;-webkit-backface-visibility:hidden;
+}
+.cf3d__pantalla{position:absolute;inset:10px;border-radius:46px;overflow:hidden;background:#F1F2F6}
+/* Cada pantalla trae su propio marco a 24px del borde: se recorta dejando solo la pantalla. */
+.cf3d__f{position:absolute;left:-24px;top:-24px;width:438px;height:892px;border:0;pointer-events:none;opacity:0}
+.cf3d__f[data-on]{opacity:1}
+/* Reflejo que corre con el giro. */
+.cf3d__brillo{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(115deg,rgba(255,255,255,0) 35%,rgba(255,255,255,.28) 48%,rgba(255,255,255,0) 60%);
+  background-size:300% 100%;background-position:var(--brillo,50%) 0;
+}
+.cf3d__dorso{
+  transform:rotateY(180deg) translateZ(10px);backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:linear-gradient(160deg,#30343f 0%,#1d2029 100%);box-shadow:inset 0 0 0 2px #454a5a;
+  display:grid;place-items:center;
+}
+.cf3d__logo{
+  width:112px;height:112px;background:var(--logo-simbolo);
+  -webkit-mask:url("img/simbolo.svg") center/contain no-repeat;mask:url("img/simbolo.svg") center/contain no-repeat;
+}
+
+/* Texto de cada paso: del lado contrario al teléfono. */
+.cf3d__pasos{position:absolute;inset:0;z-index:3;list-style:none;margin:0;padding:0;pointer-events:none}
+.cf3d__paso{
+  position:absolute;top:50%;width:min(420px,34vw);
+  display:flex;flex-direction:column;gap:14px;opacity:0;will-change:opacity,transform;
+}
+.cf3d__paso[data-lado="izq"]{left:max(48px,calc(50% - 540px))}
+.cf3d__paso[data-lado="der"]{right:max(104px,calc(50% - 540px))}
+.cf3d__paso .card-t{font-size:clamp(28px,2.8vw,40px);line-height:1.12;font-weight:700;letter-spacing:-.02em}
+.cf3d__paso .list{margin-top:6px}
+.cf3d__paso .list li{font-size:16px}
+
+/* Riel de navegación entre pasos. */
+.cf3d__riel{position:absolute;right:32px;top:50%;z-index:4;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;transition:opacity .4s ease}
+.cf3d__riel button{
+  width:38px;height:38px;border:0;border-radius:999px;cursor:pointer;
+  background:var(--bg);box-shadow:var(--e1);color:var(--mfg);
+  font:700 12px/1 Inter,sans-serif;letter-spacing:.02em;transition:box-shadow .25s ease,color .25s ease;
+}
+.cf3d__riel button:hover{box-shadow:var(--e2);color:var(--fg)}
+.cf3d__riel button[aria-current="step"]{background:var(--g-azul);color:#fff}
+.cf3d__riel button:focus-visible{outline:3px solid var(--primary);outline-offset:3px}
+.cf3d__nota{padding-block:40px}
+.cf3d__nota .feat__note{margin-top:0}
+
+@media (max-width:820px){
+  .cf3d__intro{top:calc(72px + 4vh)}
+  .cf3d__pozo{width:min(52vh,86vw)}
+  .cf3d__paso,
+  .cf3d__paso[data-lado="izq"],
+  .cf3d__paso[data-lado="der"]{
+    left:16px;right:16px;top:auto;bottom:4vh;width:auto;gap:8px;padding:20px 22px;
+    border-radius:var(--r);background:var(--bg);box-shadow:var(--e1);
+  }
+  .cf3d__paso .card-t{font-size:24px}
+  .cf3d__paso .feat__d{font-size:16px}
+  /* En teléfono no caben las listas junto al teléfono: el paso muestra título y frase. */
+  .cf3d__paso .list{display:none}
+  .cf3d__riel{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .cf3d__stage{transition:none}
 }

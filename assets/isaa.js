@@ -340,26 +340,181 @@
     });
   }
 
-  /* ── Mockups de producto [§8.2] ────────────────────────── */
-  /* Cada plancha lleva una pantalla real del design system a 390×844.
-     El factor de escala depende del alto disponible, que es responsive,
-     así que se calcula aquí en vez de fijarlo por breakpoint. */
-  var mocks = Array.prototype.slice.call(document.querySelectorAll(".mock"));
-  if (mocks.length) {
-    var fitMocks = function(){
-      mocks.forEach(function(m){
-        var f = m.querySelector(".mock__f");
-        if (!f) return;
-        var s = m.clientHeight / 844;
-        if (!s) return;
-        f.style.transform = "scale(" + s + ")";
-        m.style.width = Math.round(390 * s) + "px";
+  /* ── Cómo funciona · teléfono 3D [§8.1 + §8.2] ────────── */
+  /* Solo existe en como-funciona.html. El scroll de la sección se
+     traduce a una sola posición x (en altos de pantalla):
+       0 → 1      el teléfono sube desde abajo girando una vuelta y se posa;
+       1 → 1+N-1  un paso por pantalla: en cada cambio da una vuelta
+                  completa y la pantalla se cambia cuando se ve el dorso.
+     x se persigue con inercia para que el giro no dependa de la
+     rueda del ratón. Con prefers-reduced-motion no hay giros ni
+     caída: cambia de paso sin animar. */
+  var cf = $("cf3d");
+  if (cf) (function(){
+    var stage = cf.querySelector(".cf3d__stage");
+    var tel = cf.querySelector(".cf3d__tel");
+    var pozo = cf.querySelector(".cf3d__pozo");
+    var intro = cf.querySelector(".cf3d__intro");
+    var riel = cf.querySelector(".cf3d__riel");
+    var brillo = cf.querySelector(".cf3d__brillo");
+    var frames = [].slice.call(cf.querySelectorAll(".cf3d__f"));
+    var pasos = [].slice.call(cf.querySelectorAll(".cf3d__paso"));
+    var botones = [].slice.call(cf.querySelectorAll(".cf3d__riel button"));
+    var N = pasos.length;
+    cf.style.setProperty("--pasos", N);
+
+    /* Las pantallas traen la isla dinámica de un iPhone. Aquí el teléfono es
+       genérico: se oculta solo dentro de este teléfono, sin tocar los archivos
+       del design system. */
+    frames.forEach(function(f){
+      function sinIsla(){
+        try {
+          var d = f.contentDocument;
+          if (!d || !d.head || d.getElementById("cf3d-sin-isla")) return;
+          var st = d.createElement("style");
+          st.id = "cf3d-sin-isla";
+          st.textContent = ".dynamic-island{display:none!important}";
+          d.head.appendChild(st);
+        } catch (e) {}
+      }
+      f.addEventListener("load", sinIsla);
+      sinIsla();
+    });
+
+    /* El canto: capas a 1px entre el frente y el dorso (20px de grosor). */
+    var frente = cf.querySelector(".cf3d__frente");
+    for (var z = -9; z <= 9; z += 1) {
+      var r = document.createElement("div");
+      r.className = "cf3d__canto";
+      r.style.transform = "translateZ(" + z + "px)";
+      tel.insertBefore(r, frente);
+    }
+
+    function lado(k){ return k % 2 ? "izq" : "der"; }   /* dónde va el teléfono */
+    pasos.forEach(function(p, k){ p.setAttribute("data-lado", lado(k) === "der" ? "izq" : "der"); });
+
+    function clamp(v, a, b){ return v < a ? a : v > b ? b : v; }
+    function suave(t){ return (1 - Math.cos(Math.PI * t)) / 2; }
+    function entre(a, b, t){ return a + (b - a) * t; }
+    function rampa(t, a, b){ return suave(clamp((t - a) / (b - a), 0, 1)); }
+
+    var W, H, movil, esc, desp;
+    function medir(){
+      W = window.innerWidth; H = window.innerHeight; movil = W <= 820;
+      esc = (movil ? Math.min(H * .56, W * .95 * 864 / 410) : Math.min(H * .74, 760)) / 864;
+      desp = movil ? 0 : Math.min(W * .2, 300);
+    }
+
+    /* Pose de reposo de cada paso. */
+    function reposo(k){
+      var der = lado(k) === "der";
+      return { tx: der ? desp : -desp, ry: movil ? 0 : (der ? -16 : 16) };
+    }
+
+    var pantalla = -1, activo = -1;
+    function mostrar(i){
+      if (i === pantalla) return;
+      frames.forEach(function(f, j){ if (j === i) f.setAttribute("data-on", ""); else f.removeAttribute("data-on"); });
+      pantalla = i;
+    }
+
+    function aplicar(x){
+      var tx, ty = 0, rx = 6, ry, rz = 0, s = 1, oy = movil ? -H * .1 : 0;
+      var s0 = reposo(0);
+      if (x < 1) {                                   /* entrada: sube girando */
+        var e = reduce ? 1 : suave(clamp(x, 0, 1));
+        tx = entre(0, s0.tx, e);
+        ty = entre(H * .44, 0, e);
+        rx = entre(48, 6, e);
+        rz = entre(-18, 0, e);
+        ry = entre(s0.ry - 360, s0.ry, e);
+        s  = entre(.86, 1, e);
+        mostrar(0);
+      } else {
+        var sp = clamp(x - 1, 0, N - 1), k = Math.min(Math.floor(sp), N - 2), u = sp - k;
+        if (N < 2) { k = 0; u = 0; }
+        var a = reposo(k), b = reposo(k + 1);
+        var e2 = reduce ? (u < .5 ? 0 : 1) : rampa(u, .08, .92);
+        var giro = reduce ? 0 : (k % 2 ? -360 : 360) * e2;
+        tx = entre(a.tx, b.tx, e2);
+        ry = entre(a.ry, b.ry, e2) + giro;
+        var arco = Math.sin(Math.PI * e2);
+        rx = 6 + arco * 8;
+        ty = -arco * H * .03;
+        s  = 1 - arco * .1;
+        mostrar(e2 < .5 ? k : k + 1);
+      }
+      tel.style.transform =
+        "translate3d(" + tx.toFixed(1) + "px," + (ty + oy).toFixed(1) + "px,0) " +
+        "rotateX(" + rx.toFixed(2) + "deg) rotateY(" + ry.toFixed(2) + "deg) rotateZ(" + rz.toFixed(2) + "deg) " +
+        "scale(" + (esc * s).toFixed(4) + ")";
+      pozo.style.transform = "translate(-50%,-50%) translate(" + tx.toFixed(1) + "px," + oy.toFixed(1) + "px)";
+      pozo.style.opacity = reduce ? (x < .5 ? 0 : 1) : rampa(x, .35, .95).toFixed(3);
+      var gr = ((ry % 360) + 360) % 360;
+      brillo.style.setProperty("--brillo", (gr > 180 ? gr - 360 : gr) / 40 * 50 + 50 + "%");
+
+      /* Titular de entrada */
+      var fi = reduce ? (x < .5 ? 1 : 0) : 1 - rampa(x, .05, .5);
+      intro.style.opacity = fi;
+      intro.style.transform = "translate(-50%," + (-(1 - fi) * 60).toFixed(1) + "px)";
+      intro.style.visibility = fi < .01 ? "hidden" : "";
+
+      /* Texto de los pasos */
+      var sp2 = x - 1;
+      pasos.forEach(function(p, j){
+        var o;
+        if (reduce) o = Math.round(clamp(sp2, 0, N - 1)) === j && x >= .5 ? 1 : 0;
+        else {
+          var d = sp2 - j;                          /* 0 = centrado en su paso */
+          o = j === N - 1 && d > 0 ? 1 : 1 - suave(clamp((Math.abs(d) - .08) / .34, 0, 1));
+          if (j === 0 && d < 0) o = rampa(x, .55, .95);
+        }
+        p.style.opacity = o.toFixed(3);
+        p.style.visibility = o < .01 ? "hidden" : "";
+        var dy = reduce ? 0 : clamp(sp2 - j, -1, 1) * -28;
+        p.style.transform = movil ? "translateY(" + dy.toFixed(1) + "px)" : "translateY(calc(-50% + " + dy.toFixed(1) + "px))";
       });
-    };
-    fitMocks();
-    window.addEventListener("resize", fitMocks);
-    window.addEventListener("load", fitMocks);
-  }
+
+      /* Paso activo: tinte del pozo y riel */
+      var act = clamp(Math.round(clamp(x - 1, 0, N - 1)), 0, N - 1);
+      if (act !== activo) {
+        activo = act;
+        stage.style.setProperty("--tinte", pasos[act].getAttribute("data-tinte"));
+        botones.forEach(function(bt, j){ if (j === act) bt.setAttribute("aria-current", "step"); else bt.removeAttribute("aria-current"); });
+      }
+      riel.style.opacity = x > .7 ? 1 : 0;
+      riel.style.visibility = x > .7 ? "" : "hidden";
+    }
+
+    var meta = 0, actual = 0, raf = 0;
+    function objetivo(){
+      var r = cf.getBoundingClientRect();
+      meta = clamp(-r.top / H, 0, (cf.offsetHeight - H) / H);
+    }
+    var ultimo = 0;
+    function paso(now){
+      var dt = ultimo ? Math.min(now - ultimo, 64) : 16.7;
+      ultimo = now;
+      actual += (meta - actual) * (reduce ? 1 : 1 - Math.pow(1 - .065, dt / 16.7));
+      if (Math.abs(meta - actual) < .0005) actual = meta;
+      aplicar(actual);
+      raf = actual !== meta ? requestAnimationFrame(paso) : 0;
+      if (!raf) ultimo = 0;
+    }
+    function mover(){ objetivo(); if (!raf) raf = requestAnimationFrame(paso); }
+
+    botones.forEach(function(bt){
+      bt.addEventListener("click", function(){
+        var k = +bt.getAttribute("data-ir");
+        var top = cf.getBoundingClientRect().top + window.pageYOffset + (1 + k) * H + 2;
+        window.scrollTo({ top: top, behavior: reduce ? "auto" : "smooth" });
+      });
+    });
+
+    medir(); objetivo(); actual = meta; aplicar(actual);
+    window.addEventListener("scroll", mover, { passive: true });
+    window.addEventListener("resize", function(){ medir(); mover(); aplicar(actual); });
+  })();
 
   /* ── Video del hero ────────────────────────────────────── */
   /* Dos motivos para no reproducirlo: la regla 10 del manual

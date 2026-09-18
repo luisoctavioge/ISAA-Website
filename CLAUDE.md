@@ -147,9 +147,15 @@ Documentos de entrega:
 
 ### Diseño sin definir — de la llamada del 4 de septiembre
 
-- [ ] **Animación tipo Apple** (scroll + zoom) para las pantallas de la app. Hoy los
-      mockups son iframes escalados por JS contra el alto disponible. Hay que decidir
-      si se animan esos o si se sustituyen por otra pieza.
+- [x] **Animación tipo Apple**, resuelta el 18 de septiembre: «Cómo funciona» es un
+      escenario sticky (`.cf3d`) con un teléfono en CSS 3D —frente, dorso liso con el
+      símbolo, canto de capas a 1px, 20px de grosor, sin cámara ni isla— que sube
+      girando y da una vuelta por funcionalidad; la pantalla cambia cuando se ve el
+      dorso. Las pantallas son las del design system; la isla se oculta desde
+      `isaa.js` sin tocar esos archivos. Sin librerías: una secuencia de imágenes
+      renderizadas, como en las páginas de Apple, exigiría un modelo 3D que no hay.
+      Fuera los bloques alternados con mockups planos (`.feat`, `.plinth`, `.mock`).
+      Pendiente: probarlo en un Android de gama media real (siete iframes a la vez).
 - [x] La banda navy de Inicio, resuelta el 18 de septiembre con Luis de otra forma que
       las tarjetas previstas: la lista de hospitales · laboratorios · farmacias ·
       consultorios · aseguradoras es el titular visual (`.universo`), a tamaño display,

@@ -71,169 +71,133 @@
   </div>
 </header>
 
-<!-- ═══════════════════════════════════════════════════════ HERO ── §8.1 -->
-<section class="hero-c">
-  <div class="wrap hero-c__in">
-    <h1 class="h1 rv">Tú capturas el documento. <span class="hl">El resto se acomoda.</span></h1>
-    <p class="lead rv">Empiezas por tu Tarjeta Médica, agregas a quien quieras cuidar, y cada documento encuentra su lugar.</p>
+<!-- ═══════════════════════════════════════ TELÉFONO 3D ── §8.1 + §8.2
+     Un solo escenario fijo (sticky) que dura lo que el scroll de la sección.
+     El teléfono sube girando desde abajo, se posa, y en cada funcionalidad da una vuelta:
+     la pantalla cambia justo cuando se ve el dorso. Las siete pantallas son
+     las del design system (assets/mockups/screens). Reemplazó el 18 de
+     septiembre a los siete bloques alternados con mockups planos.
+     El movimiento lo calcula isaa.js (bloque cf3d). Registro funcional:
+     nunca personas aquí. [BB §3.6] -->
+<section class="cf3d" id="cf3d">
+  <div class="cf3d__stage">
+
+    <div class="cf3d__intro">
+      <h1 class="h1">Tú capturas el documento. <span class="hl">El resto se acomoda.</span></h1>
+      <p class="lead">Empiezas por tu Tarjeta Médica, agregas a quien quieras cuidar, y cada documento encuentra su lugar.</p>
+    </div>
+
+    <div class="cf3d__escena" aria-hidden="true">
+      <div class="cf3d__pozo"></div>
+      <div class="cf3d__tel">
+        <div class="cf3d__frente">
+          <div class="cf3d__pantalla">
+            <iframe class="cf3d__f" src="assets/mockups/screens/home-screen.html" tabindex="-1" scrolling="no" title=""></iframe>
+            <iframe class="cf3d__f" src="assets/mockups/screens/expediente.html" tabindex="-1" scrolling="no" title=""></iframe>
+            <iframe class="cf3d__f" src="assets/mockups/screens/tarjeta-medica.html" tabindex="-1" scrolling="no" title=""></iframe>
+            <iframe class="cf3d__f" src="assets/mockups/screens/ojo-clinico.html" tabindex="-1" scrolling="no" title=""></iframe>
+            <iframe class="cf3d__f" src="assets/mockups/screens/evento-detalle.html" tabindex="-1" scrolling="no" title=""></iframe>
+            <iframe class="cf3d__f" src="assets/mockups/screens/armar-paquete.html" tabindex="-1" scrolling="no" title=""></iframe>
+            <iframe class="cf3d__f" src="assets/mockups/screens/cuenta.html" tabindex="-1" scrolling="no" title=""></iframe>
+            <div class="cf3d__brillo"></div>
+          </div>
+        </div>
+        <div class="cf3d__dorso">
+          <span class="cf3d__logo"></span>
+        </div>
+      </div>
+    </div>
+
+    <ol class="cf3d__pasos">
+      <li class="cf3d__paso" data-tinte="rgba(37,99,235,.14)">
+        <span class="overline" style="color:var(--c-azul-txt)">01</span>
+        <h3 class="card-t">Centro de Control</h3>
+        <p class="feat__d">Tus círculos, y las personas de cada uno.</p>
+        <ul class="list">
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Todo en una pantalla</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Actividad por persona</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Acceso a cada expediente</li>
+        </ul>
+      </li>
+      <li class="cf3d__paso" data-tinte="rgba(37,99,235,.14)">
+        <span class="overline" style="color:var(--c-azul-txt)">02</span>
+        <h3 class="card-t">Expediente</h3>
+        <p class="feat__d">El expediente vivo de cada persona.</p>
+        <ul class="list">
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Historial por persona</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Documentos clasificados</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Exportable en PDF</li>
+        </ul>
+      </li>
+      <li class="cf3d__paso" data-tinte="rgba(15,52,96,.14)">
+        <span class="overline" style="color:#0F3460">03</span>
+        <h3 class="card-t">Tarjeta Médica</h3>
+        <p class="feat__d">Su info base · QR compartible.</p>
+        <ul class="list">
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Sangre · alergias · medicinas</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Quien la recibe no necesita cuenta</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Tú eliges qué muestra el QR</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Revocable en cualquier momento</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Contacto de emergencia</li>
+        </ul>
+      </li>
+      <li class="cf3d__paso" data-tinte="rgba(124,58,237,.14)">
+        <span class="overline" style="color:var(--c-morado-txt)">04</span>
+        <h3 class="card-t">Ojo Clínico</h3>
+        <p class="feat__d">Escanea; la IA lee y clasifica.</p>
+        <ul class="list">
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Captura por foto</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Clasificación automática</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Tú solo confirmas</li>
+        </ul>
+      </li>
+      <li class="cf3d__paso" data-tinte="rgba(37,99,235,.14)">
+        <span class="overline" style="color:var(--c-azul-txt)">05</span>
+        <h3 class="card-t">Eventos Médicos</h3>
+        <p class="feat__d">Historial + hilos · informe médico.</p>
+        <ul class="list">
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Un evento por episodio</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Hilos con instancias médicas</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Todo adjunto</li>
+        </ul>
+      </li>
+      <li class="cf3d__paso" data-tinte="rgba(22,163,74,.14)">
+        <span class="overline" style="color:var(--c-verde-txt)">06</span>
+        <h3 class="card-t">Documentar reembolso</h3>
+        <p class="feat__d">Empaqueta para la aseguradora.</p>
+        <ul class="list">
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Paquete + checklist</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Chat por evento → correo</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Descarga lista para enviar</li>
+        </ul>
+      </li>
+      <li class="cf3d__paso" data-tinte="rgba(99,102,128,.14)">
+        <span class="overline" style="color:#636680">07</span>
+        <h3 class="card-t">Cuenta / Planes</h3>
+        <p class="feat__d">Perfil, plan, miembros y facturación.</p>
+        <ul class="list">
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Titular y miembros</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Cambio de plan</li>
+          <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Facturación</li>
+        </ul>
+      </li>
+    </ol>
+
+    <nav class="cf3d__riel" aria-label="Funcionalidades">
+      <button type="button" data-ir="0" aria-label="Centro de Control">01</button>
+      <button type="button" data-ir="1" aria-label="Expediente">02</button>
+      <button type="button" data-ir="2" aria-label="Tarjeta Médica">03</button>
+      <button type="button" data-ir="3" aria-label="Ojo Clínico">04</button>
+      <button type="button" data-ir="4" aria-label="Eventos Médicos">05</button>
+      <button type="button" data-ir="5" aria-label="Documentar reembolso">06</button>
+      <button type="button" data-ir="6" aria-label="Cuenta / Planes">07</button>
+    </nav>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════ SIETE FUNCIONALIDADES ── §8.2 -->
-<section class="sec sec--muted">
+<section class="sec sec--muted cf3d__nota">
   <div class="wrap">
-    <div class="feats">
-      <article class="feat">
-        <div class="feat__copy rv">
-          <span class="overline" style="color:var(--c-azul-txt)">01</span>
-          <h3 class="card-t">Centro de Control</h3>
-          <p class="feat__d">Tus círculos, y las personas de cada uno.</p>
-          <ul class="list">
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Todo en una pantalla</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Actividad por persona</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Acceso a cada expediente</li>
-          </ul>
-        </div>
-        <div class="feat__media rv">
-          <div class="plinth" style="--f-soft:rgba(37,99,235,.10)"
-              >
-            <div class="mock" aria-hidden="true">
-              <iframe class="mock__f" src="assets/mockups/screens/home-screen.html"
-                      loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="feat">
-        <div class="feat__copy rv">
-          <span class="overline" style="color:var(--c-azul-txt)">02</span>
-          <h3 class="card-t">Expediente</h3>
-          <p class="feat__d">El expediente vivo de cada persona.</p>
-          <ul class="list">
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Historial por persona</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Documentos clasificados</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Exportable en PDF</li>
-          </ul>
-        </div>
-        <div class="feat__media rv">
-          <div class="plinth" style="--f-soft:rgba(37,99,235,.10)"
-              >
-            <div class="mock" aria-hidden="true">
-              <iframe class="mock__f" src="assets/mockups/screens/expediente.html"
-                      loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="feat">
-        <div class="feat__copy rv">
-          <span class="overline" style="color:#0F3460">03</span>
-          <h3 class="card-t">Tarjeta Médica</h3>
-          <p class="feat__d">Su info base · QR compartible.</p>
-          <ul class="list">
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Sangre · alergias · medicinas</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Quien la recibe no necesita cuenta</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Tú eliges qué muestra el QR</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Revocable en cualquier momento</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Contacto de emergencia</li>
-          </ul>
-        </div>
-        <div class="feat__media rv">
-          <div class="plinth" style="--f-soft:rgba(15,52,96,.10)"
-              >
-            <div class="mock" aria-hidden="true">
-              <iframe class="mock__f" src="assets/mockups/screens/tarjeta-medica.html"
-                      loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="feat">
-        <div class="feat__copy rv">
-          <span class="overline" style="color:var(--c-morado-txt)">04</span>
-          <h3 class="card-t">Ojo Clínico</h3>
-          <p class="feat__d">Escanea; la IA lee y clasifica.</p>
-          <ul class="list">
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Captura por foto</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Clasificación automática</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Tú solo confirmas</li>
-          </ul>
-        </div>
-        <div class="feat__media rv">
-          <div class="plinth" style="--f-soft:rgba(124,58,237,.10)"
-              >
-            <div class="mock" aria-hidden="true">
-              <iframe class="mock__f" src="assets/mockups/screens/ojo-clinico.html"
-                      loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="feat">
-        <div class="feat__copy rv">
-          <span class="overline" style="color:var(--c-azul-txt)">05</span>
-          <h3 class="card-t">Eventos Médicos</h3>
-          <p class="feat__d">Historial + hilos · informe médico.</p>
-          <ul class="list">
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Un evento por episodio</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Hilos con instancias médicas</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Todo adjunto</li>
-          </ul>
-        </div>
-        <div class="feat__media rv">
-          <div class="plinth" style="--f-soft:rgba(37,99,235,.10)"
-              >
-            <div class="mock" aria-hidden="true">
-              <iframe class="mock__f" src="assets/mockups/screens/evento-detalle.html"
-                      loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="feat">
-        <div class="feat__copy rv">
-          <span class="overline" style="color:var(--c-verde-txt)">06</span>
-          <h3 class="card-t">Documentar reembolso</h3>
-          <p class="feat__d">Empaqueta para la aseguradora.</p>
-          <ul class="list">
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Paquete + checklist</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Chat por evento → correo</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Descarga lista para enviar</li>
-          </ul>
-        </div>
-        <div class="feat__media rv">
-          <div class="plinth" style="--f-soft:rgba(22,163,74,.10)"
-              >
-            <div class="mock" aria-hidden="true">
-              <iframe class="mock__f" src="assets/mockups/screens/armar-paquete.html"
-                      loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
-            </div>
-          </div>
-        </div>
-      </article>
-      <article class="feat">
-        <div class="feat__copy rv">
-          <span class="overline" style="color:#636680">07</span>
-          <h3 class="card-t">Cuenta / Planes</h3>
-          <p class="feat__d">Perfil, plan, miembros y facturación.</p>
-          <ul class="list">
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Titular y miembros</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Cambio de plan</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>Facturación</li>
-          </ul>
-        </div>
-        <div class="feat__media rv">
-          <div class="plinth" style="--f-soft:rgba(99,102,128,.10)"
-              >
-            <div class="mock" aria-hidden="true">
-              <iframe class="mock__f" src="assets/mockups/screens/cuenta.html"
-                      loading="lazy" tabindex="-1" aria-hidden="true" scrolling="no"></iframe>
-            </div>
-          </div>
-        </div>
-      </article>
-    </div>
-    <p class="feat__note rv">El informe médico se pide en las comunicaciones del evento · Documentar para reembolso aplica con seguro de gastos médicos mayores.</p>
+    <p class="feat__note">El informe médico se pide en las comunicaciones del evento · Documentar para reembolso aplica con seguro de gastos médicos mayores.</p>
   </div>
 </section>
 
