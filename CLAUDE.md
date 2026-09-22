@@ -201,10 +201,9 @@ Reembolsos, Paquete y Descarga— se dibujaron en el mismo trazo que los nueve s
       las tres tarjetas de Nosotros: «Independientes de todos», «Permisos por
       persona» y «Nuestro único competidor es la inercia».
 
-      Quedan en HTML público: «Planes» (rotula la pestaña en la que ya estás, por la
-      regla que ya se aplicó dos veces), «Titular + miembros», «Expediente por
-      persona» y «Permisos por persona» en Inicio —este último repite el rótulo de
-      Nosotros— y «Gratis», que marca el plan. El Blog se queda como está.
+      El 22 de septiembre salió «Planes», que rotulaba su propia pestaña, y el toolkit
+      reescribió los tres del Círculo de Inicio. En HTML público solo queda «Gratis»,
+      que marca el plan y se queda. El Blog se queda como está.
 
       «Ejemplos de layout» no se toca: es el aviso de que los testimonios son
       placeholder, y vive dentro del bloque que está oculto.

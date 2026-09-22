@@ -66,7 +66,7 @@
     {c:"var(--c-teal)",bgc:"rgba(13,148,136,.14)",ic:"circulo",
      t:"Los que más te importan en un solo lugar",
      d:"Cada persona con su expediente, y su historia completa en orden.",
-     chips:["Mi Círculo","Historial completo por persona"]},
+     chips:["Mi Círculo","Historial completo por persona","Expediente por persona"]},
     {c:"var(--c-morado)",bgc:"rgba(124,58,237,.14)",ic:"ojo",
      t:"Se ordena mientras vas avanzando",
      d:"Capturas el documento y el Ojo Clínico, asistido por IA, te guía. Tú confirmas.",
