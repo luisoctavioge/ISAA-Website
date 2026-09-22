@@ -84,46 +84,69 @@
   <div class="wrap">
     <div class="legal">
 
-      <div class="legal__note rv" data-ph="Documento pendiente de redacción legal">
+      <div class="legal__note rv" data-ph="Secciones 3 y 8 pendientes de Sergio Alzaga">
         <span class="ico" style="background:rgba(255,149,0,.15);color:#FF9500;stroke:#FF9500">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>
         </span>
-        <p><b>Borrador · sin valor legal todavía</b>
-        Esta página existe para que los enlaces del pie dejen de ir a ninguna parte, y para que
-        un abogado sepa exactamente qué tiene que llenar. Este documento no lo exige la ley por separado, pero es el que sostiene la promesa central del producto. Debe poder leerse sin ser abogado y sin ser ingeniero.</p>
+        <p><b>Dos secciones siguen pendientes</b>
+        «Cifrado y resguardo» y «Conservación y borrado» describen algo que todavía se está
+        implementando. No se publican hasta que sean ciertas — decirlo antes haría falsa la
+        promesa de esta página. El resto del documento ya es definitivo.</p>
       </div>
 
       <h2>Qué guardamos</h2>
-      <span class="legal__pend" data-ph="Pendiente">Tipos de documento y datos clínicos que la app almacena, y cuáles no.</span>
+      <p>Los datos de tu Tarjeta Médica: tipo de sangre, alergias, medicamentos y tu contacto de emergencia.</p>
+      <p>Tus documentos médicos: estudios, recetas, notas de consulta, facturas e informes médicos — cualquier documento que subas o captures ligado a un evento médico.</p>
+      <p>Las conversaciones de cada evento con las instancias médicas involucradas (hospitales, laboratorios, farmacias, consultorios, aseguradoras).</p>
+      <p>Si tienes Círculo: los mismos datos de cada persona que cuidas, en su propio expediente.</p>
+      <p>No guardamos resultados clínicos que nosotros generemos — no diagnosticamos ni interpretamos. Solo organizamos lo que tú o quien te atendió ya generó.</p>
 
       <h2>Consentimiento expreso</h2>
-      <span class="legal__pend" data-ph="Pendiente">Cómo se obtiene y se registra, tanto del titular como de cada miembro del Círculo.</span>
+      <p>Al crear tu cuenta, aceptas tres cosas por separado: los Términos y Condiciones, el manejo de tus datos sensibles de salud, y las comunicaciones de marketing — esta última puedes rechazarla sin perder nada de la plataforma. Nada viene marcado por omisión.</p>
+      <p>Si te invitan a un Círculo, verificas tu identidad con un enlace único que llega a tu correo (caduca en 14 días), lees el aviso de privacidad simplificado y das tu propio consentimiento desde tu cuenta — nadie lo da por ti. Ese consentimiento decide si el titular puede ver tu expediente en espejo, y lo puedes revocar en cualquier momento, sin avisar a nadie ni pedir autorización.</p>
 
       <h2>Cifrado y resguardo</h2>
-      <span class="legal__pend" data-ph="Pendiente">Cifrado en tránsito y en reposo, ubicación de los servidores y controles de acceso interno.</span>
+      <span class="legal__pend" data-ph="Pendiente · Sergio Alzaga: no se publica hasta que esté implementado">Cifrado en tránsito y en reposo, respaldos periódicos y control de acceso interno por roles.</span>
+      <!-- Texto final, listo para publicar el día que Sergio confirme que ya es cierto [Toolkit §3]:
+           Tus documentos se alojan en AWS. Como parte de esta infraestructura, estamos implementando
+           cifrado en tránsito y en reposo, respaldos periódicos y control de acceso interno por roles —
+           para que dentro del equipo, solo quien necesita ver tu información pueda hacerlo. -->
 
       <h2>Permisos por persona</h2>
-      <span class="legal__pend" data-ph="Pendiente">Cómo funciona el control granular y quién puede ver qué dentro de un Círculo.</span>
+      <p>El acceso a un expediente funciona en espejo: si eres miembro de un Círculo, quien te cuida ve exactamente lo mismo que tú ves en tu propio expediente — ni más, ni menos. No hay acceso parcial ni por documento.</p>
+      <p>Ese acceso existe porque tú lo consientes, desde tu propia cuenta — nadie lo activa por ti. Puedes revocarlo cuando quieras, sin avisar a nadie ni pedir autorización, y deja de verse de inmediato.</p>
+      <p>Tanto tú como quien te cuida pueden eliminar cualquier documento o evento de tu expediente, sin importar quién lo haya subido.</p>
+      <p>Si quien te cuida tiene un rol comercial (un broker o intermediario que te da servicio), las mismas reglas de espejo y consentimiento aplican — con obligaciones adicionales de confidencialidad de su parte hacia ti.</p>
 
       <h2>Ojo Clínico y tratamiento automatizado</h2>
-      <span class="legal__pend" data-ph="Pendiente">Qué procesa el modelo, dónde se procesa, y si los documentos se usan o no para entrenar sistemas.</span>
+      <p>Cuando usas la captura asistida por IA, el documento se envía al modelo de inteligencia artificial, que lee y transcribe datos como fechas, montos, institución o profesional tratante. Te los presenta para que los verifiques y corrijas si hace falta — la clasificación final siempre la haces tú, el modelo nunca decide por ti.</p>
+      <p>Tus documentos no se usan para entrenar modelos de inteligencia artificial.</p>
+      <p>Si prefieres no usar la captura asistida, puedes registrar tus documentos a mano en cualquier momento — Ojo Clínico es opcional, no obligatorio.</p>
 
       <h2>Acceso sin sesión de la Tarjeta Médica</h2>
-      <span class="legal__pend" data-ph="Pendiente">Qué expone el QR, qué no expone y cómo se revoca.</span>
+      <p>Tu Tarjeta Médica muestra lo esencial para cualquier situación: tipo de sangre, alergias, medicamentos y tu contacto de emergencia. No expone tu expediente completo, ni tu historial de consultas, ni ningún documento.</p>
+      <p>Se comparte con un código QR. Quien lo escanea —un paramédico, un hospital, quien esté contigo— ve esa información sin necesidad de crear cuenta ni instalar nada.</p>
+      <p>Puedes revocar el acceso en cualquier momento desde tu cuenta.</p>
 
       <h2>Terceros y subencargados</h2>
-      <span class="legal__pend" data-ph="Pendiente">Proveedores con acceso técnico a la información y bajo qué obligaciones.</span>
+      <p>Para operar ISAA trabajamos con un número reducido de proveedores, cada uno con acceso solo a lo que necesita para su función: quien aloja la infraestructura y tus documentos, quien procesa los documentos que capturas con Ojo Clínico —sin usarlos para entrenar modelos—, quien procesa el pago de tu suscripción sin acceso a tu expediente, y quien envía y recibe los correos de tus eventos médicos.</p>
+      <p>Ninguno de estos proveedores puede usar tu información para fines propios ni compartirla con alguien más. Puedes leer más sobre cómo se comparte tu información con estos proveedores en nuestro <a class="lnk" href="aviso-privacidad.html">Aviso de privacidad</a>.</p>
 
       <h2>Conservación y borrado</h2>
-      <span class="legal__pend" data-ph="Pendiente">Cuánto se conserva, cómo se solicita el borrado y qué se elimina de verdad.</span>
+      <span class="legal__pend" data-ph="Pendiente · Sergio Alzaga: no se publica hasta que el borrado real esté implementado">Qué se bloquea, qué se suprime y en cuánto tiempo, incluidos respaldos e índices.</span>
+      <!-- Texto final, listo para publicar el día que Sergio confirme que ya es cierto [Toolkit §8]:
+           Cuando eliminas un documento o cierras tu cuenta, tu información se bloquea primero y se
+           suprime después de forma real — de la base de datos, los respaldos y cualquier índice de
+           búsqueda. No queda ahí guardada "por si acaso". -->
 
       <h2>Portabilidad</h2>
-      <span class="legal__pend" data-ph="Pendiente">Cómo exportar el expediente completo y en qué formato.</span>
+      <p>Puedes exportar tu expediente completo en PDF cuando quieras, directamente desde tu cuenta. En el plan Gratis tienes una exportación; en el plan pagado, sin límite.</p>
+      <p>Si decides irte, te llevas tu expediente completo contigo — no es una función del plan, es tuyo, siempre lo fue.</p>
 
       <h2>Incidentes de seguridad</h2>
-      <span class="legal__pend" data-ph="Pendiente">Cómo y en cuánto tiempo se notifica una vulneración.</span>
+      <p>Si ocurre una vulneración que pueda afectar tus datos, te lo notificamos de forma directa — nunca a través de un tercero — explicándote qué pasó, qué información se vio afectada y qué puedes hacer al respecto.</p>
 
-      <p class="legal__meta">Última actualización: pendiente · Versión: borrador</p>
+      <p class="legal__meta">Última actualización: 22 de septiembre de 2026 · Ocho secciones definitivas; cifrado y borrado, pendientes</p>
     </div>
   </div>
 </section>
@@ -156,7 +179,7 @@
     <hr class="foot__rule">
     <div class="foot__base">
       <span>© 2026 IIC Ventures S.A. de C.V. Todos los derechos reservados.</span>
-      <span>Tu salud.</span>
+      <span>ISAA es el asistente inteligente que acompaña y organiza lo más importante: tu salud.</span>
     </div>
   </div>
 </footer>

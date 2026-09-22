@@ -128,6 +128,35 @@ Documentos de entrega:
 - `docs/PARA-JESUS-CLAUDE.md` — para su Claude Code: rutas, valores medidos y trampas.
 - `docs/LLAMADA-JESUS.md` — guion de la llamada del 4 de septiembre.
 
+### Toolkit de Jesús — 22 de septiembre de 2026
+
+Llegó por correo el «Toolkit de Ajustes para Tavo» (49 ajustes numerados) y «Assets
+técnicos — iconos y tokens». **Aplicados 46**, página por página contra el HTML real:
+copy de las cinco públicas, pills planas con tile de icono por función [#20], la banda
+navy rehecha con iconos de trazo en vez de emoji y jerarquía 32/15 [#21, #22], el color
+de cada paso de Cómo funciona mapeado a su gradiente oficial [#30], los logos de texto
+de los mockups sustituidos por el símbolo y el wordmark reales [#32–#35] y «la app» →
+«la plataforma» en todo el repo.
+
+Los seis iconos de pills que el toolkit no traía —Mi Círculo, Historial, Chat,
+Reembolsos, Paquete y Descarga— se dibujaron en el mismo trazo que los nueve suyos.
+
+**Sin resolver, con motivo:**
+
+- [ ] **#36, #37, #41 y #51 piden Nulshock Bd** en los números (01–07, stats del hero,
+      precios, 01–04 de Nosotros). Nulshock no está disponible como fuente web y la
+      licencia sigue pendiente: los cuatro esperan a ese mismo desbloqueo.
+- [ ] **El morado de IA baila entre dos hexadecimales.** El toolkit y los tokens de este
+      archivo dicen `#7059D4`; `isaa.css` tiene `--accent:#624DCB`. Las pills usan el
+      token. Lo confirma Jesús.
+- [ ] **Los mockups del canvas no se pudieron cotejar**: el artifact de los 3 artboards
+      no está compartido con esta cuenta. Las pills y la banda navy se implementaron
+      contra la descripción escrita del documento.
+- [ ] **`datos-salud.html`: ocho secciones ya son definitivas.** «Cifrado y resguardo» y
+      «Conservación y borrado» NO se publican hasta que Sergio termine — decirlo antes
+      haría falsa la promesa. Su texto final está listo, en un comentario dentro de esas
+      dos secciones, para pegarlo el día que confirme.
+
 ### Bloqueado en terceros — no se inventa nada de esto
 
 - [ ] **El modelo de precio tiene dos versiones vivas.** `FAQ-SITIO-ISAA.md` dice que

@@ -38,7 +38,7 @@
     ["desk","Llevas cuatro años con el mismo tratamiento y los estudios están en cuatro lugares distintos"]
   ];
   var PAINS_B = [
-    ["sofa","Nadie más en tu familia sabe dónde está nada"],
+    ["sofa","Juntar todo, cada vez, en otro lugar distinto."],
     ["warm","Llegas a consulta y repites tu historial de memoria"],
     ["desk","Cambias de doctor y empiezas el expediente otra vez"],
     ["sofa","Cambias de ginecólogo a mitad del embarazo y el expediente se queda con el anterior"]
@@ -66,13 +66,13 @@
     {c:"var(--c-teal)",bgc:"rgba(13,148,136,.14)",ic:"circulo",
      t:"Los que más te importan en un solo lugar",
      d:"Cada persona con su expediente, y su historia completa en orden.",
-     chips:["Mi Círculo","Cada quien su expediente","Expediente por persona"]},
+     chips:["Mi Círculo","Historial completo por persona"]},
     {c:"var(--c-morado)",bgc:"rgba(124,58,237,.14)",ic:"ojo",
      t:"Se ordena mientras vas avanzando",
      d:"Capturas el documento y el Ojo Clínico, asistido por IA, te guía. Tú confirmas.",
      chips:["Ojo Clínico IA","Registro de eventos","Correo único por evento","Expediente + PDF","Búsqueda"]},
     {c:"var(--c-verde)",bgc:"rgba(22,163,74,.14)",ic:"escudo",
-     t:"Todas las conversaciones, junto al evento del que hablan",
+     t:"Todas las conversaciones, junto al evento al que pertenecen.",
      d:"Hospitales, laboratorios, farmacias, consultorios, aseguradoras — todos en un mismo lugar. Sin buscar en el correo ni en WhatsApp.",
      chips:["Chat por evento → correo","Reembolsos","Paquete + checklist","Descarga lista para enviar"]},
     {c:"#0F3460",bgc:"rgba(15,52,96,.14)",ic:"corazon",
@@ -109,25 +109,25 @@
      con el mismo texto, movida aquí el 18 de septiembre. */
   var FAQ = [
     {cat:'Qué es ISAA', qs:[
-      ['reemplaza-medico','¿ISAA reemplaza a mi médico o a mi aseguradora?','No. ISAA no atiende ni asegura: organiza. Guardamos y ordenamos la documentación de tu seguimiento de salud para que la tengas lista cuando cualquier médico, hospital o aseguradora te la pida.'],
+      ['reemplaza-medico','¿ISAA reemplaza a mi médico o a mi aseguradora?','No. ISAA no atiende ni asegura: organiza. Guardamos y ordenamos la documentación de tus eventos médicos para que la tengas lista cuando cualquier médico, hospital o aseguradora te la pida.'],
       ['aseguradora-no-ve','¿Mi aseguradora puede ver lo que guardo aquí?','No, salvo que tú se lo mandes. ISAA no está conectada con ninguna aseguradora ni le reporta nada a nadie. Tu expediente es tuyo y sale de aquí solo cuando tú lo compartes.'],
-      ['sin-seguro','¿Sirve si no tengo seguro de gastos médicos mayores?','Sí. El expediente y la Tarjeta Médica funcionan igual sin póliza. Armar el paquete para un reembolso es lo único que aplica solo si tienes seguro.'],
+      ['sin-seguro','¿Sirve si no tengo seguro de gastos médicos mayores?','Sí. El expediente, la Tarjeta Médica y armar el paquete de documentos funcionan igual sin póliza — te sirven para reembolsos o cualquier trámite que necesite documentación, no solo gastos médicos mayores.'],
       ['subir-historial','¿Necesito subir todo mi historial para empezar?','No. Empieza con tu Tarjeta Médica —tipo de sangre, alergias, medicamentos y contactos— y agrega eventos conforme ocurran. El expediente se construye solo, con el uso.']
     ]},
     {cat:'Planes y pagos', qs:[
       ['gratis-no-expira','¿El plan Gratis es una prueba que se acaba?','No. Es un plan permanente, con límites: 2 eventos médicos, 5 documentos, 2 hilos de conversación y una exportación en PDF. No pedimos tarjeta y no se convierte en cobro.'],
-      ['cuanto-cuesta','¿Cuánto cuesta y qué incluye Premium?','Premium cuesta $149 al mes o $1,149 al año —que sale en $96 mensuales— y quita todos los límites del plan Gratis. Cada persona que agregas cuesta $79 al mes o $609 al año.'],
+      ['cuanto-cuesta','¿Cuánto cuesta el plan de Titular + miembros, mensual o anual?','Depende de cómo pagues. Al mes: $149 el titular, $79 por cada persona que agregas. Al año: $1,149 el titular (equivalente a $96 al mes) y $609 por cada persona (equivalente a $51 al mes). En ambos casos, sin los límites del plan Gratis.'],
       ['expediente-de-otro','¿Puedo llevar el expediente de alguien más?','Sí. Agregas a quien quieras cuidar por $79 al mes o $609 al año por persona, hasta ocho contándote a ti, y cada una tiene su expediente completo. No tienen que ser de tu familia ni vivir contigo: tus papás, tus hijos, tu pareja o quien dependa de ti.'],
       ['como-cancelo','¿Cómo cancelo?','Desde tu cuenta, en «Gestionar plan», en cualquier momento y sin llamar a nadie. Nosotros hacemos la cancelación con el medio de pago por ti. Conservas todo lo que pagaste hasta la fecha de tu último periodo, y te avisamos cinco días antes de cada renovación para que decidas con tiempo.']
     ]},
     {cat:'Privacidad y control', qs:[
-      ['quien-ve-info','¿Quién puede ver mi información?','Solo quien tú decidas. Nada se comparte por omisión. Al crear tu cuenta aceptas tres cosas por separado —términos, manejo de datos sensibles y comunicaciones de marketing— y puedes rechazar la última sin perder absolutamente nada de la app.'],
-      ['que-acepto','¿Qué acepto al crear mi cuenta?','Tres cosas, por separado: términos, manejo de datos sensibles y comunicaciones. Son tres decisiones distintas y puedes rechazar la última sin perder nada de la app. Nada viene marcado por omisión.'],
-      ['cerrar-cuenta','¿Qué pasa con mis datos si cierro mi cuenta?','Puedes llevarte tu expediente completo. La portabilidad es un derecho que te da la ley, no una función del plan, y aplica igual si estás en Gratis que si pagas.']
+      ['quien-ve-info','¿Quién puede ver mi información?','Depende de tu rol. Si eres titular, decides tú y nada se comparte por omisión. Si eres miembro, tu expediente es visible en espejo para el titular —el mismo contenido que ves tú— de acuerdo al consentimiento establecido. Fuera de eso, nada se comparte sin que tú lo autorices. Al crear tu cuenta aceptas tres cosas por separado —términos, manejo de datos sensibles y comunicaciones de marketing— y puedes rechazar la última sin perder nada de la plataforma.'],
+      ['que-acepto','¿Qué acepto al crear mi cuenta?','Tres cosas, por separado: términos, manejo de datos sensibles y comunicaciones. Son tres decisiones distintas y puedes rechazar la última sin perder nada de la plataforma. Nada viene marcado por omisión.'],
+      ['cerrar-cuenta','¿Qué pasa con mis datos si cierro mi cuenta?','Puedes llevarte tu expediente completo, en Gratis o pagando — no es una función del plan, es tuyo, siempre lo fue.']
     ]},
     {cat:'Compartir con médicos y aseguradoras', qs:[
       ['medico-sin-cuenta','¿Mi doctor tiene que crear una cuenta para recibir lo que le mando?','No, y eso es a propósito. Quien recibe —tu médico, un laboratorio, tu aseguradora— abre lo que le compartes sin registrarse ni instalar nada. ISAA hace el trabajo para que nadie más tenga que cambiar cómo trabaja.'],
-      ['que-hace-ojo-clinico','¿Qué hace exactamente el Ojo Clínico?','Lee la foto del documento, lo clasifica y te propone a qué evento médico pertenece. Tú confirmas. No interpreta resultados ni sustituye a un médico.']
+      ['que-hace-ojo-clinico','¿Qué hace exactamente el Ojo Clínico?','Capturas el documento —por foto o a mano— y te propone a qué evento pertenece y qué tipo de documento es. Tú confirmas. No interpreta resultados ni sustituye a un médico.']
     ]}
   ];
 
@@ -141,8 +141,16 @@
        definida, y sin eso no hay declaración de transferencia.
      Las tres pasan después por Hernán Garza. */
 
-  var LOGOS = [["🏥","Hospitales"],["🔬","Laboratorios"],["💊","Farmacias"],
-               ["🩺","Consultorios"],["🛡️","Aseguradoras"]];
+  /* Iconos institucionales de trazo único [Toolkit #22 · Assets técnicos]. Sin color
+     por institución: todos en blanco sobre chip translúcido. Aseguradoras reutiliza el
+     escudo oficial de la página de Iconografía del manual. */
+  var INSTITUCIONES = [
+    ["Hospitales",'<path d="M4 21V6a1 1 0 0 1 1-1h4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2h4a1 1 0 0 1 1 1v15"/><path d="M4 21h16"/><path d="M9 21v-4h6v4"/><path d="M9 9h.01M9 13h.01M15 9h.01M15 13h.01"/>'],
+    ["Laboratorios",'<path d="M9 2v6.5L4 18a2 2 0 0 0 1.8 3h12.4a2 2 0 0 0 1.8-3L15 8.5V2"/><path d="M9 2h6"/><path d="M8 15h8"/>'],
+    ["Farmacias",'<path d="M10.5 20.5 3.5 13.5a5 5 0 0 1 7.07-7.07l7 7a5 5 0 0 1-7.07 7.07Z"/><path d="m8.5 8.5 7 7"/>'],
+    ["Consultorios",'<path d="M4.8 2.3a.5.5 0 1 0 .3.5V5a3 3 0 0 0 3 3h0a3 3 0 0 0 3-3V2.8a.5.5 0 1 0-.5-.5"/><path d="M7.5 8v2.5a6.5 6.5 0 0 0 13 0V8"/><circle cx="20" cy="8" r="2"/>'],
+    ["Aseguradoras",'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>']
+  ];
 
   /* ── Render ────────────────────────────────────────────── */
   function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
@@ -156,11 +164,13 @@
   }
   fillMarquee(el("mqA"), PAINS_A, painCard);
   fillMarquee(el("mqB"), PAINS_B, painCard);
-  /* Emoji y palabra van juntos: al apuntar a uno se ilumina el par completo. */
-  function logo(l){return '<span class="mq__item"><i class="mq__emo">'+l[0]+'</i><b>'+esc(l[1])+'</b></span>';}
+  /* Icono y palabra van juntos: al apuntar a uno se ilumina el par completo. */
+  function logo(l){
+    return '<span class="mq__item"><span class="mq__ic">'+svg(l[1])+'</span><b>'+esc(l[0])+'</b></span>';
+  }
   /* Ninguna palabra en las dos filas: tres arriba, dos abajo. */
-  fillMarquee(el("mqL"), LOGOS.slice(0,3), logo);
-  fillMarquee(el("mqL2"), LOGOS.slice(3), logo);
+  fillMarquee(el("mqL"), INSTITUCIONES.slice(0,3), logo);
+  fillMarquee(el("mqL2"), INSTITUCIONES.slice(3), logo);
 
   /* Los carruseles no se detienen con el cursor: frenan a un cuarto de velocidad,
      sus dos filas juntas, con una rampa corta para que no dé tirón. Cada zona de
@@ -185,13 +195,65 @@
     });
   }
 
+
+  /* ── Pills de feature [Toolkit #20] ────────────────────── */
+  /* Tile de icono a color, sin caja ni sombra. El color lo da la FUNCIÓN, no la
+     tarjeta: morado solo Ojo Clínico IA, naranja solo alergias, navy solo Tarjeta
+     QR y contacto de emergencia, azul todo lo demás (acción y navegación). */
+  var PILL_COLOR = {
+    ia:     ["var(--accent)",   "rgba(112,89,212,.13)"],
+    azul:   ["var(--c-azul)",   "rgba(37,99,235,.12)"],
+    naranja:["var(--c-naranja)","rgba(255,149,0,.15)"],
+    navy:   ["#0F3460",         "rgba(15,52,96,.10)"]
+  };
+  var PILL_ICON = {
+    ojo:'<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z"/><circle cx="12" cy="12" r="3"/>',
+    calendario:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+    correo:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/>',
+    documento:'<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 13h8M8 17h8"/>',
+    lupa:'<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>',
+    qr:'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM19 14h2M14 19h2M19 19h2"/>',
+    sincuenta:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m17 11 2 2 4-4"/>',
+    gota:'<path d="M12 2s7 8.5 7 13a7 7 0 0 1-14 0c0-4.5 7-13 7-13Z"/>',
+    telefono:'<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z"/>',
+    personas:'<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>',
+    historial:'<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/>',
+    chat:'<path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.8-.9L3 21l1.9-5.1A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4Z"/>',
+    reembolso:'<path d="M4 4h16a1 1 0 0 1 1 1v16l-3-2-3 2-3-2-3 2-3-2-3 2V5a1 1 0 0 1 1-1Z"/><path d="M8 9h8M8 13h5"/>',
+    checklist:'<path d="M21 8v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8"/><path d="m16 5 2 2 4-4"/><path d="M7 12h8M7 16h6"/>',
+    descarga:'<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5M12 15V3"/>'
+  };
+  /* Cada pill dice qué icono lleva y de qué función es. */
+  var PILLS = {
+    "Mi Círculo":["personas","azul"],
+    "Historial completo por persona":["historial","azul"],
+    "Ojo Clínico IA":["ojo","ia"],
+    "Registro de eventos":["calendario","azul"],
+    "Correo único por evento":["correo","azul"],
+    "Expediente + PDF":["documento","azul"],
+    "Búsqueda":["lupa","azul"],
+    "Chat por evento → correo":["chat","azul"],
+    "Reembolsos":["reembolso","azul"],
+    "Paquete + checklist":["checklist","azul"],
+    "Descarga lista para enviar":["descarga","azul"],
+    "Tarjeta QR":["qr","navy"],
+    "Sin cuenta para quien recibe":["sincuenta","azul"],
+    "Sangre · alergias · medicinas":["gota","naranja"],
+    "Contacto de emergencia":["telefono","navy"]
+  };
+  function pill(t){
+    var d = PILLS[t] || ["documento","azul"], c = PILL_COLOR[d[1]];
+    return '<span class="pfeat">'
+      + '<span class="pfeat__ic" style="background:'+c[1]+';color:'+c[0]+'">'+svg(PILL_ICON[d[0]])+'</span>'
+      + '<span class="pfeat__t">'+esc(t)+'</span></span>';
+  }
+
   el("pilares-grid").innerHTML = PILLARS.map(function(p){
     return '<article class="card pillar rv">'
       + '<span class="ico" style="background:'+p.bgc+';color:'+p.c+';stroke:'+p.c+'">'+svg(ICONS[p.ic])+'</span>'
       + '<h3 class="card-t">'+esc(p.t)+'</h3>'
       + '<p class="body">'+esc(p.d)+'</p>'
-      + '<div class="pillar__feats">'+p.chips.map(function(c){
-            return '<span class="pfeat"><i class="pfeat__d" style="background:'+txt(p.c)+'"></i>'+esc(c)+'</span>';}).join("")
+      + '<div class="pillar__feats">'+p.chips.map(pill).join("")
       + '</div></article>';
   }).join("");
 
