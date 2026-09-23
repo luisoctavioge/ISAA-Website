@@ -618,6 +618,9 @@ section{position:relative}
   background:var(--bg);box-shadow:var(--e1);
   font-size:15px;line-height:1.55;color:var(--mfg);
 }
+/* Las viñetas de los documentos legales — definiciones, categorías de datos. */
+.legal__lista{margin:0 0 14px;padding-left:22px;display:flex;flex-direction:column;gap:10px}
+.legal__lista li{font-size:16px;line-height:1.65;color:var(--mfg)}
 .legal__meta{margin-top:56px;padding-top:24px;border-top:1px solid var(--border);font-size:14px;color:var(--mfg)}
 /* ══════════════════════════════════════════════════════════════
    PRECIOS · Gratis + calculadora
