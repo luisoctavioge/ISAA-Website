@@ -659,8 +659,8 @@ section{position:relative}
 .suma__texto .blk{margin-bottom:clamp(28px,3vw,40px)}
 /* Lo que no cambia con el precio: dos hechos con icono, planos, bajo la aritmética. */
 .hechos{margin-top:36px;padding-top:32px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:24px}
-.hecho{display:flex;gap:16px;align-items:flex-start}
-.hecho b{display:block;font-size:16px;font-weight:600;color:var(--fg);margin-bottom:6px;letter-spacing:-.01em}
+.hecho{display:flex;flex-direction:column;gap:6px}
+.hecho b{font-size:16px;font-weight:600;color:var(--fg);letter-spacing:-.01em}
 .hecho p{font-size:15px;line-height:1.55;color:var(--mfg)}
 .suma__panel{display:flex;flex-direction:column;gap:20px;position:sticky;top:96px}
 .suma__cta .btn{width:100%}
