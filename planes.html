@@ -151,30 +151,45 @@
 
 <!-- ════════════════════════════════════════════════════ DESGLOSE ── -->
 <section class="sec sec--muted">
-  <div class="wrap">
-    <div class="blk">
-      <span class="rotulo rv">Cómo se suma</span>
-      <h2 class="h2 rv">Una sola suscripción.<br><span class="hl">Su costo depende de a cuántos cuidas.</span></h2>
-      <p class="lead rv">Dos personas no cuestan el doble que una. Tu costo por ser el titular no cambia; cada persona adicional cuesta menos.</p>
+  <div class="wrap suma">
+
+    <!-- Columna de texto: el titular, la aritmética y la portabilidad. Todo plano. -->
+    <div class="suma__texto">
+      <div class="blk">
+        <span class="rotulo rv">Cómo se suma</span>
+        <h2 class="h2 rv">Una sola suscripción.<br><span class="hl">Su costo depende de a cuántos cuidas.</span></h2>
+        <p class="lead rv">Dos personas no cuestan el doble que una. Tu costo por ser el titular no cambia; cada persona adicional cuesta menos.</p>
+      </div>
+
+<div class="desglose rv">
+        <div class="desglose__fila">
+          <span class="desglose__q">Tú, el titular</span>
+          <span class="desglose__n tnum">$149</span>
+          <span class="desglose__u">al mes</span>
+        </div>
+        <div class="desglose__fila">
+          <span class="desglose__q">Cada persona que agregas</span>
+          <span class="desglose__n tnum">$79</span>
+          <span class="desglose__u">al mes</span>
+        </div>
+        <div class="desglose__fila desglose__fila--total">
+          <span class="desglose__q">Tú y una persona más</span>
+          <span class="desglose__n tnum">$228</span>
+          <span class="desglose__u">al mes, no $298</span>
+        </div>
+      </div>
+
+      <div class="suma__extra rv">
+        <h3 class="card-t">Te lo puedes llevar cuando quieras</h3>
+        <p class="body">Si decides irte, tu expediente completo se va contigo. No es una función que te damos: es tuyo, siempre lo fue.</p>
+      </div>
+      <p class="suma__pie rv">Cada persona tiene su propio expediente. Los Círculos no se cobran: son contenedores y son ilimitados.</p>
     </div>
 
-    <!-- Gratis y la calculadora, juntas: primero el titular que explica cómo se suma. -->
-    <div class="precios">
-      <article class="card precios__gratis rv">
-        <span class="overline" style="color:var(--mfg)">Gratis · solo tú</span>
-        <div class="plan__price"><b class="tnum">$0</b></div>
-        <p class="body">Para empezar, y solo para ti: el plan Gratis no incluye a nadie más de tu Círculo. No pedimos tarjeta y no se convierte en cobro.</p>
-        <hr>
-        <ul class="list">
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>2 eventos médicos</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>5 documentos</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>2 hilos de conversación</li>
-            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>1 exportación en PDF (única)</li>
-        </ul>
-      </article>
-
-
-      <article class="card calc rv" id="calc">
+    <!-- Columna de decisión: la calculadora es la ÚNICA superficie elevada de la
+         sección — es con lo único que se interactúa. El plan Gratis va plano debajo. -->
+    <div class="suma__panel">
+<article class="card calc rv" id="calc">
         <span class="overline" style="color:var(--primary-txt)">Tú y tu Círculo</span>
         <p class="calc__q" id="calcQ">¿A cuántas personas quieres cuidar, además de a ti?</p>
 
@@ -210,33 +225,26 @@
         </ul>
         <p class="calc__nota">Precios en pesos mexicanos, IVA incluido. Máximo 8 personas por cuenta.</p>
       </article>
+
+      <div class="suma__cta rv">
+        <a data-cta="planes" data-alta class="btn btn--primary btn--full" href="planes.html">Empieza gratis</a>
+      </div>
+
+      <div class="gratis rv">
+        <div class="gratis__cab">
+          <span class="rotulo">Gratis · solo tú</span>
+          <b class="gratis__n tnum">$0</b>
+        </div>
+        <p class="body">Para empezar, y solo para ti: el plan Gratis no incluye a nadie más de tu Círculo. No pedimos tarjeta y no se convierte en cobro.</p>
+<ul class="list">
+            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>2 eventos médicos</li>
+            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>5 documentos</li>
+            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>2 hilos de conversación</li>
+            <li><span class="check"><svg viewBox="0 0 12 12"><path d="M2 6.5 4.6 9 10 3.5"/></svg></span>1 exportación en PDF (única)</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="precios__cta rv">
-      <a data-cta="planes" data-alta class="btn btn--primary" href="planes.html">Empieza gratis</a>
-    </div>
-    <div class="desglose rv">
-      <div class="desglose__fila">
-        <span class="desglose__q">Tú, el titular</span>
-        <span class="desglose__n tnum">$149</span>
-        <span class="desglose__u">al mes</span>
-      </div>
-      <div class="desglose__fila">
-        <span class="desglose__q">Cada persona que agregas</span>
-        <span class="desglose__n tnum">$79</span>
-        <span class="desglose__u">al mes</span>
-      </div>
-      <div class="desglose__fila desglose__fila--total">
-        <span class="desglose__q">Tú y una persona más</span>
-        <span class="desglose__n tnum">$228</span>
-        <span class="desglose__u">al mes, no $298</span>
-      </div>
-    </div>
-    <article class="card tcard desglose__salida rv">
-      <h3 class="card-t">Te lo puedes llevar cuando quieras</h3>
-      <p class="body">Si decides irte, tu expediente completo se va contigo. No es una función que te damos: es tuyo, siempre lo fue.</p>
-    </article>
-    <p class="feat__note rv">Cada persona tiene su propio expediente. Los Círculos no se cobran: son contenedores y son ilimitados.</p>
   </div>
 </section>
 
