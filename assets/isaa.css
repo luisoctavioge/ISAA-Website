@@ -657,15 +657,21 @@ section{position:relative}
 .suma{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(40px,5vw,72px);align-items:start}
 .suma__texto{display:flex;flex-direction:column}
 .suma__texto .blk{margin-bottom:clamp(28px,3vw,40px)}
-.suma__extra{margin-top:36px;padding-top:28px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:12px}
-.suma__pie{margin-top:24px;font-size:14px;line-height:1.55;color:var(--mfg)}
+/* Lo que no cambia con el precio: dos hechos con icono, planos, bajo la aritmética. */
+.hechos{margin-top:36px;padding-top:32px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:24px}
+.hecho{display:flex;gap:16px;align-items:flex-start}
+.hecho b{display:block;font-size:16px;font-weight:600;color:var(--fg);margin-bottom:6px;letter-spacing:-.01em}
+.hecho p{font-size:15px;line-height:1.55;color:var(--mfg)}
 .suma__panel{display:flex;flex-direction:column;gap:20px;position:sticky;top:96px}
 .suma__cta .btn{width:100%}
 /* El plan Gratis: alternativa, no oferta principal. Plancha plana, sin relieve. */
-.gratis{background:var(--bg);border-radius:var(--r);padding:28px 32px;display:flex;flex-direction:column;gap:14px}
+/* El plan Gratis: alternativa, no oferta principal. Sin palomitas —ya están arriba—:
+   sus límites caben en un renglón. */
+.gratis{background:var(--bg);border-radius:var(--r);padding:26px 32px;display:flex;flex-direction:column;gap:10px}
 .gratis__cab{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
 .gratis__n{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--fg)}
-.gratis .list li{font-size:15px}
+.gratis__d{font-size:15px;line-height:1.55;color:var(--mfg)}
+.gratis__lim{font-size:14px;line-height:1.6;color:var(--mfg);padding-top:10px;border-top:1px solid var(--border)}
 
 .calc{display:flex;flex-direction:column;gap:18px;padding:40px}
 .calc__q{font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1.4;color:var(--fg)}
