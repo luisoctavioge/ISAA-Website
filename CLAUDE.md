@@ -83,15 +83,34 @@ Nunca elijas un color por composición.
    Aplica en `.hero`, `.sec--navy` y la nav mientras está sobre el hero.
 2. **Radio mínimo 16px** en superficies (`--r`). Nunca esquinas a 90°.
 3. **Inter en todo el texto.** Titulares a `-0.02em`, ni más ni menos. Cero serif.
-   **Nulshock Bd, solo en el wordmark y en las cifras** — stats del hero, precios,
-   desglose y calculadora (Luis, 24 de septiembre de 2026, sobre los ajustes #36,
-   #37, #41 y #51 del toolkit). Vive en `assets/fonts/` y **sí entra al repo**: la
-   licencia corre por cuenta de Jesús. Nunca en texto corrido: no tiene minúsculas
-   reales —una frase quedaría toda en mayúsculas— y mide 52% más que Inter. Cada
-   regla declara `Nulshock, Inter`: si el archivo falta, la cifra cae en Inter.
-   **Solo el dígito**, nunca la palabra que lo acompaña: «5» en Nulshock, «min» en
-   Inter; «Siempre» y «MXN al mes», enteros en Inter. La clase es `.cifra`.
-   El 01–07 de Cómo funciona se queda en Inter: a 13px es menos legible.
+   **Nulshock Bd, solo en el wordmark y en las cifras**: stats del hero, cuadro de
+   planes, calculadora, desglose y el $0 de Gratis. Decisión de Luis del 24 de
+   septiembre de 2026, sobre los ajustes #36, #37, #41 y #51 del toolkit. La fuente
+   vive en `assets/fonts/` y **sí entra al repo**; la licencia corre por cuenta de
+   Jesús. Cada regla declara `Nulshock, Inter`: si el archivo falta, la cifra cae
+   en Inter y nada se rompe. La clase es `.cifra`.
+
+   **Por qué no hay más texto en Nulshock — no se re-abre sin datos nuevos:**
+
+   - **El manual manda y dice Inter.** La regla original era «Inter en todo;
+     Nulshock existe solo para el wordmark». Extenderla a las cifras ya fue una
+     excepción autorizada por Luis; ampliarla a texto la volvería otra fuente del
+     sistema, y eso lo decide el manual, no el sitio.
+   - **No tiene minúsculas reales.** El archivo declara `a–z`, pero están dibujadas
+     como mayúsculas. Cualquier frase se lee GRITADA, y eso choca con la voz de
+     ISAA, que es cálida y cercana. Medido el 24 de septiembre con el .otf real.
+   - **Pesa mucho más en pantalla.** La misma frase del hero mide **52% más ancha**
+     que en Inter —1485px contra 975 a 60px—, y el titular pasa de dos renglones a
+     tres en escritorio y a cuatro o cinco en celular, empujando el video y los
+     botones fuera de la primera pantalla. «SIEMPRE» sola ya mide 36% más.
+   - **A tamaño chico pierde.** Por eso el 01–07 de Cómo funciona y el 01–04 de
+     Nosotros se quedan en Inter: a 13px Nulshock es más ancha y menos legible.
+   - **Solo el dígito, nunca la palabra que lo acompaña.** «5» en Nulshock y «min»
+     en Inter; «Siempre» y «MXN al mes», enteros en Inter. Una cifra es un dato;
+     una palabra es texto, y el texto es de Inter.
+
+   `build/qa.mjs` lo vigila: falla si aparece Nulshock en un selector que no sea
+   una cifra.
 4. **60/30/10.** El neutro domina; el color de marca nunca es fondo masivo.
    Única excepción: los bloques navy de respiro (`.sec--navy`).
 5. **Segunda cláusula de cada H2 en `--primary`** (`<span class="hl">`). No una palabra
