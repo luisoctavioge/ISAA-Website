@@ -258,7 +258,9 @@ section{position:relative}
 }
 .stat{display:flex;flex-direction:column;gap:4px;padding-left:clamp(20px,3vw,40px);border-left:1px solid rgba(255,255,255,.24)}
 .stat:first-child{padding-left:0;border-left:0}
-.stat__n{font-family:Nulshock,Inter,sans-serif;font-size:clamp(28px,3vw,40px);font-weight:700;letter-spacing:0;line-height:1.15}
+/* Nulshock solo en el dígito: «min» y «Siempre» son texto y van en Inter. */
+.cifra{font-family:Nulshock,Inter,sans-serif;font-weight:700;letter-spacing:0}
+.stat__n{font-size:clamp(30px,3.2vw,42px);font-weight:700;letter-spacing:-.02em;line-height:1.15}
 .stat__l{font-size:15px;color:rgba(255,255,255,.78)}
 
 /* ── Dolores · marquee sobre el titular ─────────────────────── */
@@ -359,7 +361,8 @@ section{position:relative}
 .cuadro tbody th span{display:block;font-size:13px;font-weight:500;color:var(--mfg);margin-top:2px}
 .cuadro td{font-size:15px;line-height:1.55;color:var(--mfg)}
 .cuadro__p{width:22%;font-family:Nulshock,Inter,sans-serif;font-size:21px;font-weight:700;color:var(--fg);letter-spacing:0;white-space:nowrap}
-.cuadro__p i{font-style:normal;font-size:13px;font-weight:500;color:var(--mfg)}
+/* «MXN al mes» es texto: Inter, no Nulshock. */
+.cuadro__p i{font-family:Inter,sans-serif;font-style:normal;font-size:13px;font-weight:500;letter-spacing:0;color:var(--mfg)}
 .cuadro tbody tr:last-child th,.cuadro tbody tr:last-child td{border-bottom:0}
 
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}

@@ -89,6 +89,8 @@ Nunca elijas un color por composición.
    licencia corre por cuenta de Jesús. Nunca en texto corrido: no tiene minúsculas
    reales —una frase quedaría toda en mayúsculas— y mide 52% más que Inter. Cada
    regla declara `Nulshock, Inter`: si el archivo falta, la cifra cae en Inter.
+   **Solo el dígito**, nunca la palabra que lo acompaña: «5» en Nulshock, «min» en
+   Inter; «Siempre» y «MXN al mes», enteros en Inter. La clase es `.cifra`.
    El 01–07 de Cómo funciona se queda en Inter: a 13px es menos legible.
 4. **60/30/10.** El neutro domina; el color de marca nunca es fondo masivo.
    Única excepción: los bloques navy de respiro (`.sec--navy`).
