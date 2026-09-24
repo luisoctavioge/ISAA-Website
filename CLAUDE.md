@@ -82,8 +82,14 @@ Nunca elijas un color por composición.
    `--e-over` y `--e-over-2`, que siguen siendo duales pero con el halo centrado.
    Aplica en `.hero`, `.sec--navy` y la nav mientras está sobre el hero.
 2. **Radio mínimo 16px** en superficies (`--r`). Nunca esquinas a 90°.
-3. **Inter en todo.** Titulares a `-0.02em`, ni más ni menos. Cero serif.
-   Nulshock existe solo para el wordmark y no está disponible como fuente web.
+3. **Inter en todo el texto.** Titulares a `-0.02em`, ni más ni menos. Cero serif.
+   **Nulshock Bd, solo en el wordmark y en las cifras** — stats del hero, precios,
+   desglose y calculadora (Luis, 24 de septiembre de 2026, sobre los ajustes #36,
+   #37, #41 y #51 del toolkit). Vive en `assets/fonts/` y **sí entra al repo**: la
+   licencia corre por cuenta de Jesús. Nunca en texto corrido: no tiene minúsculas
+   reales —una frase quedaría toda en mayúsculas— y mide 52% más que Inter. Cada
+   regla declara `Nulshock, Inter`: si el archivo falta, la cifra cae en Inter.
+   El 01–07 de Cómo funciona se queda en Inter: a 13px es menos legible.
 4. **60/30/10.** El neutro domina; el color de marca nunca es fondo masivo.
    Única excepción: los bloques navy de respiro (`.sec--navy`).
 5. **Segunda cláusula de cada H2 en `--primary`** (`<span class="hl">`). No una palabra
@@ -143,9 +149,12 @@ Reembolsos, Paquete y Descarga— se dibujaron en el mismo trazo que los nueve s
 
 **Sin resolver, con motivo:**
 
-- [ ] **#36, #37, #41 y #51 piden Nulshock Bd** en los números (01–07, stats del hero,
-      precios, 01–04 de Nosotros). Nulshock no está disponible como fuente web y la
-      licencia sigue pendiente: los cuatro esperan a ese mismo desbloqueo.
+- [x] **#37 y #41, hechos el 24 de septiembre**: Nulshock Bd en los stats del hero y en
+      todos los precios —cuadro, calculadora, desglose y el $0 de Gratis—, con el
+      cuerpo ajustado porque la fuente mide más. **#36 y #51 no se aplican**: a 13px
+      el 01–07 y el 01–04 pierden legibilidad frente a Inter.
+      Falta el `.woff2`: hoy se sirve el `.otf` (33 KB). **La licencia web la confirma
+      Jesús** — el repo es público y la fuente ya está publicada en él.
 - [ ] **El morado de IA baila entre dos hexadecimales.** El toolkit y los tokens de este
       archivo dicen `#7059D4`; `isaa.css` tiene `--accent:#624DCB`. Las pills usan el
       token. Lo confirma Jesús.
@@ -172,7 +181,7 @@ Reembolsos, Paquete y Descarga— se dibujaron en el mismo trazo que los nueve s
 - [ ] Fusionar `datos-salud.html` dentro del aviso de privacidad — espera a Hernán.
 - [ ] Redacción legal de las tres páginas legales: hoy son andamios.
 - [ ] Links de **Facebook** y **WhatsApp**. WhatsApp solo si ya se sabe quién contesta.
-- [ ] SVG oficial del wordmark en **Nulshock**, cuando salga la licencia.
+- [ ] SVG oficial del wordmark en **Nulshock** — el actual es el trazo ya dibujado.
 
 ### Diseño sin definir — de la llamada del 4 de septiembre
 

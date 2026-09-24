@@ -16,13 +16,15 @@
 # index.html + assets/. Se conserva local como respaldo.
 isaa-home.html
 
-# Tipografías con licencia — Nulshock es de pago y este repo es PÚBLICO.
-# Ni el .otf de escritorio ni un .woff2 entran aquí: se sirven desde el
-# hosting real, con la licencia que cubra ese dominio.
+# Tipografías. Nulshock es de pago y este repo es PÚBLICO: solo entra la
+# que el sitio necesita servir, y la licencia corre por cuenta de Jesús
+# (decisión suya, 24 de septiembre de 2026). Cualquier otra, fuera.
 *.otf
 *.ttf
 *.woff
 *.woff2
+!assets/fonts/nulshock-bd.otf
+!assets/fonts/nulshock-bd.woff2
 
 # Sistema operativo / editor
 .DS_Store

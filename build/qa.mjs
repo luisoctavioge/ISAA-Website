@@ -64,7 +64,14 @@ if (exentos.length) warn(`${exentos.length} H2 sin segunda cláusula, por decisi
 sinHl.length ? bad(`${sinHl.length} H2 sin segunda cláusula en Primary`, sinHl.map(h=>h.replace(/<[^>]+>/g,' ').trim().slice(0,45)).join(' | '))
              : ok(`Los ${h2s.length} H2 tienen su segunda cláusula en Primary`);
 
-/nulshock/i.test(css) ? bad('Nulshock referenciada en CSS') : ok('Nulshock solo en el wordmark','marcado LOGO · SVG PENDIENTE');
+/* Nulshock: el wordmark y las CIFRAS. El toolkit de Jesús la pidió en los números
+   (#36, #37, #41, #51) y él se hace cargo de la licencia. En texto corrido sigue
+   prohibida: no tiene minúsculas reales y un titular quedaría todo en mayúsculas. */
+const nulEnTexto = [...css.matchAll(/([.#][w-]+[^{]*){[^}]*Nulshock[^}]*}/g)]
+  .map(m => m[1].trim())
+  .filter(sel => !/stat__n|cifra|__p|plan__price|gratis__n|desglose__n|font-face/.test(sel));
+nulEnTexto.length ? bad('Nulshock fuera de las cifras', nulEnTexto.join(' | '))
+                  : ok('Nulshock solo en el wordmark y las cifras', 'stats, precios, desglose y calculadora');
 
 /* ── Superficie ────────────────────────────────────────────── */
 const sombras = [...css.matchAll(/box-shadow:\s*([^;}]+)/g)].map(m=>m[1].trim())
