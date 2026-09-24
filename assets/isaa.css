@@ -655,7 +655,7 @@ section{position:relative}
 .precios__gratis hr{border:0;border-top:1px solid var(--border);margin:0}
 .precios__gratis .list{margin-top:4px}
 .precios__gratis .list li{font-size:15px}
-.precios__cta{display:flex;justify-content:center;margin-top:40px}
+.precios__cta{display:flex;justify-content:center;margin-top:32px}
 
 .calc{display:flex;flex-direction:column;gap:18px;padding:40px}
 .calc__q{font-size:17px;font-weight:600;letter-spacing:-.01em;line-height:1.4;color:var(--fg)}
@@ -691,7 +691,7 @@ section{position:relative}
 
 /* ── Desglose de precios [precios.html] ─────────────────────── */
 /* Explica por qué dos personas no cuestan el doble que una. */
-.desglose{display:flex;flex-direction:column;margin-top:clamp(44px,5vw,72px)}
+.desglose{display:flex;flex-direction:column;margin-top:clamp(20px,2.4vw,32px)}
 /* Lo que pasa si te vas, junto a lo que pagas (vino de Inicio el 18 de septiembre). */
 .desglose__salida{max-width:640px;margin-top:36px;padding:0;background:none;box-shadow:none}
 .desglose__fila{
