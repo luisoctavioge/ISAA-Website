@@ -667,7 +667,7 @@ section{position:relative}
 /* El plan Gratis: alternativa, no oferta principal. Plancha plana, sin relieve. */
 /* El plan Gratis: alternativa, no oferta principal. Sin palomitas —ya están arriba—:
    sus límites caben en un renglón. */
-.gratis{background:var(--bg);border-radius:var(--r);padding:26px 32px;display:flex;flex-direction:column;gap:10px}
+.gratis{background:var(--bg);border-radius:var(--r);padding:26px 32px;margin-bottom:clamp(28px,3vw,36px);display:flex;flex-direction:column;gap:10px}
 .gratis__cab{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
 .gratis__n{font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--fg)}
 .gratis__d{font-size:15px;line-height:1.55;color:var(--mfg)}
