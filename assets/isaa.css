@@ -770,8 +770,9 @@ section{position:relative}
   transform:translateZ(10px);backface-visibility:hidden;-webkit-backface-visibility:hidden;
 }
 .cf3d__pantalla{position:absolute;inset:10px;border-radius:46px;overflow:hidden;background:#F1F2F6}
-/* Cada pantalla trae su propio marco a 24px del borde: se recorta dejando solo la pantalla. */
-.cf3d__f{position:absolute;left:-24px;top:-24px;width:438px;height:892px;border:0;pointer-events:none;opacity:0}
+/* Capturas de la plataforma a 390×816: la pantalla mide 390×844 y los 28px de arriba
+   quedan libres como barra de estado, para que las esquinas no corten contenido. */
+.cf3d__f{position:absolute;left:0;top:28px;width:100%;height:calc(100% - 28px);object-fit:cover;object-position:top;pointer-events:none;opacity:0}
 .cf3d__f[data-on]{opacity:1}
 /* Reflejo que corre con el giro. */
 .cf3d__brillo{

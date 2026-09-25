@@ -210,11 +210,18 @@ Reembolsos, Paquete y Descarga— se dibujaron en el mismo trazo que los nueve s
       escenario sticky (`.cf3d`) con un teléfono en CSS 3D —frente, dorso liso con el
       símbolo, canto de capas a 1px, 20px de grosor, sin cámara ni isla— que sube
       girando y da una vuelta por funcionalidad; la pantalla cambia cuando se ve el
-      dorso. Las pantallas son las del design system; la isla se oculta desde
-      `isaa.js` sin tocar esos archivos. Sin librerías: una secuencia de imágenes
-      renderizadas, como en las páginas de Apple, exigiría un modelo 3D que no hay.
-      Fuera los bloques alternados con mockups planos (`.feat`, `.plinth`, `.mock`).
-      Pendiente: probarlo en un Android de gama media real (siete iframes a la vez).
+      dorso. Sin librerías: una secuencia de imágenes renderizadas, como en las
+      páginas de Apple, exigiría un modelo 3D que no hay. Fuera los bloques
+      alternados con mockups planos (`.feat`, `.plinth`, `.mock`).
+      **Desde el 25 de septiembre las pantallas son capturas de la plataforma real**
+      (`assets/img/app/`, JPG 780×1632), no los iframes del design system. Se tomaron
+      en la cuenta de Luis con datos inventados: «Isabel Rodríguez», alergias,
+      contactos con teléfonos 55 0000 000X y un evento «Consulta de alergología».
+      Solo en la captura, no en la cuenta: la foto va como avatar «IR» (registro
+      funcional, nunca personas), el QR difuminado y los correos cambiados por
+      ejemplos. Plan gratis: una persona por círculo, por eso el 01 muestra el
+      candado de «Continuo Requerido». Retomarlas: `build/capturas-app.mjs`.
+      Pendiente: probarlo en un Android de gama media real.
 - [x] La banda navy de Inicio, resuelta el 18 de septiembre con Luis de otra forma que
       las tarjetas previstas: la lista de hospitales · laboratorios · farmacias ·
       consultorios · aseguradoras es el titular visual (`.universo`), a tamaño display,

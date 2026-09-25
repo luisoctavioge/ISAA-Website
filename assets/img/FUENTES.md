@@ -30,3 +30,20 @@ Dos cosas que estas placeholders **no** cumplen del todo:
   serlo también.
 - **Registro cálido.** `manos-taza.jpg` tiene luz más fría que la madera y los
   textiles que describe el manual.
+
+## Capturas de la plataforma — `assets/img/app/`
+
+No son fotografía de banco: son capturas de app.isaa.io tomadas el 25 de septiembre
+de 2026 para el teléfono 3D de Cómo funciona, con datos inventados («Isabel
+Rodríguez»). Sin personas: la foto de perfil va como avatar de iniciales. Se
+regeneran con `build/capturas-app.mjs`.
+
+| Archivo | Paso |
+|---|---|
+| `01-centro.jpg` | 01 · Centro de Control |
+| `02-expediente.jpg` | 02 · Expediente |
+| `03-tarjeta.jpg` | 03 · Tarjeta Médica (QR difuminado) |
+| `04-ojo.jpg` | 04 · Ojo Clínico |
+| `05-evento.jpg` | 05 · Eventos Médicos |
+| `06-paquete.jpg` | 06 · Documentar reembolso |
+| `07-cuenta.jpg` | 07 · Cuenta / Planes |

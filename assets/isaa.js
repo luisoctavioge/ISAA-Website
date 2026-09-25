@@ -429,24 +429,6 @@
     var N = pasos.length;
     cf.style.setProperty("--pasos", N);
 
-    /* Las pantallas traen la isla dinámica de un iPhone. Aquí el teléfono es
-       genérico: se oculta solo dentro de este teléfono, sin tocar los archivos
-       del design system. */
-    frames.forEach(function(f){
-      function sinIsla(){
-        try {
-          var d = f.contentDocument;
-          if (!d || !d.head || d.getElementById("cf3d-sin-isla")) return;
-          var st = d.createElement("style");
-          st.id = "cf3d-sin-isla";
-          st.textContent = ".dynamic-island{display:none!important}";
-          d.head.appendChild(st);
-        } catch (e) {}
-      }
-      f.addEventListener("load", sinIsla);
-      sinIsla();
-    });
-
     /* El canto: capas a 1px entre el frente y el dorso (20px de grosor). */
     var frente = cf.querySelector(".cf3d__frente");
     for (var z = -9; z <= 9; z += 1) {
